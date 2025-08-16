@@ -7,10 +7,12 @@ Module SelectionInterface
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            Console.Clear()
             Call Header()
             Console.WriteLine("(1) Moderation Exercises")
             Console.WriteLine("(2) Programming Tasks")
             userinput = Console.ReadLine()
+            Console.Clear()
             Select Case userinput
                 Case 1
                     Call ModerationExercisesMenu()
@@ -21,7 +23,6 @@ Module SelectionInterface
                     Console.WriteLine("Error: Please try again")
                     Console.ReadLine()
             End Select
-            Console.Clear()
         End While
     End Sub
 
@@ -30,10 +31,12 @@ Module SelectionInterface
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            Console.Clear()
             Call Header()
             Console.WriteLine("(1) Central Heating")
             Console.WriteLine("(2) Car Hire")
             userinput = Console.ReadLine()
+            Console.Clear()
             Select Case userinput
                 Case 1
                     Call CentralHeating()
@@ -44,7 +47,6 @@ Module SelectionInterface
                     Console.WriteLine("Error: Please try again")
                     Console.ReadLine()
             End Select
-            Console.Clear()
         End While
     End Sub
 
@@ -53,6 +55,7 @@ Module SelectionInterface
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            Console.Clear()
             Call Header()
             Console.WriteLine("(1) Sequence")
             Console.WriteLine("(2) Assignment")
@@ -81,7 +84,7 @@ Module SelectionInterface
             Console.WriteLine("(25) Linear Search")
             Console.WriteLine("(26) Bubble Search")
             userinput = Console.ReadLine()
-            Console.WriteLine(userinput)
+            Console.Clear()
             Select Case userinput
                 Case 1
                     Call Sequence()
@@ -140,7 +143,6 @@ Module SelectionInterface
                     Console.WriteLine("Error: Please try again")
                     Console.ReadLine()
             End Select
-            Console.Clear()
         End While
     End Sub
 
@@ -160,6 +162,7 @@ Module SelectionInterface
             Console.WriteLine("(1) Repeat Code")
             Console.WriteLine("(2) Main Menu")
             userinput = Console.ReadLine()
+            Console.Clear()
             If userinput = 1 Or userinput = 2 Then
                 Return userinput
             Else
