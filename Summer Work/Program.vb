@@ -5,19 +5,20 @@ Module SelectionInterface
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
+            validinput = True
             Call Header()
             Console.WriteLine("(1) Moderation Exercises")
             Console.WriteLine("(2) Programming Tasks")
             userinput = Console.ReadLine()
-            If userinput = 1 Then
-                validinput = True
-                Call ModerationExercises()
-            ElseIf userinput = 2 Then
-                validinput = True
-                Call ProgrammingTasks()
-            Else
-                Console.WriteLine("Error: Please try again")
-            End If
+            Select Case userinput
+                Case 1
+                    Call ModerationExercises()
+                Case 2
+                    Call ProgrammingTasks()
+                Case Else
+                    validinput = False
+                    Console.WriteLine("Error: Please try again")
+            End Select
             Console.ReadLine()
         End While
     End Sub
