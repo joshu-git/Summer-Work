@@ -181,7 +181,7 @@ End Module
 
 Module ModerationExercises
     Sub CentralHeating()
-        Dim userinput As Integer = 0
+        Dim userinput As Integer = 1
         While userinput = 1
             Dim TempOne As Integer = 0
             Dim TempTwo As Integer = 0
