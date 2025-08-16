@@ -227,7 +227,7 @@ Module ProgrammingTasks
         While userinput = 1
             Console.WriteLine("Error: No task found")
             Console.ReadLine()
-            userinpit = ProgramFooter()
+            Userinput = ProgramFooter()
         End While
     End Sub
     Sub Arithmetic()
