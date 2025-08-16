@@ -287,17 +287,17 @@ Module ProgrammingTasks
                 Console.ReadLine()
             End If
             Console.WriteLine("Task 4:" & vbCrLf)
-            Dim numone As Integer = 0
-            Dim numtwo As Integer = 0
+            Dim NumOne As Integer = 0
+            Dim NumTwo As Integer = 0
             Console.Write("Please enter the first number: ")
-            numone = Console.ReadLine()
+            NumOne = Console.ReadLine()
             Console.Write("Please enter the second number: ")
-            numtwo = Console.ReadLine()
-            If numone = numtwo Then
+            NumTwo = Console.ReadLine()
+            If NumOne = NumTwo Then
                 Console.WriteLine("The numbers are equal")
-            ElseIf numone > numtwo Then
+            ElseIf NumOne > NumTwo Then
                 Console.WriteLine("The first is bigger")
-            ElseIf numone < numtwo Then
+            ElseIf NumOne < NumTwo Then
                 Console.WriteLine("The second is bigger")
             End If
             Console.ReadLine()
@@ -320,6 +320,8 @@ Module ProgrammingTasks
             Console.ReadLine()
             userinput = ProgramFooter()
         End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Sub RelationalOperators()
 
