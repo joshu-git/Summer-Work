@@ -223,7 +223,8 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Assignment()
-
+        Console.WriteLine("Error: No task found")
+        Console.ReadLine()
     End Sub
     Sub Arithmetic()
 
