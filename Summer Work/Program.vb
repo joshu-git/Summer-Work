@@ -19,8 +19,9 @@ Module SelectionInterface
                 Case Else
                     validinput = False
                     Console.WriteLine("Error: Please try again")
+                    Console.ReadLine()
             End Select
-            Console.ReadLine()
+            Console.Clear()
         End While
     End Sub
 
@@ -41,7 +42,9 @@ Module SelectionInterface
                 Case Else
                     validinput = False
                     Console.WriteLine("Error: Please try again")
+                    Console.ReadLine()
             End Select
+            Console.Clear()
         End While
     End Sub
 
@@ -133,7 +136,9 @@ Module SelectionInterface
                 Case Else
                     validinput = False
                     Console.WriteLine("Error: Please try again")
+                    Console.ReadLine()
             End Select
+            Console.Clear()
         End While
     End Sub
 
