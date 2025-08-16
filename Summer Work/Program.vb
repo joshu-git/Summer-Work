@@ -225,7 +225,7 @@ Module ProgrammingTasks
     Sub Assignment()
         Dim userinput As Integer = 1
         While userinput = 1
-            Console.WriteLine("Error: No task found")
+            Console.WriteLine("Error: No tasks found")
             Console.ReadLine()
             userinput = ProgramFooter()
         End While
@@ -261,60 +261,65 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Selection()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim usernumber As Integer = 0
-        Console.Write("What is 24 + 9 = ")
-        usernumber = Console.ReadLine()
-        If usernumber = 33 Then
-            Console.WriteLine("Excellent")
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim usernumber As Integer = 0
+            Console.Write("What is 24 + 9 = ")
+            usernumber = Console.ReadLine()
+            If usernumber = 33 Then
+                Console.WriteLine("Excellent")
+                Console.ReadLine()
+            End If
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Console.Write("How many are in a bakers dozen: ")
+            usernumber = Console.ReadLine()
+            If usernumber = 13 Then
+                Console.WriteLine("Most Excellent")
+                Console.ReadLine()
+            End If
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim age As Integer = 0
+            Console.Write("Please enter your age: ")
+            age = Console.ReadLine()
+            If age < 18 Then
+                Console.WriteLine("Sorry, this film is not for you")
+                Console.ReadLine()
+            End If
+            Console.WriteLine("Task 4:" & vbCrLf)
+            Dim numone As Integer = 0
+            Dim numtwo As Integer = 0
+            Console.Write("Please enter the first number: ")
+            numone = Console.ReadLine()
+            Console.Write("Please enter the second number: ")
+            numtwo = Console.ReadLine()
+            If numone = numtwo Then
+                Console.WriteLine("The numbers are equal")
+            ElseIf numone > numtwo Then
+                Console.WriteLine("The first is bigger")
+            ElseIf numone < numtwo Then
+                Console.WriteLine("The second is bigger")
+            End If
             Console.ReadLine()
-        End If
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Console.Write("How many are in a bakers dozen: ")
-        usernumber = Console.ReadLine()
-        If usernumber = 13 Then
-            Console.WriteLine("Most Excellent")
+            Console.WriteLine("Task 5:" & vbCrLf)
+            Dim userpassword As String = ""
+            Console.Write("Please enter your password: ")
+            userpassword = Console.ReadLine()
+            If userpassword = "PASSWORD" Then
+                Console.WriteLine("Welcome to the treasure")
+            Else
+                Console.WriteLine("Go away, it's all mine")
+            End If
             Console.ReadLine()
-        End If
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim age As Integer = 0
-        Console.Write("Please enter your age: ")
-        age = Console.ReadLine()
-        If age < 18 Then
-            Console.WriteLine("Sorry, this film is not for you")
+            Console.WriteLine("Task 6:" & vbCrLf)
+            Console.Write("Please enter a number between 1 and 10: ")
+            usernumber = Console.ReadLine()
+            If 1 > usernumber And usernumber < 10 Then
+                Console.WriteLine("Sorry... out of range")
+            End If
             Console.ReadLine()
-        End If
-        Console.WriteLine("Task 4:" & vbCrLf)
-        Dim numone As Integer = 0
-        Dim numtwo As Integer = 0
-        Console.Write("Please enter the first number: ")
-        numone = Console.ReadLine()
-        Console.Write("Please enter the second number: ")
-        numtwo = Console.ReadLine()
-        If numone = numtwo Then
-            Console.WriteLine("The numbers are equal")
-        ElseIf numone > numtwo Then
-            Console.WriteLine("The first is bigger")
-        ElseIf numone < numtwo Then
-            Console.WriteLine("The second is bigger")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 5:" & vbCrLf)
-        Dim userpassword As String = ""
-        Console.Write("Please enter your password: ")
-        userpassword = Console.ReadLine()
-        If userpassword = "PASSWORD" Then
-            Console.WriteLine("Welcome to the treasure")
-        Else
-            Console.WriteLine("Go away, it's all mine")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 6:" & vbCrLf)
-        Console.Write("Please enter a number between 1 and 10: ")
-        usernumber = Console.ReadLine()
-        If 1 > usernumber And usernumber < 10 Then
-            Console.WriteLine("Sorry... out of range")
-        End If
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub RelationalOperators()
 
