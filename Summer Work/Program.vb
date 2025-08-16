@@ -10,7 +10,7 @@ Module SelectionInterface
             userinput = Console.ReadLine()
             Select Case userinput
                 Case 1
-                    Call ModerationExercises()
+                    Call ModerationExercisesMenu()
                 Case 2
                     Call ProgrammingTasks()
                 Case Else
@@ -22,7 +22,7 @@ Module SelectionInterface
         End While
     End Sub
 
-    Sub ModerationExercises()
+    Sub ModerationExercisesMenu()
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
