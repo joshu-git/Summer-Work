@@ -210,6 +210,8 @@ Module ProgrammingTasks
             Console.WriteLine("Indigo")
             Console.ForegroundColor = ConsoleColor.DarkMagenta
             Console.WriteLine("Violet")
+            Console.ForegroundColor = ConsoleColor.White
+            Console.WriteLine(vbCrLf & "Press Enter" & vbCrLf)
             Console.ReadLine()
             userinput = ExitMenu()
         End While
