@@ -269,7 +269,14 @@ Module ProgrammingTasks
             Console.WriteLine("Excellent")
             Console.ReadLine()
         End If
-        Console.WriteLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Console.Write("How many are in a bakers dozen: ")
+        usernumber = Console.ReadLine()
+        If usernumber = 13 Then
+            Console.WriteLine("Most Excellent")
+            Console.ReadLine()
+        End If
+
     End Sub
     Sub RelationalOperators()
 
