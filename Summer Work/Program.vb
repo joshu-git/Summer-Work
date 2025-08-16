@@ -309,6 +309,12 @@ Module ProgrammingTasks
             Console.WriteLine("Go away, it's all mine")
         End If
         Console.ReadLine()
+        Console.WriteLine("Task 6:" & vbCrLf)
+        Console.Write("Please enter a number between 1 and 10: ")
+        usernumber = Console.ReadLine()
+        If 1 > usernumber And usernumber < 10 Then
+            Console.WriteLine("Sorry... out of range")
+        End If
     End Sub
     Sub RelationalOperators()
 
