@@ -276,6 +276,14 @@ Module ProgrammingTasks
             Console.WriteLine("Most Excellent")
             Console.ReadLine()
         End If
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim age As Integer = 0
+        Console.Write("Please enter your age: ")
+        age = Console.ReadLine()
+        If age < 18 Then
+            Console.WriteLine("Sorry, this film is not for you")
+            Console.ReadLine()
+        End If
 
     End Sub
     Sub RelationalOperators()
