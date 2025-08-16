@@ -223,16 +223,22 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Assignment()
-        Dim Userinput As Integer = 1
+        Dim userinput As Integer = 1
         While userinput = 1
             Console.WriteLine("Error: No task found")
             Console.ReadLine()
-            Userinput = ProgramFooter()
+            userinput = ProgramFooter()
         End While
         Dim MenuName As String = ""
         Call MainMenu(MenuName)
     End Sub
     Sub Arithmetic()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim usernumber = 0
+        Console.Write("Please enter a number: ")
+        usernumber = Console.ReadLine() / 2
+        Console.WriteLine("Your number divided by 2 is: " & usernumber)
+        Console.ReadLine()
 
     End Sub
     Sub Selection()
