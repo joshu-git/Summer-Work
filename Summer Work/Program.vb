@@ -25,18 +25,23 @@ Module SelectionInterface
 
     Sub ModerationExercises()
         Dim userinput As Integer = 0
-        Call Header()
-        Console.WriteLine("(1) Central Heating")
-        Console.WriteLine("(2) Car Hire")
-        userinput = Console.ReadLine()
-        Select Case userinput
-            Case 1
-                Call CentralHeating()
-            Case 2
-                Call CarHire()
-            Case Else
-                Console.WriteLine("Error: Please try again")
-        End Select
+        Dim validinput As Boolean = False
+        While validinput = False
+            validinput = True
+            Call Header()
+            Console.WriteLine("(1) Central Heating")
+            Console.WriteLine("(2) Car Hire")
+            userinput = Console.ReadLine()
+            Select Case userinput
+                Case 1
+                    Call CentralHeating()
+                Case 2
+                    Call CarHire()
+                Case Else
+                    validinput = False
+                    Console.WriteLine("Error: Please try again")
+            End Select
+        End While
     End Sub
 
     Sub ProgrammingTasks()
