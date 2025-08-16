@@ -223,8 +223,12 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Assignment()
-        Console.WriteLine("Error: No task found")
-        Console.ReadLine()
+        Dim Userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Error: No task found")
+            Console.ReadLine()
+            userinpit = ProgramFooter()
+        End While
     End Sub
     Sub Arithmetic()
 
