@@ -233,26 +233,30 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Arithmetic()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim usernumber = 0
-        Console.Write("Please enter a number: ")
-        usernumber = Console.ReadLine() / 2
-        Console.WriteLine("Your number divided by 2 is: " & usernumber)
-        Console.ReadLine()
-        Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
-        Console.WriteLine("The 7 times table is:")
-        For i = 1 To 12
-            Console.WriteLine(7 * i)
-        Next
-        Console.ReadLine()
-        Console.WriteLine(vbCrLf & "Task 3" & vbCrLf)
-        Console.Write("Please enter a number: ")
-        usernumber = Console.ReadLine()
-        Console.WriteLine("The " & usernumber & " times table is:")
-        For i = 1 To 12
-            Console.WriteLine(usernumber * i)
-        Next
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim usernumber = 0
+            Console.Write("Please enter a number: ")
+            usernumber = Console.ReadLine() / 2
+            Console.WriteLine("Your number divided by 2 is: " & usernumber)
+            Console.ReadLine()
+            Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+            Console.WriteLine("The 7 times table is:")
+            For i = 1 To 12
+                Console.WriteLine(7 * i)
+            Next
+            Console.ReadLine()
+            Console.WriteLine(vbCrLf & "Task 3" & vbCrLf)
+            Console.Write("Please enter a number: ")
+            usernumber = Console.ReadLine()
+            Console.WriteLine("The " & usernumber & " times table is:")
+            For i = 1 To 12
+                Console.WriteLine(usernumber * i)
+            Next
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub Selection()
 
