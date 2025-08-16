@@ -163,7 +163,7 @@ Module SelectionInterface
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
-            Console.WriteLine(vbCrLf & "Please select one of the following:" & vbCrLf)
+            Console.WriteLine("Please select one of the following:" & vbCrLf)
             Console.WriteLine("(1) Repeat Program")
             Console.WriteLine("(2) Main Menu" & vbCrLf)
             userinput = Console.ReadLine()
