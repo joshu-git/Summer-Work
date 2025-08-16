@@ -1,5 +1,5 @@
 Module SelectionInterface
-    Sub Main()
+    Sub MainMenu()
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
@@ -206,7 +206,7 @@ Module ProgrammingTasks
             Console.ReadLine()
             userinput = ExitMenu()
         End While
-        Call Main()
+        Call MainMenu()
     End Sub
     Sub Assignment()
 
