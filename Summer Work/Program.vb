@@ -284,7 +284,7 @@ Module ProgrammingTasks
             Console.WriteLine("Sorry, this film is not for you")
             Console.ReadLine()
         End If
-        Console.WriteLine("Task 4: " & vbCrLf)
+        Console.WriteLine("Task 4:" & vbCrLf)
         Dim numone As Integer = 0
         Dim numtwo As Integer = 0
         Console.Write("Please enter the first number: ")
@@ -297,6 +297,16 @@ Module ProgrammingTasks
             Console.WriteLine("The first is bigger")
         ElseIf numone < numtwo Then
             Console.WriteLine("The second is bigger")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim userpassword As String = ""
+        Console.Write("Please enter your password: ")
+        userpassword = Console.ReadLine()
+        If userpassword = "PASSWORD" Then
+            Console.WriteLine("Welcome to the treasure")
+        Else
+            Console.WriteLine("Go away, it's all mine")
         End If
         Console.ReadLine()
     End Sub
