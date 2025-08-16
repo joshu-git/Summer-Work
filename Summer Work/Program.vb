@@ -181,7 +181,24 @@ End Module
 
 Module ModerationExercises
     Sub CentralHeating()
-
+        Dim TempOne As Integer = 0
+        Dim TempTwo As Integer = 0
+        Dim TempThree As Integer = 0
+        Dim AverageTemp As Integer = 0
+        Console.Write("Please enter the temperature of the Art Department: ")
+        TempOne = Console.ReadLine()
+        Console.Write("Please enter the temperature of the English Department: ")
+        TempTwo = Console.ReadLine()
+        Console.Write("Please enter the temperature of the Music Department: ")
+        TempThree = Console.ReadLine()
+        AverageTemp = (TempOne + TempTwo + TempThree) / 3
+        Console.WriteLine("The average temperature is: " & AverageTemp)
+        If AverageTemp < 17 Then
+            Console.WriteLine("Heating should be on")
+        Else
+            Console.WriteLine("Heating should be off")
+        End If
+        Console.ReadLine()
     End Sub
     Sub CarHire()
 
