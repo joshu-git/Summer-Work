@@ -5,10 +5,7 @@ Module SelectionInterface
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
-            Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("***** Summer Work *****" & vbCrLf)
-            Console.WriteLine("Please select one of the following:" & vbCrLf)
-            Console.ForegroundColor = ConsoleColor.White
+            Call Header()
             Console.WriteLine("(1) Moderation Exercises")
             Console.WriteLine("(2) Programming Tasks")
             userinput = Console.ReadLine()
@@ -27,10 +24,7 @@ Module SelectionInterface
 
     Sub ModerationExercises()
         Dim userinput As Integer = 0
-        Console.ForegroundColor = ConsoleColor.Yellow
-        Console.WriteLine("***** Summer Work *****" & vbCrLf)
-        Console.WriteLine("Please select one of the following:" & vbCrLf)
-        Console.ForegroundColor = ConsoleColor.White
+        Call Header()
         Console.WriteLine("(1) Central Heating")
         Console.WriteLine("(2) Car Hire")
         userinput = Console.ReadLine()
@@ -46,16 +40,20 @@ Module SelectionInterface
 
     Sub ProgrammingTasks()
         Dim userinput As Integer = 0
-        Console.ForegroundColor = ConsoleColor.Yellow
-        Console.WriteLine("***** Summer Work *****" & vbCrLf)
-        Console.WriteLine("Please select one of the following:" & vbCrLf)
-        Console.ForegroundColor = ConsoleColor.White
+        Call Header()
         Console.WriteLine("(1) ")
         Console.WriteLine("(2) ")
 
         Select Case userinput
 
         End Select
+    End Sub
+
+    Sub Header()
+        Console.ForegroundColor = ConsoleColor.Yellow
+        Console.WriteLine("***** Summer Work *****" & vbCrLf)
+        Console.WriteLine("Please select one of the following:" & vbCrLf)
+        Console.ForegroundColor = ConsoleColor.White
     End Sub
 End Module
 
