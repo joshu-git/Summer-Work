@@ -1,23 +1,27 @@
+Imports System.Security.Cryptography.X509Certificates
+
 Module SelectionInterface
     Sub Main()
-        Call MainMenu()
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
-    Sub MainMenu()
+    Sub MainMenu(MenuName As String)
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            MenuName = "Main Menu"
             Console.Clear()
-            Call Header()
+            Call Header(MenuName)
             Console.WriteLine("(1) Moderation Exercises")
             Console.WriteLine("(2) Programming Tasks" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
             Select Case userinput
                 Case 1
-                    Call ModerationExercisesMenu()
+                    Call ModerationExercisesMenu(MenuName)
                 Case 2
-                    Call ProgrammingTasksMenu()
+                    Call ProgrammingTasksMenu(MenuName)
                 Case Else
                     validinput = False
                     Console.WriteLine(vbCrLf & "Error: Please try again")
@@ -26,13 +30,14 @@ Module SelectionInterface
         End While
     End Sub
 
-    Sub ModerationExercisesMenu()
+    Sub ModerationExercisesMenu(MenuName As String)
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            MenuName = "Moderation Exercises Menu"
             Console.Clear()
-            Call Header()
+            Call Header(MenuName)
             Console.WriteLine("(1) Central Heating")
             Console.WriteLine("(2) Car Hire" & vbCrLf)
             userinput = Console.ReadLine()
@@ -50,13 +55,14 @@ Module SelectionInterface
         End While
     End Sub
 
-    Sub ProgrammingTasksMenu()
+    Sub ProgrammingTasksMenu(MenuName As String)
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
+            MenuName = "Programming Tasks menu"
             Console.Clear()
-            Call Header()
+            Call Header(MenuName)
             Console.WriteLine("(1) Sequence")
             Console.WriteLine("(2) Assignment")
             Console.WriteLine("(3) Arithmetic")
@@ -146,9 +152,9 @@ Module SelectionInterface
         End While
     End Sub
 
-    Sub Header()
+    Sub Header(MenuName As String)
         Console.ForegroundColor = ConsoleColor.Yellow
-        Console.WriteLine("***** Summer Work *****" & vbCrLf)
+        Console.WriteLine("***** " & MenuName & " *****" & vbCrLf)
         Console.WriteLine("Please select one of the following:" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.White
     End Sub
