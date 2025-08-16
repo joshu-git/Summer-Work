@@ -239,7 +239,12 @@ Module ProgrammingTasks
         usernumber = Console.ReadLine() / 2
         Console.WriteLine("Your number divided by 2 is: " & usernumber)
         Console.ReadLine()
-
+        Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+        Console.WriteLine("The 7 times table is:")
+        For i = 1 To 12
+            Console.WriteLine(7 * i)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Selection()
 
