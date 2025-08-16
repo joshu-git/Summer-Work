@@ -245,6 +245,14 @@ Module ProgrammingTasks
             Console.WriteLine(7 * i)
         Next
         Console.ReadLine()
+        Console.WriteLine(vbCrLf & "Task 3" & vbCrLf)
+        Console.Write("Please enter a number: ")
+        usernumber = Console.ReadLine()
+        Console.WriteLine("The " & usernumber & " times table is:")
+        For i = 1 To 12
+            Console.WriteLine(usernumber * i)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Selection()
 
