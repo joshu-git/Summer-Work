@@ -259,7 +259,7 @@ Module ProgrammingTasks
         Dim userinput As Integer = 1
         While userinput = 1
             Console.WriteLine("Task 1:" & vbCrLf)
-            Dim usernumber = 0
+            Dim usernumber As Decimal = 0
             Console.Write("Please enter a number: ")
             usernumber = Console.ReadLine() / 2
             Console.WriteLine("Your number divided by 2 is: " & usernumber)
