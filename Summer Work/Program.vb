@@ -1,7 +1,3 @@
-Imports System
-Imports System.Drawing
-Imports System.Linq.Expressions
-
 Module SelectionInterface
     Sub Main()
         Dim userinput As Integer = 0
@@ -165,11 +161,27 @@ Module ProgrammingTasks
         Console.WriteLine("Task 1:" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.Red
         Console.WriteLine("Red")
-        Console.ForegroundColor = ConsoleColor.Yellow
+        Console.ForegroundColor = ConsoleColor.DarkYellow
         Console.WriteLine("Amber")
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("Green")
         Console.ForegroundColor = ConsoleColor.White
+        Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+        Console.ForegroundColor = ConsoleColor.Red
+        Console.WriteLine("Red")
+        Console.ForegroundColor = ConsoleColor.DarkYellow
+        Console.WriteLine("Orange")
+        Console.ForegroundColor = ConsoleColor.Yellow
+        Console.WriteLine("Yellow")
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.WriteLine("Green")
+        Console.ForegroundColor = ConsoleColor.Blue
+        Console.WriteLine("Blue")
+        Console.ForegroundColor = ConsoleColor.DarkBlue
+        Console.WriteLine("Indigo")
+        Console.ForegroundColor = ConsoleColor.DarkMagenta
+        Console.WriteLine("Violet")
+        Console.ReadLine()
     End Sub
     Sub Assignment()
 
