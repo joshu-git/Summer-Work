@@ -241,13 +241,13 @@ Module ProgrammingTasks
             usernumber = Console.ReadLine() / 2
             Console.WriteLine("Your number divided by 2 is: " & usernumber)
             Console.ReadLine()
-            Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+            Console.WriteLine("Task 2:" & vbCrLf)
             Console.WriteLine("The 7 times table is:")
             For i = 1 To 12
                 Console.WriteLine(7 * i)
             Next
             Console.ReadLine()
-            Console.WriteLine(vbCrLf & "Task 3" & vbCrLf)
+            Console.WriteLine("Task 3" & vbCrLf)
             Console.Write("Please enter a number: ")
             usernumber = Console.ReadLine()
             Console.WriteLine("The " & usernumber & " times table is:")
@@ -269,7 +269,7 @@ Module ProgrammingTasks
             Console.WriteLine("Excellent")
             Console.ReadLine()
         End If
-
+        Console.WriteLine()
     End Sub
     Sub RelationalOperators()
 
