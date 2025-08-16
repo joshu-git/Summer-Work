@@ -1,7 +1,7 @@
 Imports System
 
-Module Program
-    Sub Main(args As String())
+Module SelectionInterface
+    Sub Main()
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
@@ -31,11 +31,16 @@ Module Program
         Console.WriteLine("***** Summer Work *****" & vbCrLf)
         Console.WriteLine("Please select one of the following:" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.White
-        Console.WriteLine("(1) ")
-        Console.WriteLine("(2) ")
-
+        Console.WriteLine("(1) Central Heating")
+        Console.WriteLine("(2) Car Hire")
+        userinput = Console.ReadLine()
         Select Case userinput
-
+            Case 1
+                Call CentralHeating()
+            Case 2
+                Call CarHire()
+            Case Else
+                Console.WriteLine("Error: Please try again")
         End Select
     End Sub
 
@@ -51,5 +56,14 @@ Module Program
         Select Case userinput
 
         End Select
+    End Sub
+End Module
+
+Module ModerationExercises
+    Sub CentralHeating()
+
+    End Sub
+    Sub CarHire()
+
     End Sub
 End Module
