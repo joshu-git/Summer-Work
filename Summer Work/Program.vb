@@ -1,4 +1,7 @@
 Module SelectionInterface
+    Sub Main()
+        Call MainMenu()
+    End Sub
     Sub MainMenu()
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
@@ -78,6 +81,7 @@ Module SelectionInterface
             Console.WriteLine("(25) Linear Search")
             Console.WriteLine("(26) Bubble Search")
             userinput = Console.ReadLine()
+            Console.WriteLine(userinput)
             Select Case userinput
                 Case 1
                     Call Sequence()
