@@ -1,4 +1,5 @@
 Imports System
+Imports System.Drawing
 Imports System.Linq.Expressions
 
 Module SelectionInterface
@@ -161,7 +162,14 @@ End Module
 
 Module ProgrammingTasks
     Sub Sequence()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Console.ForegroundColor = ConsoleColor.Red
+        Console.WriteLine("Red")
+        Console.ForegroundColor = ConsoleColor.Yellow
+        Console.WriteLine("Amber")
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.WriteLine("Green")
+        Console.ForegroundColor = ConsoleColor.White
     End Sub
     Sub Assignment()
 
