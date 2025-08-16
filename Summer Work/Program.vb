@@ -155,17 +155,16 @@ Module SelectionInterface
     Sub Header(MenuName As String)
         Console.ForegroundColor = ConsoleColor.Yellow
         Console.WriteLine("***** " & MenuName & " *****" & vbCrLf)
-        Console.WriteLine("Please select one of the following:" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.White
+        Console.WriteLine("Please select one of the following:" & vbCrLf)
     End Sub
-    Function ExitMenu()
+    Function ProgramFooter()
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
             validinput = True
-            Console.Clear()
-            Call Header()
-            Console.WriteLine("(1) Repeat Code")
+            Console.WriteLine(vbCrLf & "Please select one of the following:" & vbCrLf)
+            Console.WriteLine("(1) Repeat Program")
             Console.WriteLine("(2) Main Menu" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
@@ -217,11 +216,11 @@ Module ProgrammingTasks
             Console.ForegroundColor = ConsoleColor.DarkMagenta
             Console.WriteLine("Violet")
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine(vbCrLf & "Press Enter" & vbCrLf)
             Console.ReadLine()
-            userinput = ExitMenu()
+            userinput = ProgramFooter()
         End While
-        Call MainMenu()
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Sub Assignment()
 
