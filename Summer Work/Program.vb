@@ -334,7 +334,14 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub BooleanOperators()
-
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Error: No tasks found")
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Sub LogicalBitwiseOperators()
 
