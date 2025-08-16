@@ -10,7 +10,7 @@ Module SelectionInterface
             Console.Clear()
             Call Header()
             Console.WriteLine("(1) Moderation Exercises")
-            Console.WriteLine("(2) Programming Tasks")
+            Console.WriteLine("(2) Programming Tasks" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
             Select Case userinput
@@ -20,7 +20,7 @@ Module SelectionInterface
                     Call ProgrammingTasksMenu()
                 Case Else
                     validinput = False
-                    Console.WriteLine("Error: Please try again")
+                    Console.WriteLine(vbCrLf & "Error: Please try again")
                     Console.ReadLine()
             End Select
         End While
@@ -34,7 +34,7 @@ Module SelectionInterface
             Console.Clear()
             Call Header()
             Console.WriteLine("(1) Central Heating")
-            Console.WriteLine("(2) Car Hire")
+            Console.WriteLine("(2) Car Hire" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
             Select Case userinput
@@ -44,7 +44,7 @@ Module SelectionInterface
                     Call CarHire()
                 Case Else
                     validinput = False
-                    Console.WriteLine("Error: Please try again")
+                    Console.WriteLine(vbCrLf & "Error: Please try again")
                     Console.ReadLine()
             End Select
         End While
@@ -82,7 +82,7 @@ Module SelectionInterface
             Console.WriteLine("(23) Enumerated")
             Console.WriteLine("(24) Set Operators")
             Console.WriteLine("(25) Linear Search")
-            Console.WriteLine("(26) Bubble Search")
+            Console.WriteLine("(26) Bubble Search" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
             Select Case userinput
@@ -140,7 +140,7 @@ Module SelectionInterface
                     Call BubbleSearch()
                 Case Else
                     validinput = False
-                    Console.WriteLine("Error: Please try again")
+                    Console.WriteLine(vbCrLf & "Error: Please try again")
                     Console.ReadLine()
             End Select
         End While
@@ -160,14 +160,14 @@ Module SelectionInterface
             Console.Clear()
             Call Header()
             Console.WriteLine("(1) Repeat Code")
-            Console.WriteLine("(2) Main Menu")
+            Console.WriteLine("(2) Main Menu" & vbCrLf)
             userinput = Console.ReadLine()
             Console.Clear()
             If userinput = 1 Or userinput = 2 Then
                 Return userinput
             Else
                 validinput = False
-                Console.WriteLine("Error: Please try again")
+                Console.WriteLine(vbCrLf & "Error: Please try again")
                 Console.ReadLine()
             End If
         End While
