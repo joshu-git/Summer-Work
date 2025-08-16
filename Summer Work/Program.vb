@@ -49,6 +49,7 @@ Module SelectionInterface
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
+            validinput = True
             Call Header()
             Console.WriteLine("(1) Sequence")
             Console.WriteLine("(2) Assignment")
@@ -145,6 +146,25 @@ Module SelectionInterface
         Console.WriteLine("Please select one of the following:" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.White
     End Sub
+    Function ExitMenu()
+        Dim userinput As Integer = 0
+        Dim validinput As Boolean = False
+        While validinput = False
+            validinput = True
+            Console.Clear()
+            Call Header()
+            Console.WriteLine("(1) Repeat Code")
+            Console.WriteLine("(2) Main Menu")
+            userinput = Console.ReadLine()
+            If userinput = 1 Or userinput = 2 Then
+                Return userinput
+            Else
+                validinput = False
+                Console.WriteLine("Error: Please try again")
+                Console.ReadLine()
+            End If
+        End While
+    End Function
 End Module
 
 Module ModerationExercises
@@ -158,30 +178,35 @@ End Module
 
 Module ProgrammingTasks
     Sub Sequence()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Console.ForegroundColor = ConsoleColor.Red
-        Console.WriteLine("Red")
-        Console.ForegroundColor = ConsoleColor.DarkYellow
-        Console.WriteLine("Amber")
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("Green")
-        Console.ForegroundColor = ConsoleColor.White
-        Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
-        Console.ForegroundColor = ConsoleColor.Red
-        Console.WriteLine("Red")
-        Console.ForegroundColor = ConsoleColor.DarkYellow
-        Console.WriteLine("Orange")
-        Console.ForegroundColor = ConsoleColor.Yellow
-        Console.WriteLine("Yellow")
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("Green")
-        Console.ForegroundColor = ConsoleColor.Blue
-        Console.WriteLine("Blue")
-        Console.ForegroundColor = ConsoleColor.DarkBlue
-        Console.WriteLine("Indigo")
-        Console.ForegroundColor = ConsoleColor.DarkMagenta
-        Console.WriteLine("Violet")
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("Red")
+            Console.ForegroundColor = ConsoleColor.DarkYellow
+            Console.WriteLine("Amber")
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("Green")
+            Console.ForegroundColor = ConsoleColor.White
+            Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("Red")
+            Console.ForegroundColor = ConsoleColor.DarkYellow
+            Console.WriteLine("Orange")
+            Console.ForegroundColor = ConsoleColor.Yellow
+            Console.WriteLine("Yellow")
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("Green")
+            Console.ForegroundColor = ConsoleColor.Blue
+            Console.WriteLine("Blue")
+            Console.ForegroundColor = ConsoleColor.DarkBlue
+            Console.WriteLine("Indigo")
+            Console.ForegroundColor = ConsoleColor.DarkMagenta
+            Console.WriteLine("Violet")
+            Console.ReadLine()
+            userinput = ExitMenu()
+        End While
+        Call Main()
     End Sub
     Sub Assignment()
 
