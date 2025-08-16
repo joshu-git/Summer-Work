@@ -261,6 +261,14 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Selection()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim usernumber As Integer = 0
+        Console.Write("What is 24 + 9 = ")
+        usernumber = Console.ReadLine()
+        If usernumber = 33 Then
+            Console.WriteLine("Excellent")
+            Console.ReadLine()
+        End If
 
     End Sub
     Sub RelationalOperators()
