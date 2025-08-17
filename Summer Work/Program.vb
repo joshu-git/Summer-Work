@@ -207,7 +207,30 @@ Module ModerationExercises
         Call MainMenu(MenuName)
     End Sub
     Sub CarHire()
-
+        Dim CarMake As String = ""
+        Dim CarModel As String = ""
+        Dim DailyRate As Decimal = 0
+        Dim ValidPrice As Boolean = False
+        Do
+            ValidPrice = False
+            Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
+            Console.Write("Enter car make. ")
+            CarMake = Console.ReadLine()
+            Console.Write("Enter car model. ")
+            CarModel = Console.ReadLine()
+            Console.Write("Enter daily rate. ")
+            DailyRate = Console.ReadLine()
+            If DailyRate >= 20 And DailyRate <= 70 Then
+                ValidPrice = True
+            End If
+        Loop Until ValidPrice
+        Console.WriteLine("Days    Price (£)")
+        For x = 1 To 14
+            Console.WriteLine(x & "        " & x * DailyRate)
+        Next
+        If CarMake = "VW" Then
+            Console.WriteLine("YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
+        End If
     End Sub
 End Module
 
