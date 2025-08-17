@@ -790,6 +790,10 @@ Module ProgrammingTasks
         Public _Cost As Decimal
         Public _Year As Integer
     End Structure
+    Structure people
+        Public _Name As String
+        Public _Age As Integer
+    End Structure
     Sub OneDimensionalArrays()
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim numbers(50) As Integer
@@ -816,7 +820,23 @@ Module ProgrammingTasks
             cars(x)._Year = Console.ReadLine()
         Next
         For x = 1 To UBound(cars)
-            Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & ": " & cars(x)._Cost)
+            Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & " : " & cars(x)._Cost)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim people(5) As people
+        For x = 1 To UBound(people)
+            If createspace <> x Then
+                createspace = x
+                Console.WriteLine()
+            End If
+            Console.WriteLine("(" & x & ") Please enter the person's name: ")
+            people(x)._Name = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the person's age: ")
+            people(x)._Age = Console.ReadLine()
+        Next
+        For x = 1 To UBound(people)
+            Console.WriteLine("(" & x & ") " & people(x)._Name & " : " & people(x)._Age)
         Next
         Console.ReadLine()
     End Sub
