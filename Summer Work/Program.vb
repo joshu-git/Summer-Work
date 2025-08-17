@@ -506,51 +506,55 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Iteration()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim UserName As String = ""
-        Console.WriteLine("Please enter your name: ")
-        UserName = Console.ReadLine()
-        For x = 1 To 5
-            Console.WriteLine("(" & x & ") " & UserName)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim UserTown As String = ""
-        Console.WriteLine("Please enter your town: ")
-        UserTown = Console.ReadLine()
-        For x = 1 To 10
-            Console.WriteLine("(" & x & ") " & UserTown)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim FavouriteCD As String = ""
-        Dim CDArtist As String = ""
-        Console.Write("Please enter your favourite CD: ")
-        FavouriteCD = Console.ReadLine()
-        Console.Write("Please enter the Cd's artist: ")
-        CDArtist = Console.ReadLine()
-        For x = 1 To 5
-            Console.WriteLine(FavouriteCD & " by " & CDArtist)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 4:" & vbCrLf)
-        Dim UserNum As Integer = 0
-        Console.Write("Please enter a number: ")
-        UserNum = Console.ReadLine()
-        For x = 1 To 100
-            Console.WriteLine("(" & x & ") " & x & " times by " & UserNum & " = " & x * UserNum)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 5:" & vbCrLf)
-        Dim Total As Integer = 0
-        Total = 0
-        For x = 1 To 5
-            Console.Write("(" & x & ") " & "Please enter a number: ")
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim UserName As String = ""
+            Console.WriteLine("Please enter your name: ")
+            UserName = Console.ReadLine()
+            For x = 1 To 5
+                Console.WriteLine("(" & x & ") " & UserName)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim UserTown As String = ""
+            Console.WriteLine("Please enter your town: ")
+            UserTown = Console.ReadLine()
+            For x = 1 To 10
+                Console.WriteLine("(" & x & ") " & UserTown)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim FavouriteCD As String = ""
+            Dim CDArtist As String = ""
+            Console.Write("Please enter your favourite CD: ")
+            FavouriteCD = Console.ReadLine()
+            Console.Write("Please enter the Cd's artist: ")
+            CDArtist = Console.ReadLine()
+            For x = 1 To 5
+                Console.WriteLine(FavouriteCD & " by " & CDArtist)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 4:" & vbCrLf)
+            Dim UserNum As Integer = 0
+            Console.Write("Please enter a number: ")
             UserNum = Console.ReadLine()
-            Total = Total + UserNum
-        Next
-        Console.WriteLine("Your total is: " & Total)
-        Console.ReadLine()
+            For x = 1 To 100
+                Console.WriteLine("(" & x & ") " & x & " times by " & UserNum & " = " & x * UserNum)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 5:" & vbCrLf)
+            Dim Total As Integer = 0
+            Total = 0
+            For x = 1 To 5
+                Console.Write("(" & x & ") " & "Please enter a number: ")
+                UserNum = Console.ReadLine()
+                Total = Total + UserNum
+            Next
+            Console.WriteLine("Your total is: " & Total)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub Flowcharts()
 
