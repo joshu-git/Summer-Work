@@ -459,6 +459,20 @@ Module ProgrammingTasks
             Console.WriteLine("Incorrect Length")
         End If
         Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim FullName As String = ""
+        Dim FirstName As String = ""
+        Dim LastName As String = ""
+        Console.Write("Please enter your full name")
+        FullName = Console.ReadLine()
+        Dim Names() As String = FullName.Split(" ")
+        If Names.Length = 2 Then
+            FirstName = Names(0)
+            LastName = Names(1)
+        End If
+        Console.WriteLine("Your first name is: " & FirstName)
+        Console.WriteLine("Your last name is: " & LastName)
+        Console.ReadLine()
     End Sub
     Sub StringConversionFunctions()
 
