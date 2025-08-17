@@ -665,7 +665,23 @@ Module ProgrammingTasks
         Dim MenuName As String = ""
         Call MainMenu(MenuName)
     End Sub
+    Structure city
+        Public _Name As String
+        Public _Population As Long
+        Public _Diameter As Double
+        Public _Year As Integer
+    End Structure
     Sub DataStructures()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim myRecord As city
+        myRecord._Name = "Camberley"
+        myRecord._Population = 36783
+        myRecord._Year = 2021
+        myRecord._Diameter = 4.1
+        Console.Write(myRecord._Name & " city has population of ")
+        Console.Write(myRecord._Population & " million people ")
+        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+        Console.ReadLine()
 
     End Sub
     Sub OtherBuiltInDataTypes()
