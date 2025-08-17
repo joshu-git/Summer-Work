@@ -212,6 +212,7 @@ Module ModerationExercises
 End Module
 
 Module ProgrammingTasks
+    Public Const Pi As Double = 3.14159265358979
     Sub Sequence()
         Dim userinput As Integer = 1
         While userinput = 1
@@ -606,13 +607,19 @@ Module ProgrammingTasks
         Console.Write("Please enter the cuboid height: ")
         height = Console.ReadLine()
         Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
-
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim radius As Decimal = 0
+        Console.Write("Please enter the sphere radius: ")
+        radius = Console.ReadLine()
+        Console.WriteLine("The sphere volume is: " & Sphere(radius))
+        Console.ReadLine()
     End Sub
     Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
         Return length * width * height
     End Function
-    Function Sphere()
-
+    Function Sphere(radius As Decimal)
+        Return radius * Pi * (4 / 3)
     End Function
     Sub UserPassword()
 
