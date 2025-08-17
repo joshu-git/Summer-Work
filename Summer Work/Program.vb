@@ -559,34 +559,37 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Flowcharts()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim x As Decimal = 0
-        Dim y As Decimal = 0
-        Dim sum As Decimal = 0
-        Console.Write("Please input value of x: ")
-        x = Console.ReadLine()
-        Console.Write("Please input value of y: ")
-        y = Console.ReadLine()
-        sum = x + y
-        Console.WriteLine("Total = " & sum)
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim MoreVolumes As Boolean = True
-        Dim Radius As Decimal = 0
-        Dim Volume As Decimal = 0
-        Dim UserChoice As String = ""
-        While MoreVolumes
-            Console.Write("Please input value of radius: ")
-            Radius = Console.ReadLine()
-            Volume = 3.142 * (4 / 3) * Radius ^ 2
-            Console.WriteLine("Radius: " & Radius)
-            Console.WriteLine("Volume: " & Volume)
-            Console.WriteLine(vbCrLf & "Any more volumes to be calcualated?")
-            UserChoice = Console.ReadLine()
-            If UserChoice = "No" Then
-                MoreVolumes = False
-            End If
-        End While
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim x As Decimal = 0
+            Dim y As Decimal = 0
+            Dim sum As Decimal = 0
+            Console.Write("Please input value of x: ")
+            x = Console.ReadLine()
+            Console.Write("Please input value of y: ")
+            y = Console.ReadLine()
+            sum = x + y
+            Console.WriteLine("Total = " & sum)
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim MoreVolumes As Boolean = True
+            Dim Radius As Decimal = 0
+            Dim Volume As Decimal = 0
+            Dim UserChoice As String = ""
+            While MoreVolumes
+                Console.Write("Please input value of radius: ")
+                Radius = Console.ReadLine()
+                Volume = 3.142 * (4 / 3) * Radius ^ 2
+                Console.WriteLine("Radius: " & Radius)
+                Console.WriteLine("Volume: " & Volume)
+                Console.WriteLine(vbCrLf & "Any more volumes to be calcualated?")
+                UserChoice = Console.ReadLine()
+                If UserChoice = "No" Then
+                    MoreVolumes = False
+                End If
+                userinput = ProgramFooter()
+            End While
     End Sub
     Sub ProceduresAndFunctions()
 
