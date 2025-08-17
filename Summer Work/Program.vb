@@ -213,6 +213,7 @@ Module ModerationExercises
         Dim ValidPrice As Boolean = False
         Do
             ValidPrice = False
+            Console.Clear()
             Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
             Console.Write("Enter car make. ")
             CarMake = Console.ReadLine()
@@ -223,13 +224,18 @@ Module ModerationExercises
             If DailyRate >= 20 And DailyRate <= 70 Then
                 ValidPrice = True
             End If
+            Console.WriteLine()
         Loop Until ValidPrice
         Console.WriteLine("Days    Price (£)")
         For x = 1 To 14
-            Console.WriteLine(x & "        " & x * DailyRate)
+            If x < 10 Then
+                Console.WriteLine(x & "       " & x * DailyRate)
+            Else
+                Console.WriteLine(x & "      " & x * DailyRate)
+            End If
         Next
         If CarMake = "VW" Then
-            Console.WriteLine("YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
+            Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
         End If
     End Sub
 End Module
