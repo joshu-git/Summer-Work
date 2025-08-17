@@ -242,7 +242,8 @@ Module ModerationExercises
             Console.ReadLine()
             userinput = ProgramFooter()
         End While
-
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
 End Module
 
