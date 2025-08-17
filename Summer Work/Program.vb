@@ -510,7 +510,7 @@ Module ProgrammingTasks
         While userinput = 1
             Console.WriteLine("Task 1:" & vbCrLf)
             Dim UserName As String = ""
-            Console.WriteLine("Please enter your name: ")
+            Console.Write("Please enter your name: ")
             UserName = Console.ReadLine()
             For x = 1 To 5
                 Console.WriteLine("(" & x & ") " & UserName)
@@ -518,7 +518,7 @@ Module ProgrammingTasks
             Console.ReadLine()
             Console.WriteLine("Task 2:" & vbCrLf)
             Dim UserTown As String = ""
-            Console.WriteLine("Please enter your town: ")
+            Console.Write("Please enter your town: ")
             UserTown = Console.ReadLine()
             For x = 1 To 10
                 Console.WriteLine("(" & x & ") " & UserTown)
