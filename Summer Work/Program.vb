@@ -588,8 +588,8 @@ Module ProgrammingTasks
                 If UserChoice = "No" Then
                     MoreVolumes = False
                 End If
-                userinput = ProgramFooter()
             End While
+            userinput = ProgramFooter()
         End While
         Dim MenuName As String = ""
         Call MainMenu(MenuName)
