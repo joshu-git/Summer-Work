@@ -463,7 +463,7 @@ Module ProgrammingTasks
         Dim FullName As String = ""
         Dim FirstName As String = ""
         Dim LastName As String = ""
-        Console.Write("Please enter your full name")
+        Console.Write("Please enter your full name: ")
         FullName = Console.ReadLine()
         Dim Names() As String = FullName.Split(" ")
         If Names.Length = 2 Then
