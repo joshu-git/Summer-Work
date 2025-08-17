@@ -753,7 +753,7 @@ Module ProgrammingTasks
             Dim Senna As car
             Console.Write("Please enter the car's name: ")
             Senna._Name = Console.ReadLine()
-            Console.Write("Please enter the car's year: ")
+            Console.Write("Please enter the car's release year: ")
             Senna._Year = Console.ReadLine()
             Console.Write("Please enter the car's manufacturer: ")
             Senna._Manufacturer = Console.ReadLine()
@@ -784,13 +784,40 @@ Module ProgrammingTasks
         Dim MenuName As String = ""
         Call MainMenu(MenuName)
     End Sub
+    Structure cars
+        Public _Name As String
+        Public _Manufacturer As String
+        Public _Cost As Decimal
+        Public _Year As Integer
+    End Structure
     Sub OneDimensionalArrays()
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim numbers(50) As Integer
         For x = 1 To UBound(numbers)
-            Console.WriteLine("(" & x & ") " & numbers(x))
+            Console.WriteLine("(" & x & ") " & numbers(x - 1))
         Next
         Console.WriteLine(UBound(numbers))
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim cars(5) As cars
+        Dim createspace As Integer = 0
+        For x = 1 To UBound(cars)
+            If createspace <> x Then
+                createspace = x
+                Console.WriteLine()
+            End If
+            Console.WriteLine("(" & x & ") Please enter the car's name: ")
+            cars(x)._Name = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
+            cars(x)._Manufacturer = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's cost: ")
+            cars(x)._Cost = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's release year: ")
+            cars(x)._Year = Console.ReadLine()
+        Next
+        For x = 1 To UBound(cars)
+            Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & ": " & cars(x)._Cost)
+        Next
         Console.ReadLine()
     End Sub
     Sub ReadWriteTextFromToATextFile()
