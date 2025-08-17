@@ -522,6 +522,17 @@ Module ProgrammingTasks
             Console.WriteLine("(" & x & ") " & UserTown)
         Next
         Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim FavouriteCD As String = ""
+        Dim CDArtist As String = ""
+        Console.Write("Please enter your favourite CD: ")
+        FavouriteCD = Console.ReadLine()
+        Console.Write("Please enter the Cd's artist: ")
+        CDArtist = Console.ReadLine()
+        For x = 1 To 5
+            Console.WriteLine(FavouriteCD & " by " & CDArtist)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
 
