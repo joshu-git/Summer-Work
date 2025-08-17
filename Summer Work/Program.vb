@@ -595,6 +595,26 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub ProceduresAndFunctions()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim length As Decimal = 0
+        Dim width As Decimal = 0
+        Dim height As Decimal = 0
+        Console.Write("Please enter the cuboid length: ")
+        length = Console.ReadLine()
+        Console.Write("Please enter the cuboid width: ")
+        width = Console.ReadLine()
+        Console.Write("Please enter the cuboid height: ")
+        height = Console.ReadLine()
+        Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
+
+    End Sub
+    Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
+        Return length * width * height
+    End Function
+    Function Sphere()
+
+    End Function
+    Sub UserPassword()
 
     End Sub
     Sub ByRefVsByVal()
