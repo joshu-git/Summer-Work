@@ -207,36 +207,42 @@ Module ModerationExercises
         Call MainMenu(MenuName)
     End Sub
     Sub CarHire()
-        Dim CarMake As String = ""
-        Dim CarModel As String = ""
-        Dim DailyRate As Decimal = 0
-        Dim ValidPrice As Boolean = False
-        Do
-            ValidPrice = False
-            Console.Clear()
-            Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
-            Console.Write("Enter car make. ")
-            CarMake = Console.ReadLine()
-            Console.Write("Enter car model. ")
-            CarModel = Console.ReadLine()
-            Console.Write("Enter daily rate. ")
-            DailyRate = Console.ReadLine()
-            If DailyRate >= 20 And DailyRate <= 70 Then
-                ValidPrice = True
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Dim CarMake As String = ""
+            Dim CarModel As String = ""
+            Dim DailyRate As Decimal = 0
+            Dim ValidPrice As Boolean = False
+            Do
+                ValidPrice = False
+                Console.Clear()
+                Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
+                Console.Write("Enter car make. ")
+                CarMake = Console.ReadLine()
+                Console.Write("Enter car model. ")
+                CarModel = Console.ReadLine()
+                Console.Write("Enter daily rate. ")
+                DailyRate = Console.ReadLine()
+                If DailyRate >= 20 And DailyRate <= 70 Then
+                    ValidPrice = True
+                End If
+                Console.WriteLine()
+            Loop Until ValidPrice
+            Console.WriteLine("Days    Price (£)")
+            For x = 1 To 14
+                If x < 10 Then
+                    Console.WriteLine(x & "       " & x * DailyRate)
+                Else
+                    Console.WriteLine(x & "      " & x * DailyRate)
+                End If
+            Next
+            If CarMake = "VW" Then
+                Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
             End If
-            Console.WriteLine()
-        Loop Until ValidPrice
-        Console.WriteLine("Days    Price (£)")
-        For x = 1 To 14
-            If x < 10 Then
-                Console.WriteLine(x & "       " & x * DailyRate)
-            Else
-                Console.WriteLine(x & "      " & x * DailyRate)
-            End If
-        Next
-        If CarMake = "VW" Then
-            Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
-        End If
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
+
     End Sub
 End Module
 
