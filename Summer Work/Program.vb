@@ -427,7 +427,17 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub StringHandlingFunctions()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim StoredUser As String = "joshu-git"
+        Dim UserUser As String = ""
+        Console.Write("Please enter a username: ")
+        UserUser = Console.ReadLine()
+        If UserUser.ToLower = StoredUser Then
+            Console.WriteLine("Correct")
+        Else
+            Console.WriteLine("Incorrect")
+        End If
+        Console.ReadLine()
     End Sub
     Sub StringConversionFunctions()
 
