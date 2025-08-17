@@ -533,6 +533,14 @@ Module ProgrammingTasks
             Console.WriteLine(FavouriteCD & " by " & CDArtist)
         Next
         Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim UserNum As Integer = 0
+        Console.Write("Please enter a number: ")
+        UserNum = Console.ReadLine()
+        For x = 1 To 100
+            Console.WriteLine("(" & x & ") " & x & " times by " & UserNum & " = " & x * UserNum)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
 
