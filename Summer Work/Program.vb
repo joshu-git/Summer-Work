@@ -176,6 +176,8 @@ Module SelectionInterface
                 Console.ReadLine()
             End If
         End While
+        Console.WriteLine("Error: Program will repeat. Please reboot if this recurs.")
+        Return 1
     End Function
 End Module
 
