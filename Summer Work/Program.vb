@@ -481,7 +481,23 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub StringConversionFunctions()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim theInt As Integer = 23021980
+        Dim theReal As Double = 230.2198
+        Dim theDate As DateTime = "23/2/1980"
+        Console.WriteLine(Convert.ToString(theInt))
+        Console.WriteLine(Convert.ToString(theInt) + "1")
+        Console.WriteLine(theInt)
+        Console.WriteLine(theInt + 1 & vbCrLf)
+        Console.WriteLine(Convert.ToString(theReal))
+        Console.WriteLine(Convert.ToString(theReal) + "1")
+        Console.WriteLine(theReal)
+        Console.WriteLine(theReal + 1 & vbCrLf)
+        Console.WriteLine(Convert.ToString(theDate))
+        Console.WriteLine(Convert.ToString(theDate) + "1")
+        Console.WriteLine(theDate)
+        Console.WriteLine(theDate.AddDays(1))
+        Console.ReadLine()
     End Sub
     Sub Iteration()
 
