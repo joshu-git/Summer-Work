@@ -570,6 +570,23 @@ Module ProgrammingTasks
         sum = x + y
         Console.WriteLine("Total = " & sum)
         Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim MoreVolumes As Boolean = True
+        Dim Radius As Decimal = 0
+        Dim Volume As Decimal = 0
+        Dim UserChoice As String = ""
+        While MoreVolumes
+            Console.Write("Please input value of radius: ")
+            Radius = Console.ReadLine()
+            Volume = 3.142 * (4 / 3) * Radius ^ 2
+            Console.WriteLine("Radius: " & Radius)
+            Console.WriteLine("Volume: " & Volume)
+            Console.WriteLine(vbCrLf & "Any more volumes to be calcualated?")
+            UserChoice = Console.ReadLine()
+            If UserChoice = "No" Then
+                MoreVolumes = False
+            End If
+        End While
     End Sub
     Sub ProceduresAndFunctions()
 
