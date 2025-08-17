@@ -682,7 +682,19 @@ Module ProgrammingTasks
         Console.Write(myRecord._Population & " million people ")
         Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
         Console.ReadLine()
-
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Console.Write("Please enter the citie's name: ")
+        myRecord._Name = Console.ReadLine()
+        Console.Write("Please enter the citie's population: ")
+        myRecord._Population = Console.ReadLine()
+        Console.Write("Please enter the citie's year: ")
+        myRecord._Year = Console.ReadLine()
+        Console.Write("Please enter the citie's diameter: ")
+        myRecord._Diameter = Console.ReadLine()
+        Console.Write(myRecord._Name & " city has population of ")
+        Console.Write(myRecord._Population & " million people ")
+        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+        Console.ReadLine()
     End Sub
     Sub OtherBuiltInDataTypes()
         Dim userinput As Integer = 1
