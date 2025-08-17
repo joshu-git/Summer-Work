@@ -506,7 +506,14 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Iteration()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim UserName As String = ""
+        Console.WriteLine("Please enter your name: ")
+        UserName = Console.ReadLine()
+        For x = 1 To 5
+            Console.WriteLine("(" & x & ") " & UserName)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
 
