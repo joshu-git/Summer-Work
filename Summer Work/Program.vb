@@ -397,27 +397,31 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub ArithmeticFunctions()
-        Dim NumOne As Decimal = 0
-        Dim NumTwo As Decimal = 0
-        Dim NumThree As Decimal = 0
-        Dim NumFour As Decimal = 0
-        Dim NumFive As Decimal = 0
-        Dim MeanAverage As Decimal = 0
-        Dim Rounded As Integer = 0
-        Console.Write("Please enter the first number: ")
-        NumOne = Console.ReadLine()
-        Console.Write("Please enter the second number: ")
-        NumTwo = Console.ReadLine()
-        Console.Write("Please enter the third number: ")
-        NumThree = Console.ReadLine()
-        Console.Write("Please enter the fourth number: ")
-        NumFour = Console.ReadLine()
-        Console.Write("Please enter the fifth number: ")
-        NumFive = Console.ReadLine()
-        MeanAverage = (NumOne + NumTwo + NumThree + NumFour + NumFive) / 5
-        Rounded = Math.Round(MeanAverage)
-        Console.WriteLine(vbCrLf & "The rounded mean average is: " & Rounded)
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Dim NumOne As Decimal = 0
+            Dim NumTwo As Decimal = 0
+            Dim NumThree As Decimal = 0
+            Dim NumFour As Decimal = 0
+            Dim NumFive As Decimal = 0
+            Dim MeanAverage As Decimal = 0
+            Dim Rounded As Integer = 0
+            Console.Write("Please enter the first number: ")
+            NumOne = Console.ReadLine()
+            Console.Write("Please enter the second number: ")
+            NumTwo = Console.ReadLine()
+            Console.Write("Please enter the third number: ")
+            NumThree = Console.ReadLine()
+            Console.Write("Please enter the fourth number: ")
+            NumFour = Console.ReadLine()
+            Console.Write("Please enter the fifth number: ")
+            NumFive = Console.ReadLine()
+            MeanAverage = (NumOne + NumTwo + NumThree + NumFour + NumFive) / 5
+            Rounded = Math.Round(MeanAverage)
+            Console.WriteLine(vbCrLf & "The rounded mean average is: " & Rounded)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub StringHandlingFunctions()
 
