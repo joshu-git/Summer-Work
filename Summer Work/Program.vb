@@ -422,6 +422,8 @@ Module ProgrammingTasks
             Console.ReadLine()
             userinput = ProgramFooter()
         End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Sub StringHandlingFunctions()
 
