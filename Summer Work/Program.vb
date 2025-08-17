@@ -532,7 +532,7 @@ Module ProgrammingTasks
             Console.Write("Please enter the Cd's artist: ")
             CDArtist = Console.ReadLine()
             For x = 1 To 5
-                Console.WriteLine(FavouriteCD & " by " & CDArtist)
+                Console.WriteLine("(" & x & ") " & FavouriteCD & " by " & CDArtist)
             Next
             Console.ReadLine()
             Console.WriteLine("Task 4:" & vbCrLf)
@@ -540,7 +540,7 @@ Module ProgrammingTasks
             Console.Write("Please enter a number: ")
             UserNum = Console.ReadLine()
             For x = 1 To 100
-                Console.WriteLine("(" & x & ") " & x & " times by " & UserNum & " = " & x * UserNum)
+                Console.WriteLine("(" & x & ") " & x & " times " & UserNum & " = " & x * UserNum)
             Next
             Console.ReadLine()
             Console.WriteLine("Task 5:" & vbCrLf)
