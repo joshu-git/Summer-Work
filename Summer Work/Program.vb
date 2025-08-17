@@ -590,6 +590,8 @@ Module ProgrammingTasks
                 End If
                 userinput = ProgramFooter()
             End While
+            Dim MenuName As String = ""
+            Call MainMenu(MenuName)
     End Sub
     Sub ProceduresAndFunctions()
 
