@@ -683,54 +683,58 @@ Module ProgrammingTasks
         Public _Type As String
     End Structure
     Sub DataStructures()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim myRecord As city
-        myRecord._Name = "Camberley"
-        myRecord._Population = 36783
-        myRecord._Year = 2021
-        myRecord._Diameter = 4.1
-        Console.Write(myRecord._Name & " city has population of ")
-        Console.Write(myRecord._Population & " million people ")
-        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Console.Write("Please enter the citie's name: ")
-        myRecord._Name = Console.ReadLine()
-        Console.Write("Please enter the citie's population: ")
-        myRecord._Population = Console.ReadLine()
-        Console.Write("Please enter the citie's year: ")
-        myRecord._Year = Console.ReadLine()
-        Console.Write("Please enter the citie's diameter: ")
-        myRecord._Diameter = Console.ReadLine()
-        Console.Write(myRecord._Name & " city has population of ")
-        Console.Write(myRecord._Population & " million people ")
-        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Console.Write("Please enter the citie's council: ")
-        myRecord._Council = Console.ReadLine()
-        Console.WriteLine("The citie's council is " & myRecord._Council)
-        Console.ReadLine()
-        Console.WriteLine("Task 4:" & vbCrLf)
-        Dim Senna As car
-        Console.Write("Please enter the car's name: ")
-        Senna._Name = Console.ReadLine()
-        Console.Write("Please enter the car's year: ")
-        Senna._Year = Console.ReadLine()
-        Console.Write("Please enter the car's manufacturer: ")
-        Senna._Manufacturer = Console.ReadLine()
-        Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
-        Console.ReadLine()
-        Console.WriteLine("Task 5:" & vbCrLf)
-        Dim Monkey As pet
-        Console.Write("Please enter the pet's name: ")
-        Monkey._Name = Console.ReadLine()
-        Console.Write("Please enter the pet's age: ")
-        Monkey._Age = Console.ReadLine()
-        Console.Write("Please enter the type of pet they are : ")
-        Monkey._Type = Console.ReadLine()
-        Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim myRecord As city
+            myRecord._Name = "Camberley"
+            myRecord._Population = 36783
+            myRecord._Year = 2021
+            myRecord._Diameter = 4.1
+            Console.Write(myRecord._Name & " city has population of ")
+            Console.Write(myRecord._Population & " million people ")
+            Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Console.Write("Please enter the citie's name: ")
+            myRecord._Name = Console.ReadLine()
+            Console.Write("Please enter the citie's population: ")
+            myRecord._Population = Console.ReadLine()
+            Console.Write("Please enter the citie's year: ")
+            myRecord._Year = Console.ReadLine()
+            Console.Write("Please enter the citie's diameter: ")
+            myRecord._Diameter = Console.ReadLine()
+            Console.Write(myRecord._Name & " city has population of ")
+            Console.Write(myRecord._Population & " million people ")
+            Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Console.Write("Please enter the citie's council: ")
+            myRecord._Council = Console.ReadLine()
+            Console.WriteLine("The citie's council is " & myRecord._Council)
+            Console.ReadLine()
+            Console.WriteLine("Task 4:" & vbCrLf)
+            Dim Senna As car
+            Console.Write("Please enter the car's name: ")
+            Senna._Name = Console.ReadLine()
+            Console.Write("Please enter the car's year: ")
+            Senna._Year = Console.ReadLine()
+            Console.Write("Please enter the car's manufacturer: ")
+            Senna._Manufacturer = Console.ReadLine()
+            Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
+            Console.ReadLine()
+            Console.WriteLine("Task 5:" & vbCrLf)
+            Dim Monkey As pet
+            Console.Write("Please enter the pet's name: ")
+            Monkey._Name = Console.ReadLine()
+            Console.Write("Please enter the pet's age: ")
+            Monkey._Age = Console.ReadLine()
+            Console.Write("Please enter the type of pet they are : ")
+            Monkey._Type = Console.ReadLine()
+            Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub OtherBuiltInDataTypes()
         Dim userinput As Integer = 1
