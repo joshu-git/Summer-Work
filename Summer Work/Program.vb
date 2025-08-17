@@ -672,6 +672,11 @@ Module ProgrammingTasks
         Public _Year As Integer
         Public _Council As String
     End Structure
+    Structure car
+        Public _Name As String
+        Public _Year As Integer
+        Public _Manufacturer As String
+    End Structure
     Sub DataStructures()
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim myRecord As city
@@ -700,6 +705,16 @@ Module ProgrammingTasks
         Console.Write("Please enter the citie's council: ")
         myRecord._Council = Console.ReadLine()
         Console.WriteLine("The citie's council is " & myRecord._Council)
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim Senna As car
+        Console.Write("Please enter the car's name: ")
+        Senna._Name = Console.ReadLine()
+        Console.Write("Please enter the car's year: ")
+        Senna._Year = Console.ReadLine()
+        Console.Write("Please enter the car's manufacturer: ")
+        Senna._Manufacturer = Console.ReadLine()
+        Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
         Console.ReadLine()
     End Sub
     Sub OtherBuiltInDataTypes()
