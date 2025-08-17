@@ -369,7 +369,7 @@ Module ProgrammingTasks
     Sub LogicalBitwiseOperators()
         Dim userinput As Integer = 1
         While userinput = 1
-            Console.WriteLine("Task 1: " & vbCrLf)
+            Console.WriteLine("Task 1:" & vbCrLf)
             Dim a, b, c, d, e, f, g As Boolean
             a = 23 > 14 And 11 > 8
             Console.WriteLine("a = 23 > 14 And 11 > 8     This sets a to: " & a)
@@ -399,6 +399,7 @@ Module ProgrammingTasks
     Sub ArithmeticFunctions()
         Dim userinput As Integer = 1
         While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
             Dim NumOne As Decimal = 0
             Dim NumTwo As Decimal = 0
             Dim NumThree As Decimal = 0
