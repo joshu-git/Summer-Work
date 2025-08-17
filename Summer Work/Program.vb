@@ -659,6 +659,26 @@ Module ProgrammingTasks
             Console.WriteLine("Incorrect Length")
         End If
         Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim Validated As Boolean = False
+        Dim Username As String = ""
+        Dim StoredUsername As String = "joshu-git"
+        Dim Password As String = ""
+        Dim StoredPassword As String = "nottellingyou"
+        Do
+            Console.Write("Please enter your username: ")
+            Username = Console.ReadLine()
+            Console.Write("Please enter your password: ")
+            Password = Console.ReadLine()
+            If Username = StoredUsername And Password = StoredPassword Then
+                Validated = True
+                Console.WriteLine("Correct. Welcome!")
+            Else
+                Console.WriteLine("Incorrect. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop Until Validated
+
     End Sub
     Sub TwoDimensionalArrays()
 
