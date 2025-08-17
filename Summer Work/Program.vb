@@ -785,7 +785,13 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub OneDimensionalArrays()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim numbers(50) As Integer
+        For x = 1 To UBound(numbers)
+            Console.WriteLine("(" & x & ") " & numbers(x))
+        Next
+        Console.WriteLine(UBound(numbers))
+        Console.ReadLine()
     End Sub
     Sub ReadWriteTextFromToATextFile()
 
