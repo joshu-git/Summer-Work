@@ -514,6 +514,14 @@ Module ProgrammingTasks
             Console.WriteLine("(" & x & ") " & UserName)
         Next
         Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim UserTown As String = ""
+        Console.WriteLine("Please enter your town: ")
+        UserTown = Console.ReadLine()
+        For x = 1 To 10
+            Console.WriteLine("(" & x & ") " & UserTown)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
 
