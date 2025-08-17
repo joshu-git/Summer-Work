@@ -621,7 +621,14 @@ Module ProgrammingTasks
 
     End Sub
     Sub OtherBuiltInDataTypes()
-
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Error: No tasks found")
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Sub OneDimensionalArrays()
 
