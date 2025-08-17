@@ -677,6 +677,11 @@ Module ProgrammingTasks
         Public _Year As Integer
         Public _Manufacturer As String
     End Structure
+    Structure pet
+        Public _Name As String
+        Public _Age As Integer
+        Public _Type As String
+    End Structure
     Sub DataStructures()
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim myRecord As city
@@ -715,6 +720,16 @@ Module ProgrammingTasks
         Console.Write("Please enter the car's manufacturer: ")
         Senna._Manufacturer = Console.ReadLine()
         Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
+        Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Monkey As pet
+        Console.Write("Please enter the pet's name: ")
+        Monkey._Name = Console.ReadLine()
+        Console.Write("Please enter the pet's age: ")
+        Monkey._Age = Console.ReadLine()
+        Console.Write("Please enter the type of pet they are : ")
+        Monkey._Type = Console.ReadLine()
+        Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
         Console.ReadLine()
     End Sub
     Sub OtherBuiltInDataTypes()
