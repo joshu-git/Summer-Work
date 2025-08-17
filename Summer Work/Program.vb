@@ -367,28 +367,32 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub LogicalBitwiseOperators()
-        Console.WriteLine("Task 1: " & vbCrLf)
-        Dim a, b, c, d, e, f, g As Boolean
-        a = 23 > 14 And 11 > 8
-        Console.WriteLine("a = 23 > 14 And 11 > 8     This sets a to: " & a)
-        b = 14 > 23 And 11 > 8
-        Console.WriteLine("b = 14 > 23 And 11 > 8     This sets b to: " & b)
-        c = 23 > 14 Or 8 > 11
-        Console.WriteLine("c = 23 > 14 Or 8 > 11      This sets c to: " & c)
-        d = 23 > 67 Or 8 > 11
-        Console.WriteLine("d = 23 > 67 Or 8 > 11      This sets d to: " & d)
-        e = 23 > 67 Xor 11 > 8
-        Console.WriteLine("e = 23 > 67 Xor 11 > 8     This sets e to: " & e)
-        f = 23 > 14 Xor 11 > 8
-        Console.WriteLine("f = 23 > 14 Xor 11 > 8     This sets f to: " & f)
-        g = 14 > 23 Xor 8 > 11
-        Console.WriteLine("g = 14 > 23 Xor 8 > 11     This sets g to: " & g)
-        Dim x, y As Boolean
-        x = Not 23 > 14
-        Console.WriteLine("x = Not 23 > 14            This sets x to: " & x)
-        y = Not 23 > 67
-        Console.WriteLine("y = Not 23 > 67            This sets y to: " & y)
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1: " & vbCrLf)
+            Dim a, b, c, d, e, f, g As Boolean
+            a = 23 > 14 And 11 > 8
+            Console.WriteLine("a = 23 > 14 And 11 > 8     This sets a to: " & a)
+            b = 14 > 23 And 11 > 8
+            Console.WriteLine("b = 14 > 23 And 11 > 8     This sets b to: " & b)
+            c = 23 > 14 Or 8 > 11
+            Console.WriteLine("c = 23 > 14 Or 8 > 11      This sets c to: " & c)
+            d = 23 > 67 Or 8 > 11
+            Console.WriteLine("d = 23 > 67 Or 8 > 11      This sets d to: " & d)
+            e = 23 > 67 Xor 11 > 8
+            Console.WriteLine("e = 23 > 67 Xor 11 > 8     This sets e to: " & e)
+            f = 23 > 14 Xor 11 > 8
+            Console.WriteLine("f = 23 > 14 Xor 11 > 8     This sets f to: " & f)
+            g = 14 > 23 Xor 8 > 11
+            Console.WriteLine("g = 14 > 23 Xor 8 > 11     This sets g to: " & g)
+            Dim x, y As Boolean
+            x = Not 23 > 14
+            Console.WriteLine("x = Not 23 > 14            This sets x to: " & x)
+            y = Not 23 > 67
+            Console.WriteLine("y = Not 23 > 67            This sets y to: " & y)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub ArithmeticFunctions()
 
