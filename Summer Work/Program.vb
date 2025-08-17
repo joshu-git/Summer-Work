@@ -670,6 +670,7 @@ Module ProgrammingTasks
         Public _Population As Long
         Public _Diameter As Double
         Public _Year As Integer
+        Public _Council As String
     End Structure
     Sub DataStructures()
         Console.WriteLine("Task 1:" & vbCrLf)
@@ -694,6 +695,11 @@ Module ProgrammingTasks
         Console.Write(myRecord._Name & " city has population of ")
         Console.Write(myRecord._Population & " million people ")
         Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Console.Write("Please enter the citie's council: ")
+        myRecord._Council = Console.ReadLine()
+        Console.WriteLine("The citie's council is " & myRecord._Council)
         Console.ReadLine()
     End Sub
     Sub OtherBuiltInDataTypes()
