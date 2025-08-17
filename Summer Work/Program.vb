@@ -337,7 +337,7 @@ Module ProgrammingTasks
             Console.WriteLine("Task 6:" & vbCrLf)
             Console.Write("Please enter a number between 1 and 10: ")
             usernumber = Console.ReadLine()
-            If 1 > usernumber And usernumber < 10 Then
+            If 1 > usernumber Or usernumber < 10 Then
                 Console.WriteLine("Sorry... out of range")
             End If
             Console.ReadLine()
