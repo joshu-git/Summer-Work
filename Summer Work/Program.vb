@@ -427,52 +427,56 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub StringHandlingFunctions()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim StoredUser As String = "joshu-git"
-        Dim UserUser As String = ""
-        Console.Write("Please enter a username: ")
-        UserUser = Console.ReadLine()
-        If UserUser.ToLower = StoredUser Then
-            Console.WriteLine("Correct")
-        Else
-            Console.WriteLine("Incorrect")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim StoredPassword As String = "nottellingyou"
-        Dim UserPassword As String = ""
-        Console.Write("Please enter a password: ")
-        UserPassword = RTrim(Console.ReadLine())
-        If UserPassword.ToLower = StoredPassword Then
-            Console.WriteLine("Correct")
-        Else
-            Console.WriteLine("Incorrect")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim UserPhoneNum As String = ""
-        Console.Write("Please enter a phone number: ")
-        UserPhoneNum = Console.ReadLine()
-        If UserPhoneNum.Length = 11 Then
-            Console.WriteLine("Correct Length")
-        Else
-            Console.WriteLine("Incorrect Length")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 4:" & vbCrLf)
-        Dim FullName As String = ""
-        Dim FirstName As String = ""
-        Dim LastName As String = ""
-        Console.Write("Please enter your full name: ")
-        FullName = Console.ReadLine()
-        Dim Names() As String = FullName.Split(" ")
-        If Names.Length = 2 Then
-            FirstName = Names(0)
-            LastName = Names(1)
-        End If
-        Console.WriteLine("Your first name is: " & FirstName)
-        Console.WriteLine("Your last name is: " & LastName)
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim StoredUser As String = "joshu-git"
+            Dim UserUser As String = ""
+            Console.Write("Please enter a username: ")
+            UserUser = Console.ReadLine()
+            If UserUser.ToLower = StoredUser Then
+                Console.WriteLine("Correct")
+            Else
+                Console.WriteLine("Incorrect")
+            End If
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim StoredPassword As String = "nottellingyou"
+            Dim UserPassword As String = ""
+            Console.Write("Please enter a password: ")
+            UserPassword = RTrim(Console.ReadLine())
+            If UserPassword.ToLower = StoredPassword Then
+                Console.WriteLine("Correct")
+            Else
+                Console.WriteLine("Incorrect")
+            End If
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim UserPhoneNum As String = ""
+            Console.Write("Please enter a phone number: ")
+            UserPhoneNum = Console.ReadLine()
+            If UserPhoneNum.Length = 11 Then
+                Console.WriteLine("Correct Length")
+            Else
+                Console.WriteLine("Incorrect Length")
+            End If
+            Console.ReadLine()
+            Console.WriteLine("Task 4:" & vbCrLf)
+            Dim FullName As String = ""
+            Dim FirstName As String = ""
+            Dim LastName As String = ""
+            Console.Write("Please enter your full name: ")
+            FullName = Console.ReadLine()
+            Dim Names() As String = FullName.Split(" ")
+            If Names.Length = 2 Then
+                FirstName = Names(0)
+                LastName = Names(1)
+            End If
+            Console.WriteLine("Your first name is: " & FirstName)
+            Console.WriteLine("Your last name is: " & LastName)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub StringConversionFunctions()
 
