@@ -640,7 +640,15 @@ Module ProgrammingTasks
 
     End Sub
     Sub Validation()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim age As Integer = 0
+        Console.WriteLine("Please enter your age: ")
+        If age > 17 And age < 80 Then
+            Console.WriteLine("You are old enough to drive")
+        Else
+            Console.WriteLine("You are not old enough to drive")
+        End If
+        Console.ReadLine()
     End Sub
     Sub TwoDimensionalArrays()
 
