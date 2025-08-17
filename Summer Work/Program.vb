@@ -541,6 +541,16 @@ Module ProgrammingTasks
             Console.WriteLine("(" & x & ") " & x & " times by " & UserNum & " = " & x * UserNum)
         Next
         Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Total As Integer = 0
+        Total = 0
+        For x = 1 To 5
+            Console.Write("(" & x & ") " & "Please enter a number: ")
+            UserNum = Console.ReadLine()
+            Total = Total + UserNum
+        Next
+        Console.WriteLine("Your total is: " & Total)
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
 
