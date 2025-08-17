@@ -640,45 +640,48 @@ Module ProgrammingTasks
 
     End Sub
     Sub Validation()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim age As Integer = 0
-        Console.WriteLine("Please enter your age: ")
-        If age > 17 And age < 80 Then
-            Console.WriteLine("You are old enough to drive")
-        Else
-            Console.WriteLine("You are not old enough to drive")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim UserPhoneNum As String = ""
-        Console.Write("Please enter a phone number: ")
-        UserPhoneNum = Console.ReadLine()
-        If UserPhoneNum.Length = 11 Then
-            Console.WriteLine("Correct Length")
-        Else
-            Console.WriteLine("Incorrect Length")
-        End If
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim Validated As Boolean = False
-        Dim Username As String = ""
-        Dim StoredUsername As String = "joshu-git"
-        Dim Password As String = ""
-        Dim StoredPassword As String = "nottellingyou"
-        Do
-            Console.Write("Please enter your username: ")
-            Username = Console.ReadLine()
-            Console.Write("Please enter your password: ")
-            Password = Console.ReadLine()
-            If Username = StoredUsername And Password = StoredPassword Then
-                Validated = True
-                Console.WriteLine("Correct. Welcome!")
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim age As Integer = 0
+            Console.WriteLine("Please enter your age: ")
+            If age > 17 And age < 80 Then
+                Console.WriteLine("You are old enough to drive")
             Else
-                Console.WriteLine("Incorrect. Please try again!")
+                Console.WriteLine("You are not old enough to drive")
             End If
             Console.ReadLine()
-        Loop Until Validated
-
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim UserPhoneNum As String = ""
+            Console.Write("Please enter a phone number: ")
+            UserPhoneNum = Console.ReadLine()
+            If UserPhoneNum.Length = 11 Then
+                Console.WriteLine("Correct Length")
+            Else
+                Console.WriteLine("Incorrect Length")
+            End If
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim Validated As Boolean = False
+            Dim Username As String = ""
+            Dim StoredUsername As String = "joshu-git"
+            Dim Password As String = ""
+            Dim StoredPassword As String = "nottellingyou"
+            Do
+                Console.Write("Please enter your username: ")
+                Username = Console.ReadLine()
+                Console.Write("Please enter your password: ")
+                Password = Console.ReadLine()
+                If Username = StoredUsername And Password = StoredPassword Then
+                    Validated = True
+                    Console.WriteLine("Correct. Welcome!")
+                Else
+                    Console.WriteLine("Incorrect. Please try again!")
+                End If
+                Console.ReadLine()
+            Loop Until Validated
+            userinput = ProgramFooter()
+        End While
     End Sub
     Sub TwoDimensionalArrays()
 
