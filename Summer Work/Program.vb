@@ -596,27 +596,30 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub ProceduresAndFunctions()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim length As Decimal = 0
-        Dim width As Decimal = 0
-        Dim height As Decimal = 0
-        Console.Write("Please enter the cuboid length: ")
-        length = Console.ReadLine()
-        Console.Write("Please enter the cuboid width: ")
-        width = Console.ReadLine()
-        Console.Write("Please enter the cuboid height: ")
-        height = Console.ReadLine()
-        Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim radius As Decimal = 0
-        Console.Write("Please enter the sphere radius: ")
-        radius = Console.ReadLine()
-        Console.WriteLine("The sphere volume is: " & Sphere(radius))
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Call UserPassword()
-
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim length As Decimal = 0
+            Dim width As Decimal = 0
+            Dim height As Decimal = 0
+            Console.Write("Please enter the cuboid length: ")
+            length = Console.ReadLine()
+            Console.Write("Please enter the cuboid width: ")
+            width = Console.ReadLine()
+            Console.Write("Please enter the cuboid height: ")
+            height = Console.ReadLine()
+            Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim radius As Decimal = 0
+            Console.Write("Please enter the sphere radius: ")
+            radius = Console.ReadLine()
+            Console.WriteLine("The sphere volume is: " & Sphere(radius))
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Call UserPassword()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
         Return length * width * height
