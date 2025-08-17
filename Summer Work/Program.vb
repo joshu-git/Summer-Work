@@ -649,6 +649,16 @@ Module ProgrammingTasks
             Console.WriteLine("You are not old enough to drive")
         End If
         Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim UserPhoneNum As String = ""
+        Console.Write("Please enter a phone number: ")
+        UserPhoneNum = Console.ReadLine()
+        If UserPhoneNum.Length = 11 Then
+            Console.WriteLine("Correct Length")
+        Else
+            Console.WriteLine("Incorrect Length")
+        End If
+        Console.ReadLine()
     End Sub
     Sub TwoDimensionalArrays()
 
