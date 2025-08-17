@@ -438,6 +438,17 @@ Module ProgrammingTasks
             Console.WriteLine("Incorrect")
         End If
         Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim StoredPassword As String = "nottellingyou"
+        Dim UserPassword As String = ""
+        Console.Write("Please enter a password: ")
+        UserPassword = RTrim(Console.ReadLine())
+        If UserPassword.ToLower = StoredPassword Then
+            Console.WriteLine("Correct")
+        Else
+            Console.WriteLine("Incorrect")
+        End If
+        Console.ReadLine()
     End Sub
     Sub StringConversionFunctions()
 
