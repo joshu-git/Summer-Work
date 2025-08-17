@@ -559,7 +559,17 @@ Module ProgrammingTasks
         Call MainMenu(MenuName)
     End Sub
     Sub Flowcharts()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim x As Decimal = 0
+        Dim y As Decimal = 0
+        Dim sum As Decimal = 0
+        Console.Write("Please input value of x: ")
+        x = Console.ReadLine()
+        Console.Write("Please input value of y: ")
+        y = Console.ReadLine()
+        sum = x + y
+        Console.WriteLine("Total = " & sum)
+        Console.ReadLine()
     End Sub
     Sub ProceduresAndFunctions()
 
