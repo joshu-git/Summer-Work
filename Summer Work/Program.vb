@@ -620,6 +620,8 @@ Module ProgrammingTasks
             Call UserPassword()
             userinput = ProgramFooter()
         End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
         Return length * width * height
