@@ -614,6 +614,9 @@ Module ProgrammingTasks
         radius = Console.ReadLine()
         Console.WriteLine("The sphere volume is: " & Sphere(radius))
         Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Call UserPassword()
+
     End Sub
     Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
         Return length * width * height
@@ -622,7 +625,20 @@ Module ProgrammingTasks
         Return radius * Pi * (4 / 3)
     End Function
     Sub UserPassword()
-
+        Dim Validated As Boolean = False
+        Dim Password As String = ""
+        Dim StoredPassword As String = "nottellingyou"
+        Do
+            Console.Write("Please enter your password: ")
+            Password = Console.ReadLine()
+            If Password = StoredPassword Then
+                Validated = True
+                Console.WriteLine("Correct. Welcome!")
+            Else
+                Console.WriteLine("Incorrect. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop Until Validated
     End Sub
     Sub ByRefVsByVal()
         Dim userinput As Integer = 1
