@@ -938,9 +938,46 @@ Module ProgrammingTasks
         Dim MenuName As String = ""
         Call MainMenu(MenuName)
     End Sub
+    Structure Teamsheet
+        Public _Name As String
+        Public _Surname As String
+    End Structure
     Sub LinearSearch()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim Teamsheet(5) As Teamsheet
+        Dim SearchKey As String = ""
+        Dim LinearResult As Integer = 0
+        Dim ValidName As Boolean = False
+        For x = 1 To UBound(Teamsheet)
+            Console.Write("Please enter a player name: ")
+            Teamsheet(x - 1)._Name = Console.ReadLine()
+            Console.Write("Please enter a player surname: ")
+            Teamsheet(x - 1)._Surname = Console.ReadLine()
+        Next
+        Do
+            Console.Write("Please search for a player by surname: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchTeamsheet(SearchKey, Teamsheet)
+            If LinearResult <> -1 Then
+                Console.WriteLine(Teamsheet(LinearResult)._Name & " " & Teamsheet(LinearResult)._Surname)
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Player could not be found. Please try again!")
+                ValidName = False
+            End If
+            Console.ReadLine()
+        Loop Until ValidName
 
     End Sub
+    Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet)
+        Dim x As Integer = 0
+        For x = 0 To UBound(Array)
+            If SearchKey = Array(x)._Surname Then
+                Return x
+            End If
+        Next
+        Return -1
+    End Function
     Sub BubbleSearch()
 
     End Sub
