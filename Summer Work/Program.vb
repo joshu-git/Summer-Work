@@ -991,6 +991,16 @@ Module ProgrammingTasks
             End If
             Console.ReadLine()
         Loop Until ValidName
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim Names(5) As String
+        Dim Addresses(5) As String
+        For x = 1 To UBound(Names)
+            Console.Write("(" & x & ") Please enter a name: ")
+            Names(x - 1) = Console.ReadLine
+            Console.Write("(" & x & ") Please enter their address")
+            Addresses(x - 1) = Console.ReadLine()
+        Next
+        Console.ReadLine()
     End Sub
     Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet)
         Dim x As Integer = 0
