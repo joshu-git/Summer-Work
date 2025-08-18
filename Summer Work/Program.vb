@@ -853,6 +853,8 @@ Module ProgrammingTasks
             Console.ReadLine()
             userinput = ProgramFooter()
         End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Function LinearSearchCars(SearchKey As String, Array() As cars) As Integer
         Dim x As Integer = 0
