@@ -951,99 +951,103 @@ Module ProgrammingTasks
         Public _Surname As String
     End Structure
     Sub LinearSearch()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim Teamsheet(5) As Teamsheet
-        Dim SearchKey As String = ""
-        Dim LinearResult As Integer = 0
-        Dim ValidName As Boolean = False
-        For x = 1 To UBound(Teamsheet)
-            Console.Write("Please enter a player name: ")
-            Teamsheet(x - 1)._Name = Console.ReadLine()
-            Console.Write("Please enter a player surname: ")
-            Teamsheet(x - 1)._Surname = Console.ReadLine()
-        Next
-        Do
-            Console.Write("Please search for a player by surname: ")
-            SearchKey = Console.ReadLine()
-            LinearResult = LinearSearchTeamsheet(SearchKey, Teamsheet)
-            If LinearResult <> -1 Then
-                Console.WriteLine(Teamsheet(LinearResult)._Name & " " & Teamsheet(LinearResult)._Surname)
-                ValidName = True
-            Else
-                Console.WriteLine("Error: Player could not be found. Please try again!")
-            End If
-            Console.ReadLine()
-        Loop Until ValidName
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim TopSongs() As String = {"Golden", "The Subway", "No Broke Boys", "Daisies", "Soda Pop", "Your Idol", "Ordinary", "Saphire", "Beautiful Things"}
-        ValidName = False
-        For x = 1 To UBound(TopSongs)
-            Console.WriteLine("(" & x & ") " & TopSongs(x - 1))
-        Next
-        Do
-            Console.Write("Please search for a top 10 song: ")
-            SearchKey = Console.ReadLine()
-            LinearResult = LinearSearchTopSongs(SearchKey, TopSongs)
-            If LinearResult <> -1 Then
-                Console.WriteLine("(" & LinearResult + 1 & ") " & TopSongs(LinearResult))
-                ValidName = True
-            Else
-                Console.WriteLine("Error: Song could not be found. Please try again!")
-            End If
-            Console.ReadLine()
-        Loop Until ValidName
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim Names(5) As String
-        Dim Addresses(5) As String
-        For x = 1 To UBound(Names)
-            Console.Write("(" & x & ") Please enter a name: ")
-            Names(x - 1) = Console.ReadLine
-            Console.Write("(" & x & ") Please enter their address")
-            Addresses(x - 1) = Console.ReadLine()
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 4:" & vbCrLf)
-        ValidName = False
-        Do
-            Console.Write("Please search for a person: ")
-            SearchKey = Console.ReadLine()
-            LinearResult = LinearSearchNames(SearchKey, Names)
-            If LinearResult <> -1 Then
-                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult))
-                ValidName = True
-            Else
-                Console.WriteLine("Error: Person could not be found. Please try again!")
-            End If
-            Console.ReadLine()
-        Loop
-        Console.WriteLine("Task 5:" & vbCrLf)
-        Dim Numbers(5) As String
-        Dim ValidNumber As Boolean = False
-        For x = 1 To UBound(Numbers)
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim Teamsheet(5) As Teamsheet
+            Dim SearchKey As String = ""
+            Dim LinearResult As Integer = 0
+            Dim ValidName As Boolean = False
+            For x = 1 To UBound(Teamsheet)
+                Console.Write("Please enter a player name: ")
+                Teamsheet(x - 1)._Name = Console.ReadLine()
+                Console.Write("Please enter a player surname: ")
+                Teamsheet(x - 1)._Surname = Console.ReadLine()
+            Next
             Do
-                Console.WriteLine("(" & x & ") Please enter " & Names(x - 1) & "'s number: ")
-                Numbers(x - 1) = Console.ReadLine
-                If Numbers(x - 1).Length = 11 Then
-                    ValidNumber = True
+                Console.Write("Please search for a player by surname: ")
+                SearchKey = Console.ReadLine()
+                LinearResult = LinearSearchTeamsheet(SearchKey, Teamsheet)
+                If LinearResult <> -1 Then
+                    Console.WriteLine(Teamsheet(LinearResult)._Name & " " & Teamsheet(LinearResult)._Surname)
+                    ValidName = True
                 Else
-                    Console.WriteLine("Error: Incorrect length. Please try again!")
-                    Console.ReadLine()
+                    Console.WriteLine("Error: Player could not be found. Please try again!")
                 End If
-            Loop Until ValidNumber
-        Next
-        ValidName = False
-        Do
-            Console.Write("Please search for a person: ")
-            SearchKey = Console.ReadLine()
-            LinearResult = LinearSearchNames(SearchKey, Names)
-            If LinearResult <> -1 Then
-                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult) & " : " & Numbers(LinearResult))
-                ValidName = True
-            Else
-                Console.WriteLine("Error: Person could not be found. Please try again!")
-            End If
+                Console.ReadLine()
+            Loop Until ValidName
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim TopSongs() As String = {"Golden", "The Subway", "No Broke Boys", "Daisies", "Soda Pop", "Your Idol", "Ordinary", "Saphire", "Beautiful Things"}
+            ValidName = False
+            For x = 1 To UBound(TopSongs)
+                Console.WriteLine("(" & x & ") " & TopSongs(x - 1))
+            Next
+            Do
+                Console.Write("Please search for a top 10 song: ")
+                SearchKey = Console.ReadLine()
+                LinearResult = LinearSearchTopSongs(SearchKey, TopSongs)
+                If LinearResult <> -1 Then
+                    Console.WriteLine("(" & LinearResult + 1 & ") " & TopSongs(LinearResult))
+                    ValidName = True
+                Else
+                    Console.WriteLine("Error: Song could not be found. Please try again!")
+                End If
+                Console.ReadLine()
+            Loop Until ValidName
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim Names(5) As String
+            Dim Addresses(5) As String
+            For x = 1 To UBound(Names)
+                Console.Write("(" & x & ") Please enter a name: ")
+                Names(x - 1) = Console.ReadLine
+                Console.Write("(" & x & ") Please enter their address")
+                Addresses(x - 1) = Console.ReadLine()
+            Next
             Console.ReadLine()
-        Loop
+            Console.WriteLine("Task 4:" & vbCrLf)
+            ValidName = False
+            Do
+                Console.Write("Please search for a person: ")
+                SearchKey = Console.ReadLine()
+                LinearResult = LinearSearchNames(SearchKey, Names)
+                If LinearResult <> -1 Then
+                    Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult))
+                    ValidName = True
+                Else
+                    Console.WriteLine("Error: Person could not be found. Please try again!")
+                End If
+                Console.ReadLine()
+            Loop
+            Console.WriteLine("Task 5:" & vbCrLf)
+            Dim Numbers(5) As String
+            Dim ValidNumber As Boolean = False
+            For x = 1 To UBound(Numbers)
+                Do
+                    Console.WriteLine("(" & x & ") Please enter " & Names(x - 1) & "'s number: ")
+                    Numbers(x - 1) = Console.ReadLine
+                    If Numbers(x - 1).Length = 11 Then
+                        ValidNumber = True
+                    Else
+                        Console.WriteLine("Error: Incorrect length. Please try again!")
+                        Console.ReadLine()
+                    End If
+                Loop Until ValidNumber
+            Next
+            ValidName = False
+            Do
+                Console.Write("Please search for a person: ")
+                SearchKey = Console.ReadLine()
+                LinearResult = LinearSearchNames(SearchKey, Names)
+                If LinearResult <> -1 Then
+                    Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult) & " : " & Numbers(LinearResult))
+                    ValidName = True
+                Else
+                    Console.WriteLine("Error: Person could not be found. Please try again!")
+                End If
+                Console.ReadLine()
+            Loop
+            userinput = ProgramFooter()
+        End While
     End Sub
     Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet) As Integer
         Dim x As Integer = 0
