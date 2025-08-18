@@ -970,16 +970,41 @@ Module ProgrammingTasks
                 ValidName = True
             Else
                 Console.WriteLine("Error: Player could not be found. Please try again!")
-                ValidName = False
             End If
             Console.ReadLine()
         Loop Until ValidName
-
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim TopSongs() As String = {"Golden", "The Subway", "No Broke Boys", "Daisies", "Soda Pop", "Your Idol", "Ordinary", "Saphire", "Beautiful Things"}
+        ValidName = False
+        For x = 1 To UBound(TopSongs)
+            Console.WriteLine("(" & x & ") " & TopSongs(x - 1))
+        Next
+        Do
+            Console.Write("Please search for a top 10 song: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchTopSongs(SearchKey, TopSongs)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & TopSongs(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Song could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop Until ValidName
     End Sub
     Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet)
         Dim x As Integer = 0
-        For x = 0 To UBound(Array)
-            If SearchKey = Array(x)._Surname Then
+        For x = 1 To UBound(Array)
+            If SearchKey = Array(x - 1)._Surname Then
+                Return x
+            End If
+        Next
+        Return -1
+    End Function
+    Function LinearSearchTopSongs(SearchKey As String, Array() As String)
+        Dim x As Integer = 0
+        For x = 1 To UBound(Array)
+            If SearchKey = Array(x - 1) Then
                 Return x
             End If
         Next
