@@ -815,16 +815,16 @@ Module ProgrammingTasks
                     Console.WriteLine()
                 End If
                 Console.WriteLine("(" & x & ") Please enter the car's name: ")
-                cars(x)._Name = Console.ReadLine()
+                cars(x - 1)._Name = Console.ReadLine()
                 Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
-                cars(x)._Manufacturer = Console.ReadLine()
+                cars(x - 1)._Manufacturer = Console.ReadLine()
                 Console.WriteLine("(" & x & ") Please enter the car's cost: ")
-                cars(x)._Cost = Console.ReadLine()
+                cars(x - 1)._Cost = Console.ReadLine()
                 Console.WriteLine("(" & x & ") Please enter the car's release year: ")
-                cars(x)._Year = Console.ReadLine()
+                cars(x - 1)._Year = Console.ReadLine()
             Next
             For x = 1 To UBound(cars)
-                Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & " : " & cars(x)._Cost)
+                Console.WriteLine("(" & x & ") " & cars(x - 1)._Year & " " & cars(x - 1)._Name & " by " & cars(x - 1)._Manufacturer & " : " & cars(x - 1)._Cost)
             Next
             Console.ReadLine()
             Console.WriteLine("Task 3:" & vbCrLf)
