@@ -846,11 +846,18 @@ Module ProgrammingTasks
             Console.WriteLine("Task 4:" & vbCrLf)
             Dim SearchKey As String = ""
             Dim LinearResult As Integer = 0
-            Console.Write("Please enter the car you'd like to search for: ")
-            SearchKey = Console.ReadLine()
-            LinearResult = LinearSearchCars(SearchKey, cars)
-            Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
-            Console.ReadLine()
+            Dim ValidName As Boolean = False
+            Do
+                Console.Write("Please enter the car you'd like to search for: ")
+                SearchKey = Console.ReadLine()
+                LinearResult = LinearSearchCars(SearchKey, cars)
+                If LinearResult <> -1 Then
+                    Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
+                Else
+                    Console.WriteLine("Error: Car could not be found. Please try again!")
+                End If
+                Console.ReadLine()
+            Loop Until ValidName
             userinput = ProgramFooter()
         End While
         Dim MenuName As String = ""
@@ -859,8 +866,8 @@ Module ProgrammingTasks
     Function LinearSearchCars(SearchKey As String, Array() As cars) As Integer
         Dim x As Integer = 0
         For x = 1 To UBound(Array)
-            If Array(x)._Name = SearchKey Then
-                Return x
+            If Array(x - 1)._Name = SearchKey Then
+                Return x - 1
             End If
         Next
         Return -1
