@@ -1009,7 +1009,35 @@ Module ProgrammingTasks
             SearchKey = Console.ReadLine()
             LinearResult = LinearSearchNames(SearchKey, Names)
             If LinearResult <> -1 Then
-                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " " & Addresses(LinearResult))
+                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Person could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Numbers(5) As String
+        Dim ValidNumber As Boolean = False
+        For x = 1 To UBound(Numbers)
+            Do
+                Console.WriteLine("(" & x & ") Please enter " & Names(x - 1) & "'s number: ")
+                Numbers(x - 1) = Console.ReadLine
+                If Numbers(x - 1).Length = 11 Then
+                    ValidNumber = True
+                Else
+                    Console.WriteLine("Error: Incorrect length. Please try again!")
+                    Console.ReadLine()
+                End If
+            Loop Until ValidNumber
+        Next
+        ValidName = False
+        Do
+            Console.Write("Please search for a person: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchNames(SearchKey, Names)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult) & " : " & Numbers(LinearResult))
                 ValidName = True
             Else
                 Console.WriteLine("Error: Person could not be found. Please try again!")
