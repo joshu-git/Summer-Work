@@ -1048,6 +1048,8 @@ Module ProgrammingTasks
             Loop
             userinput = ProgramFooter()
         End While
+        Dim MenuName As String = ""
+        Call MainMenu(MenuName)
     End Sub
     Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet) As Integer
         Dim x As Integer = 0
