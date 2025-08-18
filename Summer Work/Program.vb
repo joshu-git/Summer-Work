@@ -152,13 +152,13 @@ Module SelectionInterface
         End While
     End Sub
 
-    Sub Header(MenuName As String) As String
+    Sub Header(MenuName As String)
         Console.ForegroundColor = ConsoleColor.Yellow
         Console.WriteLine("***** " & MenuName & " *****" & vbCrLf)
         Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("Please select one of the following:" & vbCrLf)
     End Sub
-    Function ProgramFooter()
+    Function ProgramFooter() As Integer
         Dim userinput As Integer = 0
         Dim validinput As Boolean = False
         While validinput = False
