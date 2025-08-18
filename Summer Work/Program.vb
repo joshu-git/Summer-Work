@@ -1,3 +1,4 @@
+Imports System.Globalization
 Imports System.Security.Cryptography.X509Certificates
 
 Module SelectionInterface
@@ -1001,8 +1002,22 @@ Module ProgrammingTasks
             Addresses(x - 1) = Console.ReadLine()
         Next
         Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        ValidName = False
+        Do
+            Console.Write("Please search for a person: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchNames(SearchKey, Names)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " " & Addresses(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Person could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop
     End Sub
-    Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet)
+    Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet) As Integer
         Dim x As Integer = 0
         For x = 1 To UBound(Array)
             If SearchKey = Array(x - 1)._Surname Then
@@ -1011,7 +1026,16 @@ Module ProgrammingTasks
         Next
         Return -1
     End Function
-    Function LinearSearchTopSongs(SearchKey As String, Array() As String)
+    Function LinearSearchTopSongs(SearchKey As String, Array() As String) As Integer
+        Dim x As Integer = 0
+        For x = 1 To UBound(Array)
+            If SearchKey = Array(x - 1) Then
+                Return x
+            End If
+        Next
+        Return -1
+    End Function
+    Function LinearSearchNames(SearchKey As String, Array() As String) As Integer
         Dim x As Integer = 0
         For x = 1 To UBound(Array)
             If SearchKey = Array(x - 1) Then
