@@ -835,12 +835,12 @@ Module ProgrammingTasks
                     Console.WriteLine()
                 End If
                 Console.WriteLine("(" & x & ") Please enter the person's name: ")
-                people(x)._Name = Console.ReadLine()
+                people(x - 1)._Name = Console.ReadLine()
                 Console.WriteLine("(" & x & ") Please enter the person's age: ")
-                people(x)._Age = Console.ReadLine()
+                people(x - 1)._Age = Console.ReadLine()
             Next
             For x = 1 To UBound(people)
-                Console.WriteLine("(" & x & ") " & people(x)._Name & " : " & people(x)._Age)
+                Console.WriteLine("(" & x & ") " & people(x - 1)._Name & " : " & people(x - 1)._Age)
             Next
             Console.ReadLine()
             Console.WriteLine("Task 4:" & vbCrLf)
