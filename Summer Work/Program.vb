@@ -797,58 +797,62 @@ Module ProgrammingTasks
         Public _Age As Integer
     End Structure
     Sub OneDimensionalArrays()
-        Console.WriteLine("Task 1:" & vbCrLf)
-        Dim numbers(50) As Integer
-        For x = 1 To UBound(numbers)
-            Console.WriteLine("(" & x & ") " & numbers(x - 1))
-        Next
-        Console.WriteLine(UBound(numbers))
-        Console.ReadLine()
-        Console.WriteLine("Task 2:" & vbCrLf)
-        Dim cars(5) As cars
-        Dim createspace As Integer = 0
-        For x = 1 To UBound(cars)
-            If createspace <> x Then
-                createspace = x
-                Console.WriteLine()
-            End If
-            Console.WriteLine("(" & x & ") Please enter the car's name: ")
-            cars(x)._Name = Console.ReadLine()
-            Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
-            cars(x)._Manufacturer = Console.ReadLine()
-            Console.WriteLine("(" & x & ") Please enter the car's cost: ")
-            cars(x)._Cost = Console.ReadLine()
-            Console.WriteLine("(" & x & ") Please enter the car's release year: ")
-            cars(x)._Year = Console.ReadLine()
-        Next
-        For x = 1 To UBound(cars)
-            Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & " : " & cars(x)._Cost)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 3:" & vbCrLf)
-        Dim people(5) As people
-        For x = 1 To UBound(people)
-            If createspace <> x Then
-                createspace = x
-                Console.WriteLine()
-            End If
-            Console.WriteLine("(" & x & ") Please enter the person's name: ")
-            people(x)._Name = Console.ReadLine()
-            Console.WriteLine("(" & x & ") Please enter the person's age: ")
-            people(x)._Age = Console.ReadLine()
-        Next
-        For x = 1 To UBound(people)
-            Console.WriteLine("(" & x & ") " & people(x)._Name & " : " & people(x)._Age)
-        Next
-        Console.ReadLine()
-        Console.WriteLine("Task 4:" & vbCrLf)
-        Dim SearchKey As String = ""
-        Dim LinearResult As Integer = 0
-        Console.Write("Please enter the car you'd like to search for: ")
-        SearchKey = Console.ReadLine()
-        LinearResult = LinearSearchCars(SearchKey, cars)
-        Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
-        Console.ReadLine()
+        Dim userinput As Integer = 1
+        While userinput = 1
+            Console.WriteLine("Task 1:" & vbCrLf)
+            Dim numbers(50) As Integer
+            For x = 1 To UBound(numbers)
+                Console.WriteLine("(" & x & ") " & numbers(x - 1))
+            Next
+            Console.WriteLine(UBound(numbers))
+            Console.ReadLine()
+            Console.WriteLine("Task 2:" & vbCrLf)
+            Dim cars(5) As cars
+            Dim createspace As Integer = 0
+            For x = 1 To UBound(cars)
+                If createspace <> x Then
+                    createspace = x
+                    Console.WriteLine()
+                End If
+                Console.WriteLine("(" & x & ") Please enter the car's name: ")
+                cars(x)._Name = Console.ReadLine()
+                Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
+                cars(x)._Manufacturer = Console.ReadLine()
+                Console.WriteLine("(" & x & ") Please enter the car's cost: ")
+                cars(x)._Cost = Console.ReadLine()
+                Console.WriteLine("(" & x & ") Please enter the car's release year: ")
+                cars(x)._Year = Console.ReadLine()
+            Next
+            For x = 1 To UBound(cars)
+                Console.WriteLine("(" & x & ") " & cars(x)._Year & " " & cars(x)._Name & " by " & cars(x)._Manufacturer & " : " & cars(x)._Cost)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 3:" & vbCrLf)
+            Dim people(5) As people
+            For x = 1 To UBound(people)
+                If createspace <> x Then
+                    createspace = x
+                    Console.WriteLine()
+                End If
+                Console.WriteLine("(" & x & ") Please enter the person's name: ")
+                people(x)._Name = Console.ReadLine()
+                Console.WriteLine("(" & x & ") Please enter the person's age: ")
+                people(x)._Age = Console.ReadLine()
+            Next
+            For x = 1 To UBound(people)
+                Console.WriteLine("(" & x & ") " & people(x)._Name & " : " & people(x)._Age)
+            Next
+            Console.ReadLine()
+            Console.WriteLine("Task 4:" & vbCrLf)
+            Dim SearchKey As String = ""
+            Dim LinearResult As Integer = 0
+            Console.Write("Please enter the car you'd like to search for: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchCars(SearchKey, cars)
+            Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
+            Console.ReadLine()
+            userinput = ProgramFooter()
+        End While
     End Sub
     Function LinearSearchCars(SearchKey As String, Array() As cars) As Integer
         Dim x As Integer = 0
