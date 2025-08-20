@@ -1,6 +1,3 @@
-Imports System.Globalization
-Imports System.Security.Cryptography.X509Certificates
-
 Module SelectionInterface
     Sub Main()
         Dim MenuName As String = ""
@@ -1079,6 +1076,23 @@ Module ProgrammingTasks
         Return -1
     End Function
     Sub BubbleSearch()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Console.WriteLine("Enter any sequence of ages followed by a space: ")
+        Dim AgesString As String = Console.ReadLine()
+        Dim Ages As String() = AgesString.Split(" ")
+        For a = 0 To UBound(Ages) Step 1
+            For b = 0 To UBound(Ages) - 1
+                If CInt(Ages(b + 1)) < CInt(Ages(b)) Then
+                    Dim temp As Integer = CInt(Ages(b + 1))
+                    Ages(b + 1) = Ages(b)
+                    Ages(b) = temp
+                End If
+            Next
+        Next
+        Console.WriteLine("The sorted ages will be:")
+        For Each x In Ages
+            Console.Write(x & " ")
+        Next
+        Console.ReadLine()
     End Sub
 End Module
