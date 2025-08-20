@@ -871,7 +871,17 @@ Module ProgrammingTasks
         Return -1
     End Function
     Sub ReadWriteTextFromToATextFile()
-
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim objStreamReader As IO.StreamReader
+        Dim strLine As String = ""
+        objStreamReader = New IO.StreamReader("studentnames.txt")
+        strLine = objStreamReader.ReadLine
+        Do While Not strLine Is Nothing
+            Console.WriteLine(strLine)
+            strLine = objStreamReader.ReadLine
+        Loop
+        objStreamReader.Close()
+        Console.ReadLine()
     End Sub
     Sub ReadWriteRecordsFromToAFileOfRecords()
 
