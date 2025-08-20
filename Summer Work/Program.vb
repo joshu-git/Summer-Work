@@ -1,3 +1,4 @@
+Imports System.IO
 Module SelectionInterface
     Sub Main()
         Dim MenuName As String = ""
@@ -1088,8 +1089,7 @@ Module ProgrammingTasks
     Sub BubbleSearch()
         Console.WriteLine("Task 1:" & vbCrLf)
         Console.WriteLine("Enter any sequence of ages followed by a space: ")
-        Dim AgesString As String = Console.ReadLine()
-        Dim Ages As String() = AgesString.Split(" ")
+        Dim Ages As String() = Console.ReadLine().Split(" ")
         For a = 0 To UBound(Ages) Step 1
             For b = 0 To UBound(Ages) - 1
                 If CInt(Ages(b + 1)) < CInt(Ages(b)) Then
@@ -1105,4 +1105,83 @@ Module ProgrammingTasks
         Next
         Console.ReadLine()
     End Sub
+End Module
+Module SubSystems
+    Enum DataType
+        _String
+        _Boolean
+        _Integer
+        _Double
+        _Decimal
+    End Enum
+    Function ArrayFiller(Subject As String, ArrayType As DataType)
+        'Repeats code until valid array is returned
+        Do
+            'Creates an array as string from user inputs
+            Console.WriteLine("Enter any sequence of " & Subject & " seperated by spaces: ")
+            Dim TesterArray() As String = Console.ReadLine().Split(" ")
+
+            'Determines the intended data type of array
+            Select Case ArrayType
+                Case DataType._String
+                    Return TesterArray
+                Case DataType._Boolean
+                    'Declares array
+                    Dim CheckedArray(TesterArray.GetUpperBound(0)) As Boolean
+                    For Test = 0 To TesterArray.GetUpperBound(0)
+                        'Converts string array to boolean and checks for errors
+                        If Boolean.TryParse(TesterArray(Test), False) Then
+                            CheckedArray(Test) = Boolean.Parse(TesterArray(Test))
+                        Else
+                            'Exits select if an error occurs
+                            Exit Select
+                        End If
+                    Next
+                    'Returns converted array
+                    Return CheckedArray
+                Case DataType._Integer
+                    Dim CheckedArray(TesterArray.GetUpperBound(0)) As Integer
+                    For Test = 0 To TesterArray.GetUpperBound(0)
+                        'Converts string array to integer and checks for errors
+                        If Integer.TryParse(TesterArray(Test), 0) Then
+                            CheckedArray(Test) = Integer.Parse(TesterArray(Test))
+                        Else
+                            'Exits select if an error occurs
+                            Exit Select
+                        End If
+                    Next
+                    'Returns converted array
+                    Return CheckedArray
+                Case DataType._Double
+                    Dim CheckedArray(TesterArray.GetUpperBound(0)) As Double
+                    For Test = 0 To TesterArray.GetUpperBound(0)
+                        'Converts string array to double and checks for errors
+                        If Double.TryParse(TesterArray(Test), 0) Then
+                            CheckedArray(Test) = Double.Parse(TesterArray(Test))
+                        Else
+                            'Exits select if an error occurs
+                            Exit Select
+                        End If
+                    Next
+                    'Returns converted array
+                    Return CheckedArray
+                Case DataType._Decimal
+                    Dim CheckedArray(TesterArray.GetUpperBound(0)) As Decimal
+                    For Test = 0 To TesterArray.GetUpperBound(0)
+                        'Converts string array to decimal and checks for errors
+                        If Decimal.TryParse(TesterArray(Test), 0) Then
+                            CheckedArray(Test) = Decimal.Parse(TesterArray(Test))
+                        Else
+                            'Exits select if an error occurs
+                            Exit Select
+                        End If
+                    Next
+                    'Returns converted array
+                    Return CheckedArray
+            End Select
+            Console.WriteLine("Error: an error occured")
+            Console.ReadKey()
+            Console.Clear()
+        Loop
+    End Function
 End Module
