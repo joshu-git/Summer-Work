@@ -1126,7 +1126,7 @@ Module SubSystems
                 Case DataType._String
                     Return TesterArray
                 Case DataType._Boolean
-                    'Declares array
+                    'Declares array as boolean
                     Dim CheckedArray(TesterArray.GetUpperBound(0)) As Boolean
                     For Test = 0 To TesterArray.GetUpperBound(0)
                         'Converts string array to boolean and checks for errors
@@ -1140,6 +1140,7 @@ Module SubSystems
                     'Returns converted array
                     Return CheckedArray
                 Case DataType._Integer
+                    'Declares array as integer
                     Dim CheckedArray(TesterArray.GetUpperBound(0)) As Integer
                     For Test = 0 To TesterArray.GetUpperBound(0)
                         'Converts string array to integer and checks for errors
@@ -1153,6 +1154,7 @@ Module SubSystems
                     'Returns converted array
                     Return CheckedArray
                 Case DataType._Double
+                    'Declares array as double
                     Dim CheckedArray(TesterArray.GetUpperBound(0)) As Double
                     For Test = 0 To TesterArray.GetUpperBound(0)
                         'Converts string array to double and checks for errors
@@ -1166,6 +1168,7 @@ Module SubSystems
                     'Returns converted array
                     Return CheckedArray
                 Case DataType._Decimal
+                    'Declares array as decimal
                     Dim CheckedArray(TesterArray.GetUpperBound(0)) As Decimal
                     For Test = 0 To TesterArray.GetUpperBound(0)
                         'Converts string array to decimal and checks for errors
