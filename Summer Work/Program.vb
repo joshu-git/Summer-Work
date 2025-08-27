@@ -15,7 +15,7 @@ Module Menu
         'Declares 2D of that includes all menus
         Dim Menus(,) As String = {{"Moderation Tasks", "Programming Tasks", "Extension Tasks", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
                                   {"Central Heating", "Car Hire", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
-                                  {"Sequence", "Arithmetic", "Selection", "Logical Bitwise", "Arithmetic ", "String Handling", "String Conversion", "Iteration", "Flowcharts", "Procedures & Functions", "Data Structures", "1D Arrays", "Text Files", "Record Files", "Validation", "2D Arrays", "Linear Search", "Bubble Search"},
+                                  {"Sequence", "Arithmetic", "Selection", "Logical Bitwise", "Arithmetic Functions", "String Handling", "String Conversion", "Iteration", "Flowcharts", "Procedures & Functions", "Data Structures", "1D Arrays", "Text Files", "Record Files", "Validation", "2D Arrays", "Linear Search", "Bubble Search"},
                                   {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}}
 
         'Declares user's selected option as an integer
@@ -147,8 +147,8 @@ Module Menu
                     Console.WriteLine()
                 End If
                 If SelectedOption = x Then
-                    'Displays user's selected item in yellow
-                    Console.ForegroundColor = ConsoleColor.Yellow
+                    'Displays user's selected item in magenta
+                    Console.ForegroundColor = ConsoleColor.Magenta
                     Console.Write(Menus(SelectedMenu, x).PadRight(30, " "))
                     'Sets the color back to white
                     Console.ForegroundColor = ConsoleColor.White
