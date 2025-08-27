@@ -271,7 +271,10 @@ End Module
 Module ProgrammingTasks
     Public Const Pi As Double = 3.14159265358979
     Sub Sequence()
+        'Displays the task number to the user
         Console.WriteLine("Task 1:" & vbCrLf)
+
+        'Displays red, amber and green in their colours
         Console.ForegroundColor = ConsoleColor.Red
         Console.WriteLine("Red")
         Console.ForegroundColor = ConsoleColor.DarkYellow
@@ -279,7 +282,11 @@ Module ProgrammingTasks
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("Green")
         Console.ForegroundColor = ConsoleColor.White
+
+        'Displays the task number to the user
         Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+
+        'Displays the colors of the rainbow in order in their colors
         Console.ForegroundColor = ConsoleColor.Red
         Console.WriteLine("Red")
         Console.ForegroundColor = ConsoleColor.DarkYellow
