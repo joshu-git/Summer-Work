@@ -309,25 +309,39 @@ Module ProgrammingTasks
         Console.ForegroundColor = ConsoleColor.White
         Console.ReadLine()
     End Sub
+
+    'Performs 3 arithmetic tasks for the user
     Sub Arithmetic()
+        'Displays the task number to the user
         Console.WriteLine("Task 1:" & vbCrLf)
-        Dim usernumber As Decimal = 0
-        Console.Write("Please enter a number: ")
-        usernumber = Console.ReadLine() / 2
-        Console.WriteLine("Your number divided by 2 is: " & usernumber)
+
+        'Divides user inputted number by 2 and diplays the output
+        Console.Write("Please enter a number to be divided by 2: ")
+        Dim UserNum As Double = Console.ReadLine() / 2
+        Console.WriteLine("Your number divided by 2 is: " & UserNum)
         Console.ReadLine()
+
+        'Diaplsy the task number to the user
         Console.WriteLine("Task 2:" & vbCrLf)
+
+        'Displays the 7 times tables up to 12
         Console.WriteLine("The 7 times table is:")
         For i = 1 To 12
             Console.WriteLine(7 * i)
         Next
         Console.ReadLine()
+
+        'Displays the task number to the user
         Console.WriteLine("Task 3" & vbCrLf)
-        Console.Write("Please enter a number: ")
-        usernumber = Console.ReadLine()
-        Console.WriteLine("The " & usernumber & " times table is:")
+
+        'Stores the times tables the user wants to display
+        Console.Write("Please enter a number to display its times tables: ")
+        Dim UserTimesTable As Integer = Console.ReadLine()
+        Console.WriteLine("The " & UserTimesTable & " times table is:")
+
+        'Displays the user's times table up to 12
         For i = 1 To 12
-            Console.WriteLine(usernumber * i)
+            Console.WriteLine(UserTimesTable * i)
         Next
         Console.ReadLine()
     End Sub
