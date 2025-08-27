@@ -222,26 +222,36 @@ Module ModerationExercises
         Console.ReadLine()
     End Sub
     Sub CarHire()
-        Dim CarMake As String = ""
-        Dim CarModel As String = ""
-        Dim DailyRate As Decimal = 0
-        Dim ValidPrice As Boolean = False
+        'Declares variables for user inputted information
+        Dim CarMake As String
+        Dim CarModel As String
+        Dim DailyRate As Decimal
+
+        'Loops untila valid price is inputted
+        Dim ValidPrice As Boolean
         Do
-            ValidPrice = False
+            'Resets console and displays information
             Console.Clear()
             Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
+
+            'Stores userinputted information about the car
             Console.Write("Enter car make. ")
             CarMake = Console.ReadLine()
             Console.Write("Enter car model. ")
             CarModel = Console.ReadLine()
             Console.Write("Enter daily rate. ")
             DailyRate = Console.ReadLine()
+
+            'Decides if the daily rate is within the valid range
             If DailyRate >= 20 And DailyRate <= 70 Then
                 ValidPrice = True
+            Else
+                Console.WriteLine("Invalid price. Please try again!")
             End If
-            Console.WriteLine()
         Loop Until ValidPrice
-        Console.WriteLine("Days    Price (£)")
+
+        'Displays the price for up to 14 days of using the car
+        Console.WriteLine(vbCrLf & "Days    Price (£)")
         For x = 1 To 14
             If x < 10 Then
                 Console.WriteLine(x & "       " & x * DailyRate)
@@ -249,6 +259,8 @@ Module ModerationExercises
                 Console.WriteLine(x & "      " & x * DailyRate)
             End If
         Next
+
+        'Displays a custom message if the car make is VW
         If CarMake = "VW" Then
             Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
         End If
