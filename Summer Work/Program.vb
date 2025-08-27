@@ -8,150 +8,179 @@ Module Menu
         _ExtensionTasks
     End Enum
     Sub Main()
+        'Calls the main menu in Menu
         Menu(MenuName._MainMenu)
     End Sub
     Sub Menu(SelectedMenu As MenuName)
+        'Declares 2D of that includes all menus
+        Dim Menus(,) As String = {{"Moderation Tasks", "Programming Tasks", "Extension Tasks"},
+                                  {"Central Heating", "Car Hire", ""},
+                                  {"", "", ""},
+                                  {"", "", ""}}
+
+        'Declares user's selected option as an integer
+        Dim SelectedOption As Integer
+
+        'Ensures areas of programming are ignored based on value
+        Dim BackspacePressed As Boolean
+
+        'Loops menu until program is closed
         Do
-            'Declares array of submenus of mainmenu
-            Dim MainMenu() As String = {"Moderation Tasks", "Programming Tasks", "Extension Tasks"}
-
-            'Declares arrays of options in submenus
-            Dim ModerationTasks() As String = {"Central Heating", "Car Hire"}
-            Dim ProgrammingTasks() As String = {}
-            Dim ExtensionTasks() As String = {}
-
-            Dim MenuSelect As ConsoleKeyInfo
-            Dim SelectedOption As Integer
-            Do
-                Dim MenuOptions() As String
-                Select Case SelectedMenu
-                    Case MenuName._MainMenu
-                        Console.WriteLine("Main Menu: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
-                        MenuOptions = MainMenu
-                    Case MenuName._ModerationTasks
-                        Console.WriteLine("Moderation Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
-                        MenuOptions = ModerationTasks
-                    Case MenuName._ProgrammingTasks
-                        Console.WriteLine("Programming Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
-                        MenuOptions = ProgrammingTasks
-                    Case MenuName._ExtensionTasks
-                        Console.WriteLine("Extension Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
-                        MenuOptions = ExtensionTasks
-                End Select
-
-                'Displays all options in selected menu
-                For x = 0 To MenuOptions.GetUpperBound(0)
-                    If x Mod 4 = 0 Then
-                        Console.WriteLine()
-                    End If
-                    If SelectedOption = x Then
-                        'Displays user's selected item in yellow
-                        Console.ForegroundColor = ConsoleColor.Yellow
-                        Console.Write(MenuOptions(x) & "            ")
-                        'Sets the color back to white
-                        Console.ForegroundColor = ConsoleColor.White
-                    Else
-                        Console.Write(MenuOptions(x) & "            ")
-                    End If
-                Next
-
-                MenuSelect = Console.ReadKey()
-                Select Case MenuSelect.Key
-                    Case ConsoleKey.LeftArrow
-                        If SelectedOption - 1 > -1 Then
-                            SelectedOption = SelectedOption - 1
-                        End If
-                    Case ConsoleKey.RightArrow
-                        If SelectedOption - 1 < MenuOptions.GetUpperBound(0) - 1 Then
-                            SelectedOption = SelectedOption + 1
-                        End If
-                    Case ConsoleKey.UpArrow
-                        If SelectedOption - 4 > -1 Then
-                            SelectedOption = SelectedOption - 4
-                        End If
-                    Case ConsoleKey.DownArrow
-                        If SelectedOption - 1 < MenuOptions.GetUpperBound(0) - 1 Then
-                            SelectedOption = SelectedOption + 4
-                        End If
-                End Select
-                Console.Clear()
-            Loop Until MenuSelect.Key = ConsoleKey.Enter
-
+            'Decides which menu to display
             Select Case SelectedMenu
                 Case MenuName._MainMenu
-                    Select Case SelectedOption
-                        Case 0
-                            SelectedMenu = MenuName._ModerationTasks
-                        Case 1
-                            SelectedMenu = MenuName._ProgrammingTasks
-                        Case 2
-                            SelectedMenu = MenuName._ExtensionTasks
-                    End Select
+                    'Displays main menu information to user and calls menu interface
+                    Console.WriteLine("Main Menu: Navigate using arrows. Enter to select. Backspace to return")
+                    MenuInterface(SelectedMenu, SelectedOption, 3, Menus, BackspacePressed)
+                    'Skips programs if backspace was pressed
+                    If Not BackspacePressed Then
+                        'Decides which program to call based on selected option
+                        Select Case SelectedOption
+                            Case 0
+                                SelectedMenu = MenuName._ModerationTasks
+                            Case 1
+                                SelectedMenu = MenuName._ProgrammingTasks
+                            Case 2
+                                SelectedMenu = MenuName._ExtensionTasks
+                        End Select
+                    Else
+                        'If programs were skipped BackspacePressed is set to true
+                        BackspacePressed = False
+                    End If
                 Case MenuName._ModerationTasks
-                    Select Case SelectedOption
-                        Case 0
-                            Call CentralHeating()
-                        Case 1
-                            Call CarHire()
-                    End Select
+                    'Displays moderation tasks information to user and calls menu interface
+                    Console.WriteLine("Moderation Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    MenuInterface(SelectedMenu, SelectedOption, 2, Menus, BackspacePressed)
+                    'Skips programs if backspace was pressed
+                    If Not BackspacePressed Then
+                        'Decides which program to call based on selected option
+                        Select Case SelectedOption
+                            Case 0
+                                CentralHeating()
+                            Case 1
+                                CarHire()
+                        End Select
+                    End If
                 Case MenuName._ProgrammingTasks
-                    Select Case SelectedOption
-                        Case 0
-                            Call Sequence()
-                        Case 1
-                            Call Assignment()
-                        Case 2
-                            Call Arithmetic()
-                        Case 3
-                            Call Selection()
-                        Case 4
-                            Call RelationalOperators()
-                        Case 5
-                            Call BooleanOperators()
-                        Case 6
-                            Call LogicalBitwiseOperators()
-                        Case 7
-                            Call ArithmeticFunctions()
-                        Case 8
-                            Call StringHandlingFunctions()
-                        Case 9
-                            Call StringConversionFunctions()
-                        Case 10
-                            Call Iteration()
-                        Case 11
-                            Call Flowcharts()
-                        Case 12
-                            Call ProceduresAndFunctions()
-                        Case 13
-                            Call ByRefVsByVal()
-                        Case 14
-                            Call Constants()
-                        Case 15
-                            Call DataStructures()
-                        Case 16
-                            Call OtherBuiltInDataTypes()
-                        Case 17
-                            Call OneDimensionalArrays()
-                        Case 18
-                            Call ReadWriteTextFromToATextFile()
-                        Case 19
-                            Call ReadWriteRecordsFromToAFileOfRecords()
-                        Case 20
-                            Call Validation()
-                        Case 21
-                            Call TwoDimensionalArrays()
-                        Case 22
-                            Call Enumerated()
-                        Case 23
-                            Call SetOperators()
-                        Case 24
-                            Call LinearSearch()
-                        Case 25
-                            Call BubbleSearch()
-                    End Select
+                    'Displays programming tasks information to user and call menu interface
+                    Console.WriteLine("Programming Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    MenuInterface(SelectedMenu, SelectedOption, 17, Menus, BackspacePressed)
+                    'Skips programs if backspace was pressed
+                    If Not BackspacePressed Then
+                        'Decides which program to call based on selected option
+                        Select Case SelectedOption
+                            Case 0
+                                Sequence()
+                            Case 1
+                                Arithmetic()
+                            Case 2
+                                Selection()
+                            Case 3
+                                LogicalBitwiseOperators()
+                            Case 4
+                                ArithmeticFunctions()
+                            Case 5
+                                StringHandlingFunctions()
+                            Case 6
+                                StringConversionFunctions()
+                            Case 7
+                                Iteration()
+                            Case 8
+                                Flowcharts()
+                            Case 9
+                                ProceduresAndFunctions()
+                            Case 10
+                                DataStructures()
+                            Case 11
+                                OneDimensionalArrays()
+                            Case 12
+                                ReadWriteTextFromToATextFile()
+                            Case 13
+                                ReadWriteRecordsFromToAFileOfRecords()
+                            Case 14
+                                Validation()
+                            Case 15
+                                TwoDimensionalArrays()
+                            Case 16
+                                LinearSearch()
+                            Case 17
+                                BubbleSearch()
+                        End Select
+                    End If
                 Case MenuName._ExtensionTasks
+                    'Displays extension tasks information to user and call menu interface
+                    Console.WriteLine("Extension Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    MenuInterface(SelectedMenu, SelectedOption, 0, Menus, BackspacePressed)
+                    'Skips programs if backspace was pressed
+                    If Not BackspacePressed Then
+                        'Decides which program to call based on selected option
+                        Select Case SelectedOption
+                        End Select
+                    End If
             End Select
         Loop
+    End Sub
+
+    Sub MenuInterface(SelectedMenu As MenuName, ByRef SelectedOption As Integer, MenuSize As Integer, Menus(,) As String, ByRef BackspacePressed As Boolean)
+        'Stores information from Console.ReadKey()
+        Dim MenuSelect As ConsoleKeyInfo
+
+        'Loops menu interface until enter has been pressed
+        Do
+            'Displays selected menu with selected option highlighted
+            For x = 0 To 1
+                'Adds a line break every four options
+                If x Mod 4 = 0 Then
+                    Console.WriteLine()
+                End If
+                If SelectedOption = x Then
+                    'Displays user's selected item in yellow
+                    Console.ForegroundColor = ConsoleColor.Yellow
+                    Console.Write(Menus(SelectedMenu, x).PadRight(30, " "))
+                    'Sets the color back to white
+                    Console.ForegroundColor = ConsoleColor.White
+                Else
+                    'Displays unselected items
+                    Console.Write(Menus(SelectedMenu, x).PadRight(30, " "))
+                End If
+            Next
+
+            'Changes user's selected option in menu based on keypress
+            MenuSelect = Console.ReadKey()
+            Select Case MenuSelect.Key
+                Case ConsoleKey.Backspace
+                    'Takes user back to the main menu
+                    SelectedMenu = MenuName._MainMenu
+                    BackspacePressed = True
+                    Console.Clear()
+                    Exit Sub
+                Case ConsoleKey.LeftArrow
+                    'Checks if it can move selected option left
+                    If SelectedOption - 1 > -1 Then
+                        'Moves selected option left
+                        SelectedOption = SelectedOption - 1
+                    End If
+                Case ConsoleKey.RightArrow
+                    'Checks if it can move selected option right
+                    If SelectedOption + 1 < MenuSize Then
+                        'Moves selected option right
+                        SelectedOption = SelectedOption + 1
+                    End If
+                Case ConsoleKey.UpArrow
+                    'Checks if it can move selected option up
+                    If SelectedOption - 4 > -1 Then
+                        'Moves selected option up
+                        SelectedOption = SelectedOption - 4
+                    End If
+                Case ConsoleKey.DownArrow
+                    'Checks if it can move selected option down
+                    If SelectedOption + 4 < MenuSize Then
+                        'Moves selected option down
+                        SelectedOption = SelectedOption + 4
+                    End If
+            End Select
+        Loop Until MenuSelect.Key = ConsoleKey.Enter
+        Console.Clear()
     End Sub
 End Module
 
@@ -240,10 +269,6 @@ Module ProgrammingTasks
         Console.ForegroundColor = ConsoleColor.White
         Console.ReadLine()
     End Sub
-    Sub Assignment()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
-    End Sub
     Sub Arithmetic()
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim usernumber As Decimal = 0
@@ -321,14 +346,6 @@ Module ProgrammingTasks
         If 1 > usernumber Or usernumber > 10 Then
             Console.WriteLine("Sorry... out of range")
         End If
-        Console.ReadLine()
-    End Sub
-    Sub RelationalOperators()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
-    End Sub
-    Sub BooleanOperators()
-        Console.WriteLine("Error: No tasks found")
         Console.ReadLine()
     End Sub
     Sub LogicalBitwiseOperators()
@@ -567,14 +584,6 @@ Module ProgrammingTasks
             Console.ReadLine()
         Loop Until Validated
     End Sub
-    Sub ByRefVsByVal()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
-    End Sub
-    Sub Constants()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
-    End Sub
     Structure city
         Public _Name As String
         Public _Population As Long
@@ -640,10 +649,6 @@ Module ProgrammingTasks
         Console.Write("Please enter the type of pet they are : ")
         Monkey._Type = Console.ReadLine()
         Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
-        Console.ReadLine()
-    End Sub
-    Sub OtherBuiltInDataTypes()
-        Console.WriteLine("Error: No tasks found")
         Console.ReadLine()
     End Sub
     Structure cars
@@ -784,14 +789,6 @@ Module ProgrammingTasks
     End Sub
     Sub TwoDimensionalArrays()
 
-    End Sub
-    Sub Enumerated()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
-    End Sub
-    Sub SetOperators()
-        Console.WriteLine("Error: No tasks found")
-        Console.ReadLine()
     End Sub
     Structure Teamsheet
         Public _Name As String
