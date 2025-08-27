@@ -317,7 +317,7 @@ Module ProgrammingTasks
         'Displays the task number to the user
         Console.WriteLine("Task 1:" & vbCrLf)
 
-        'Divides user inputted number by 2 and diplays the output
+        'Divides user inputted number by 2 and displays the output
         Console.Write("Please enter a number to be divided by 2: ")
         Dim UserNum As Double = Console.ReadLine() / 2
         Console.WriteLine("Your number divided by 2 is: " & UserNum)
