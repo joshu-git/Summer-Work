@@ -200,6 +200,7 @@ Module Menu
 End Module
 
 Module ModerationExercises
+    'Determines if heating is needed based on an average of user inputted temperatures
     Sub CentralHeating()
         'Stores ArtTemp, EnglishTemp and MusicTemp from user input
         Console.Write("Please enter the temperature of the Art Department: ")
@@ -221,6 +222,8 @@ Module ModerationExercises
         End If
         Console.ReadLine()
     End Sub
+
+    'Provides customer printed reciept of charges based on user input
     Sub CarHire()
         'Declares variables for user inputted information
         Dim CarMake As String
@@ -270,6 +273,8 @@ End Module
 
 Module ProgrammingTasks
     Public Const Pi As Double = 3.14159265358979
+
+    'Displays different colors with their corresponding text colors
     Sub Sequence()
         'Displays the task number to the user
         Console.WriteLine("Task 1:" & vbCrLf)
