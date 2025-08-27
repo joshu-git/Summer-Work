@@ -201,18 +201,19 @@ End Module
 
 Module ModerationExercises
     Sub CentralHeating()
-        Dim TempOne As Integer = 0
-        Dim TempTwo As Integer = 0
-        Dim TempThree As Integer = 0
-        Dim AverageTemp As Integer = 0
+        'Stores ArtTemp, EnglishTemp and MusicTemp from user input
         Console.Write("Please enter the temperature of the Art Department: ")
-        TempOne = Console.ReadLine()
+        Dim ArtTemp As Double = Console.ReadLine()
         Console.Write("Please enter the temperature of the English Department: ")
-        TempTwo = Console.ReadLine()
+        Dim EnglishTemp As Double = Console.ReadLine()
         Console.Write("Please enter the temperature of the Music Department: ")
-        TempThree = Console.ReadLine()
-        AverageTemp = (TempOne + TempTwo + TempThree) / 3
+        Dim MusicTemp As Double = Console.ReadLine()
+
+        'Calculates the avergae temperature and diplays it
+        Dim AverageTemp As Double = (ArtTemp + EnglishTemp + MusicTemp) / 3
         Console.WriteLine("The average temperature is: " & AverageTemp)
+
+        'Determines if the heating should be on or off
         If AverageTemp < 17 Then
             Console.WriteLine("Heating should be on")
         Else
