@@ -212,7 +212,7 @@ Module ModerationExercises
 
         'Calculates the avergae temperature and diplays it
         Dim AverageTemp As Double = (ArtTemp + EnglishTemp + MusicTemp) / 3
-        Console.WriteLine("The average temperature is: " & AverageTemp)
+        Console.WriteLine("The average temperature is: " & Math.Round(AverageTemp, 2))
 
         'Determines if the heating should be on or off
         If AverageTemp < 17 Then
