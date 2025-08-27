@@ -13,10 +13,10 @@ Module Menu
     End Sub
     Sub Menu(SelectedMenu As MenuName)
         'Declares 2D of that includes all menus
-        Dim Menus(,) As String = {{"Moderation Tasks", "Programming Tasks", "Extension Tasks"},
-                                  {"Central Heating", "Car Hire", ""},
-                                  {"", "", ""},
-                                  {"", "", ""}}
+        Dim Menus(,) As String = {{"Moderation Tasks", "Programming Tasks", "Extension Tasks", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
+                                  {"Central Heating", "Car Hire", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
+                                  {"Sequence", "Arithmetic", "Selection", "Logical Bitwise", "Arithmetic ", "String Handling", "String Conversion", "Iteration", "Flowcharts", "Procedures & Functions", "Data Structures", "1D Arrays", "Text Files", "Record Files", "Validation", "2D Arrays", "Linear Search", "Bubble Search"},
+                                  {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}}
 
         'Declares user's selected option as an integer
         Dim SelectedOption As Integer
@@ -26,30 +26,30 @@ Module Menu
 
         'Loops menu until program is closed
         Do
+            'Makes the cursor invisible
+            Console.CursorVisible = False
             'Decides which menu to display
             Select Case SelectedMenu
                 Case MenuName._MainMenu
-                    'Displays main menu information to user and calls menu interface
-                    Console.WriteLine("Main Menu: Navigate using arrows. Enter to select. Backspace to return")
-                    MenuInterface(SelectedMenu, SelectedOption, 3, Menus, BackspacePressed)
-                    'Skips programs if backspace was pressed
-                    If Not BackspacePressed Then
-                        'Decides which program to call based on selected option
-                        Select Case SelectedOption
-                            Case 0
-                                SelectedMenu = MenuName._ModerationTasks
-                            Case 1
-                                SelectedMenu = MenuName._ProgrammingTasks
-                            Case 2
-                                SelectedMenu = MenuName._ExtensionTasks
-                        End Select
-                    Else
-                        'If programs were skipped BackspacePressed is set to true
+                    'If BackspacePressed is true it's set to false
+                    If BackspacePressed Then
                         BackspacePressed = False
                     End If
+
+                    'Calls menu interface with MainMenu information
+                    MenuInterface(SelectedMenu, SelectedOption, 3, Menus, BackspacePressed)
+                    'Decides which program to call based on selected option
+                    Select Case SelectedOption
+                        Case 0
+                            SelectedMenu = MenuName._ModerationTasks
+                        Case 1
+                            SelectedMenu = MenuName._ProgrammingTasks
+                        Case 2
+                            SelectedMenu = MenuName._ExtensionTasks
+                    End Select
+
                 Case MenuName._ModerationTasks
-                    'Displays moderation tasks information to user and calls menu interface
-                    Console.WriteLine("Moderation Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    'Calls menu interface with ModerationTasks information
                     MenuInterface(SelectedMenu, SelectedOption, 2, Menus, BackspacePressed)
                     'Skips programs if backspace was pressed
                     If Not BackspacePressed Then
@@ -62,8 +62,7 @@ Module Menu
                         End Select
                     End If
                 Case MenuName._ProgrammingTasks
-                    'Displays programming tasks information to user and call menu interface
-                    Console.WriteLine("Programming Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    'Calls menu interface with ProgrammingTasks information
                     MenuInterface(SelectedMenu, SelectedOption, 17, Menus, BackspacePressed)
                     'Skips programs if backspace was pressed
                     If Not BackspacePressed Then
@@ -108,8 +107,7 @@ Module Menu
                         End Select
                     End If
                 Case MenuName._ExtensionTasks
-                    'Displays extension tasks information to user and call menu interface
-                    Console.WriteLine("Extension Tasks: Navigate using arrows. Enter to select. Backspace to return")
+                    'Calls menu interface with Extensionasks information
                     MenuInterface(SelectedMenu, SelectedOption, 0, Menus, BackspacePressed)
                     'Skips programs if backspace was pressed
                     If Not BackspacePressed Then
@@ -121,16 +119,31 @@ Module Menu
         Loop
     End Sub
 
-    Sub MenuInterface(SelectedMenu As MenuName, ByRef SelectedOption As Integer, MenuSize As Integer, Menus(,) As String, ByRef BackspacePressed As Boolean)
+    Sub MenuInterface(ByRef SelectedMenu As MenuName, ByRef SelectedOption As Integer, MenuSize As Integer, Menus(,) As String, ByRef BackspacePressed As Boolean)
         'Stores information from Console.ReadKey()
         Dim MenuSelect As ConsoleKeyInfo
 
+        'Resets the selected option to 0
+        SelectedOption = 0
+
         'Loops menu interface until enter has been pressed
         Do
+            'Displays selected menu information
+            Select Case SelectedMenu
+                Case MenuName._MainMenu
+                    Console.WriteLine("Main Menu:               Navigate using arrows. Enter to select. Backspace to return.")
+                Case MenuName._ModerationTasks
+                    Console.WriteLine("Moderation Tasks:        Navigate using arrows. Enter to select. Backspace to return.")
+                Case MenuName._ProgrammingTasks
+                    Console.WriteLine("Programming Tasks:       Navigate using arrows. Enter to select. Backspace to return.")
+                Case MenuName._ExtensionTasks
+                    Console.WriteLine("Extension Tasks:         Navigate using arrows. Enter to select. Backspace to return.")
+            End Select
+
             'Displays selected menu with selected option highlighted
-            For x = 0 To 1
+            For x = 0 To MenuSize - 1
                 'Adds a line break every four options
-                If x Mod 4 = 0 Then
+                If x Mod 3 = 0 Then
                     Console.WriteLine()
                 End If
                 If SelectedOption = x Then
@@ -153,7 +166,7 @@ Module Menu
                     SelectedMenu = MenuName._MainMenu
                     BackspacePressed = True
                     Console.Clear()
-                    Exit Sub
+                    Return
                 Case ConsoleKey.LeftArrow
                     'Checks if it can move selected option left
                     If SelectedOption - 1 > -1 Then
@@ -179,8 +192,10 @@ Module Menu
                         SelectedOption = SelectedOption + 4
                     End If
             End Select
+            Console.Clear()
         Loop Until MenuSelect.Key = ConsoleKey.Enter
-        Console.Clear()
+        'Makes cursor visible
+        Console.CursorVisible = True
     End Sub
 End Module
 
