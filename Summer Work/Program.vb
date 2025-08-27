@@ -1107,6 +1107,7 @@ Module ProgrammingTasks
     End Sub
 End Module
 Module SubSystems
+    'Declares useable datatypes as enums
     Enum DataType
         _String
         _Boolean
@@ -1114,6 +1115,7 @@ Module SubSystems
         _Double
         _Decimal
     End Enum
+    'Fills an array with user inputs in a given datatype
     Function ArrayFiller(Subject As String, ArrayType As DataType)
         'Repeats code until valid array is returned
         Do
@@ -1182,9 +1184,30 @@ Module SubSystems
                     'Returns converted array
                     Return CheckedArray
             End Select
-            Console.WriteLine("Error: an error occured")
-            Console.ReadKey()
-            Console.Clear()
+            'Calls error message for invalid array
+            ErrorMessage(ErrorCodes._InvalidArray)
         Loop
     End Function
+End Module
+
+Module Errors
+    'Declares known errorcodes as enums
+    Enum ErrorCodes
+        _InvalidArray
+    End Enum
+    'Displays an error message based on a given error code
+    Sub ErrorMessage(ErrorCode As ErrorCodes)
+        'Sets text color to red
+        Console.ForegroundColor = ConsoleColor.Red
+        'Chooses error message to display
+        Select Case ErrorCode
+            Case ErrorCodes._InvalidArray
+                Console.WriteLine("Code 0: Error invalid array.")
+        End Select
+        'Sets text colour to white
+        Console.ForegroundColor = ConsoleColor.White
+        'Clears user interface after enter
+        Console.ReadLine()
+        Console.Clear()
+    End Sub
 End Module
