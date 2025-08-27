@@ -1,664 +1,549 @@
 Imports System.IO
-Module SelectionInterface
+Module Menu
+    'Declares useable menu names as enum
+    Enum MenuName
+        _MainMenu
+        _ModerationTasks
+        _ProgrammingTasks
+        _ExtensionTasks
+    End Enum
     Sub Main()
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Menu(MenuName._MainMenu)
     End Sub
-    Sub MainMenu(MenuName As String)
-        Dim userinput As Integer = 0
-        Dim validinput As Boolean = False
-        While validinput = False
-            validinput = True
-            MenuName = "Main Menu"
-            Console.Clear()
-            Call Header(MenuName)
-            Console.WriteLine("(1) Moderation Exercises")
-            Console.WriteLine("(2) Programming Tasks" & vbCrLf)
-            userinput = Console.ReadLine()
-            Console.Clear()
-            Select Case userinput
-                Case 1
-                    Call ModerationExercisesMenu(MenuName)
-                Case 2
-                    Call ProgrammingTasksMenu(MenuName)
-                Case Else
-                    validinput = False
-                    Console.WriteLine(vbCrLf & "Error: Please try again")
-                    Console.ReadLine()
-            End Select
-        End While
-    End Sub
+    Sub Menu(SelectedMenu As MenuName)
+        Do
+            'Declares array of submenus of mainmenu
+            Dim MainMenu() As String = {"Moderation Tasks", "Programming Tasks", "Extension Tasks"}
 
-    Sub ModerationExercisesMenu(MenuName As String)
-        Dim userinput As Integer = 0
-        Dim validinput As Boolean = False
-        While validinput = False
-            validinput = True
-            MenuName = "Moderation Exercises Menu"
-            Console.Clear()
-            Call Header(MenuName)
-            Console.WriteLine("(1) Central Heating")
-            Console.WriteLine("(2) Car Hire" & vbCrLf)
-            userinput = Console.ReadLine()
-            Console.Clear()
-            Select Case userinput
-                Case 1
-                    Call CentralHeating()
-                Case 2
-                    Call CarHire()
-                Case Else
-                    validinput = False
-                    Console.WriteLine(vbCrLf & "Error: Please try again")
-                    Console.ReadLine()
-            End Select
-        End While
-    End Sub
+            'Declares arrays of options in submenus
+            Dim ModerationTasks() As String = {"Central Heating", "Car Hire"}
+            Dim ProgrammingTasks() As String = {}
+            Dim ExtensionTasks() As String = {}
 
-    Sub ProgrammingTasksMenu(MenuName As String)
-        Dim userinput As Integer = 0
-        Dim validinput As Boolean = False
-        While validinput = False
-            validinput = True
-            MenuName = "Programming Tasks menu"
-            Console.Clear()
-            Call Header(MenuName)
-            Console.WriteLine("(1) Sequence")
-            Console.WriteLine("(2) Assignment")
-            Console.WriteLine("(3) Arithmetic")
-            Console.WriteLine("(4) Selection")
-            Console.WriteLine("(5) Relational Operators")
-            Console.WriteLine("(6) Boolean Operators")
-            Console.WriteLine("(7) Logical Bitwise Operators")
-            Console.WriteLine("(8) Arithmetic Functions")
-            Console.WriteLine("(9) String Handling Functions")
-            Console.WriteLine("(10) String Conversion Functions")
-            Console.WriteLine("(11) Iteration")
-            Console.WriteLine("(12) Flowcharts")
-            Console.WriteLine("(13) Procedures & Functions")
-            Console.WriteLine("(14) By Ref Vs By Val")
-            Console.WriteLine("(15) Constants")
-            Console.WriteLine("(16) Data Structures")
-            Console.WriteLine("(17) Other Built-in Data Types")
-            Console.WriteLine("(18) 1 Dimensional Arrays")
-            Console.WriteLine("(19) Read/Write Text From/To A Text File")
-            Console.WriteLine("(20) Read/Write Records From/To A File Of Records")
-            Console.WriteLine("(21) Validation")
-            Console.WriteLine("(22) 2 Dimensional Arrays")
-            Console.WriteLine("(23) Enumerated")
-            Console.WriteLine("(24) Set Operators")
-            Console.WriteLine("(25) Linear Search")
-            Console.WriteLine("(26) Bubble Search" & vbCrLf)
-            userinput = Console.ReadLine()
-            Console.Clear()
-            Select Case userinput
-                Case 1
-                    Call Sequence()
-                Case 2
-                    Call Assignment()
-                Case 3
-                    Call Arithmetic()
-                Case 4
-                    Call Selection()
-                Case 5
-                    Call RelationalOperators()
-                Case 6
-                    Call BooleanOperators()
-                Case 7
-                    Call LogicalBitwiseOperators()
-                Case 8
-                    Call ArithmeticFunctions()
-                Case 9
-                    Call StringHandlingFunctions()
-                Case 10
-                    Call StringConversionFunctions()
-                Case 11
-                    Call Iteration()
-                Case 12
-                    Call Flowcharts()
-                Case 13
-                    Call ProceduresAndFunctions()
-                Case 14
-                    Call ByRefVsByVal()
-                Case 15
-                    Call Constants()
-                Case 16
-                    Call DataStructures()
-                Case 17
-                    Call OtherBuiltInDataTypes()
-                Case 18
-                    Call OneDimensionalArrays()
-                Case 19
-                    Call ReadWriteTextFromToATextFile()
-                Case 20
-                    Call ReadWriteRecordsFromToAFileOfRecords()
-                Case 21
-                    Call Validation()
-                Case 22
-                    Call TwoDimensionalArrays()
-                Case 23
-                    Call Enumerated()
-                Case 24
-                    Call SetOperators()
-                Case 25
-                    Call LinearSearch()
-                Case 26
-                    Call BubbleSearch()
-                Case Else
-                    validinput = False
-                    Console.WriteLine(vbCrLf & "Error: Please try again")
-                    Console.ReadLine()
-            End Select
-        End While
-    End Sub
+            Dim MenuSelect As ConsoleKeyInfo
+            Dim SelectedOption As Integer
+            Do
+                Dim MenuOptions() As String
+                Select Case SelectedMenu
+                    Case MenuName._MainMenu
+                        Console.WriteLine("Main Menu: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
+                        MenuOptions = MainMenu
+                    Case MenuName._ModerationTasks
+                        Console.WriteLine("Moderation Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
+                        MenuOptions = ModerationTasks
+                    Case MenuName._ProgrammingTasks
+                        Console.WriteLine("Programming Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
+                        MenuOptions = ProgrammingTasks
+                    Case MenuName._ExtensionTasks
+                        Console.WriteLine("Extension Tasks: Navigate using arrows. Enter to select. Backspace to return" & vbCrLf)
+                        MenuOptions = ExtensionTasks
+                End Select
 
-    Sub Header(MenuName As String)
-        Console.ForegroundColor = ConsoleColor.Yellow
-        Console.WriteLine("***** " & MenuName & " *****" & vbCrLf)
-        Console.ForegroundColor = ConsoleColor.White
-        Console.WriteLine("Please select one of the following:" & vbCrLf)
+                'Displays all options in selected menu
+                For x = 0 To MenuOptions.GetUpperBound(0)
+                    If x Mod 4 = 0 Then
+                        Console.WriteLine()
+                    End If
+                    If SelectedOption = x Then
+                        'Displays user's selected item in yellow
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                        Console.Write(MenuOptions(x) & "            ")
+                        'Sets the color back to white
+                        Console.ForegroundColor = ConsoleColor.White
+                    Else
+                        Console.Write(MenuOptions(x) & "            ")
+                    End If
+                Next
+
+                MenuSelect = Console.ReadKey()
+                Select Case MenuSelect.Key
+                    Case ConsoleKey.LeftArrow
+                        If SelectedOption - 1 > -1 Then
+                            SelectedOption = SelectedOption - 1
+                        End If
+                    Case ConsoleKey.RightArrow
+                        If SelectedOption - 1 < MenuOptions.GetUpperBound(0) - 1 Then
+                            SelectedOption = SelectedOption + 1
+                        End If
+                    Case ConsoleKey.UpArrow
+                        If SelectedOption - 4 > -1 Then
+                            SelectedOption = SelectedOption - 4
+                        End If
+                    Case ConsoleKey.DownArrow
+                        If SelectedOption - 1 < MenuOptions.GetUpperBound(0) - 1 Then
+                            SelectedOption = SelectedOption + 4
+                        End If
+                End Select
+                Console.Clear()
+            Loop Until MenuSelect.Key = ConsoleKey.Enter
+
+            Select Case SelectedMenu
+                Case MenuName._MainMenu
+                    Select Case SelectedOption
+                        Case 0
+                            SelectedMenu = MenuName._ModerationTasks
+                        Case 1
+                            SelectedMenu = MenuName._ProgrammingTasks
+                        Case 2
+                            SelectedMenu = MenuName._ExtensionTasks
+                    End Select
+                Case MenuName._ModerationTasks
+                    Select Case SelectedOption
+                        Case 0
+                            Call CentralHeating()
+                        Case 1
+                            Call CarHire()
+                    End Select
+                Case MenuName._ProgrammingTasks
+                    Select Case SelectedOption
+                        Case 0
+                            Call Sequence()
+                        Case 1
+                            Call Assignment()
+                        Case 2
+                            Call Arithmetic()
+                        Case 3
+                            Call Selection()
+                        Case 4
+                            Call RelationalOperators()
+                        Case 5
+                            Call BooleanOperators()
+                        Case 6
+                            Call LogicalBitwiseOperators()
+                        Case 7
+                            Call ArithmeticFunctions()
+                        Case 8
+                            Call StringHandlingFunctions()
+                        Case 9
+                            Call StringConversionFunctions()
+                        Case 10
+                            Call Iteration()
+                        Case 11
+                            Call Flowcharts()
+                        Case 12
+                            Call ProceduresAndFunctions()
+                        Case 13
+                            Call ByRefVsByVal()
+                        Case 14
+                            Call Constants()
+                        Case 15
+                            Call DataStructures()
+                        Case 16
+                            Call OtherBuiltInDataTypes()
+                        Case 17
+                            Call OneDimensionalArrays()
+                        Case 18
+                            Call ReadWriteTextFromToATextFile()
+                        Case 19
+                            Call ReadWriteRecordsFromToAFileOfRecords()
+                        Case 20
+                            Call Validation()
+                        Case 21
+                            Call TwoDimensionalArrays()
+                        Case 22
+                            Call Enumerated()
+                        Case 23
+                            Call SetOperators()
+                        Case 24
+                            Call LinearSearch()
+                        Case 25
+                            Call BubbleSearch()
+                    End Select
+                Case MenuName._ExtensionTasks
+            End Select
+        Loop
     End Sub
-    Function ProgramFooter() As Integer
-        Dim userinput As Integer = 0
-        Dim validinput As Boolean = False
-        While validinput = False
-            validinput = True
-            Console.WriteLine(vbCrLf & "Please select one of the following:" & vbCrLf)
-            Console.WriteLine("(1) Repeat Program")
-            Console.WriteLine("(2) Main Menu" & vbCrLf)
-            userinput = Console.ReadLine()
-            Console.Clear()
-            If userinput = 1 Or userinput = 2 Then
-                Return userinput
-            Else
-                validinput = False
-                Console.WriteLine(vbCrLf & "Error: Please try again")
-                Console.ReadLine()
-            End If
-        End While
-        Console.WriteLine("Error: Program will repeat. Please reboot if this reoccurs.")
-        Return 1
-    End Function
 End Module
 
 Module ModerationExercises
     Sub CentralHeating()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Dim TempOne As Integer = 0
-            Dim TempTwo As Integer = 0
-            Dim TempThree As Integer = 0
-            Dim AverageTemp As Integer = 0
-            Console.Write("Please enter the temperature of the Art Department: ")
-            TempOne = Console.ReadLine()
-            Console.Write("Please enter the temperature of the English Department: ")
-            TempTwo = Console.ReadLine()
-            Console.Write("Please enter the temperature of the Music Department: ")
-            TempThree = Console.ReadLine()
-            AverageTemp = (TempOne + TempTwo + TempThree) / 3
-            Console.WriteLine("The average temperature is: " & AverageTemp)
-            If AverageTemp < 17 Then
-                Console.WriteLine("Heating should be on")
-            Else
-                Console.WriteLine("Heating should be off")
-            End If
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Dim TempOne As Integer = 0
+        Dim TempTwo As Integer = 0
+        Dim TempThree As Integer = 0
+        Dim AverageTemp As Integer = 0
+        Console.Write("Please enter the temperature of the Art Department: ")
+        TempOne = Console.ReadLine()
+        Console.Write("Please enter the temperature of the English Department: ")
+        TempTwo = Console.ReadLine()
+        Console.Write("Please enter the temperature of the Music Department: ")
+        TempThree = Console.ReadLine()
+        AverageTemp = (TempOne + TempTwo + TempThree) / 3
+        Console.WriteLine("The average temperature is: " & AverageTemp)
+        If AverageTemp < 17 Then
+            Console.WriteLine("Heating should be on")
+        Else
+            Console.WriteLine("Heating should be off")
+        End If
+        Console.ReadLine()
     End Sub
     Sub CarHire()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Dim CarMake As String = ""
-            Dim CarModel As String = ""
-            Dim DailyRate As Decimal = 0
-            Dim ValidPrice As Boolean = False
-            Do
-                ValidPrice = False
-                Console.Clear()
-                Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
-                Console.Write("Enter car make. ")
-                CarMake = Console.ReadLine()
-                Console.Write("Enter car model. ")
-                CarModel = Console.ReadLine()
-                Console.Write("Enter daily rate. ")
-                DailyRate = Console.ReadLine()
-                If DailyRate >= 20 And DailyRate <= 70 Then
-                    ValidPrice = True
-                End If
-                Console.WriteLine()
-            Loop Until ValidPrice
-            Console.WriteLine("Days    Price (£)")
-            For x = 1 To 14
-                If x < 10 Then
-                    Console.WriteLine(x & "       " & x * DailyRate)
-                Else
-                    Console.WriteLine(x & "      " & x * DailyRate)
-                End If
-            Next
-            If CarMake = "VW" Then
-                Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
+        Dim CarMake As String = ""
+        Dim CarModel As String = ""
+        Dim DailyRate As Decimal = 0
+        Dim ValidPrice As Boolean = False
+        Do
+            ValidPrice = False
+            Console.Clear()
+            Console.WriteLine("TERVEUN CAR HIRE COMPANY" & vbCrLf)
+            Console.Write("Enter car make. ")
+            CarMake = Console.ReadLine()
+            Console.Write("Enter car model. ")
+            CarModel = Console.ReadLine()
+            Console.Write("Enter daily rate. ")
+            DailyRate = Console.ReadLine()
+            If DailyRate >= 20 And DailyRate <= 70 Then
+                ValidPrice = True
             End If
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+            Console.WriteLine()
+        Loop Until ValidPrice
+        Console.WriteLine("Days    Price (£)")
+        For x = 1 To 14
+            If x < 10 Then
+                Console.WriteLine(x & "       " & x * DailyRate)
+            Else
+                Console.WriteLine(x & "      " & x * DailyRate)
+            End If
+        Next
+        If CarMake = "VW" Then
+            Console.WriteLine(vbCrLf & "YOU GET A FREE ROAD ATLAS WITH THIS HIRE")
+        End If
+        Console.ReadLine()
     End Sub
 End Module
 
 Module ProgrammingTasks
     Public Const Pi As Double = 3.14159265358979
     Sub Sequence()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("Red")
-            Console.ForegroundColor = ConsoleColor.DarkYellow
-            Console.WriteLine("Amber")
-            Console.ForegroundColor = ConsoleColor.Green
-            Console.WriteLine("Green")
-            Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("Red")
-            Console.ForegroundColor = ConsoleColor.DarkYellow
-            Console.WriteLine("Orange")
-            Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("Yellow")
-            Console.ForegroundColor = ConsoleColor.Green
-            Console.WriteLine("Green")
-            Console.ForegroundColor = ConsoleColor.Blue
-            Console.WriteLine("Blue")
-            Console.ForegroundColor = ConsoleColor.DarkBlue
-            Console.WriteLine("Indigo")
-            Console.ForegroundColor = ConsoleColor.DarkMagenta
-            Console.WriteLine("Violet")
-            Console.ForegroundColor = ConsoleColor.White
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Console.ForegroundColor = ConsoleColor.Red
+        Console.WriteLine("Red")
+        Console.ForegroundColor = ConsoleColor.DarkYellow
+        Console.WriteLine("Amber")
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.WriteLine("Green")
+        Console.ForegroundColor = ConsoleColor.White
+        Console.WriteLine(vbCrLf & "Task 2:" & vbCrLf)
+        Console.ForegroundColor = ConsoleColor.Red
+        Console.WriteLine("Red")
+        Console.ForegroundColor = ConsoleColor.DarkYellow
+        Console.WriteLine("Orange")
+        Console.ForegroundColor = ConsoleColor.Yellow
+        Console.WriteLine("Yellow")
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.WriteLine("Green")
+        Console.ForegroundColor = ConsoleColor.Blue
+        Console.WriteLine("Blue")
+        Console.ForegroundColor = ConsoleColor.DarkBlue
+        Console.WriteLine("Indigo")
+        Console.ForegroundColor = ConsoleColor.DarkMagenta
+        Console.WriteLine("Violet")
+        Console.ForegroundColor = ConsoleColor.White
+        Console.ReadLine()
     End Sub
     Sub Assignment()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Sub Arithmetic()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim usernumber As Decimal = 0
-            Console.Write("Please enter a number: ")
-            usernumber = Console.ReadLine() / 2
-            Console.WriteLine("Your number divided by 2 is: " & usernumber)
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Console.WriteLine("The 7 times table is:")
-            For i = 1 To 12
-                Console.WriteLine(7 * i)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 3" & vbCrLf)
-            Console.Write("Please enter a number: ")
-            usernumber = Console.ReadLine()
-            Console.WriteLine("The " & usernumber & " times table is:")
-            For i = 1 To 12
-                Console.WriteLine(usernumber * i)
-            Next
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim usernumber As Decimal = 0
+        Console.Write("Please enter a number: ")
+        usernumber = Console.ReadLine() / 2
+        Console.WriteLine("Your number divided by 2 is: " & usernumber)
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Console.WriteLine("The 7 times table is:")
+        For i = 1 To 12
+            Console.WriteLine(7 * i)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 3" & vbCrLf)
+        Console.Write("Please enter a number: ")
+        usernumber = Console.ReadLine()
+        Console.WriteLine("The " & usernumber & " times table is:")
+        For i = 1 To 12
+            Console.WriteLine(usernumber * i)
+        Next
+        Console.ReadLine()
     End Sub
     Sub Selection()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim usernumber As Integer = 0
-            Console.Write("What is 24 + 9 = ")
-            usernumber = Console.ReadLine()
-            If usernumber = 33 Then
-                Console.WriteLine("Excellent")
-                Console.ReadLine()
-            End If
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Console.Write("How many are in a bakers dozen: ")
-            usernumber = Console.ReadLine()
-            If usernumber = 13 Then
-                Console.WriteLine("Most Excellent")
-                Console.ReadLine()
-            End If
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim age As Integer = 0
-            Console.Write("Please enter your age: ")
-            age = Console.ReadLine()
-            If age < 18 Then
-                Console.WriteLine("Sorry, this film is not for you")
-                Console.ReadLine()
-            End If
-            Console.WriteLine("Task 4:" & vbCrLf)
-            Dim NumOne As Integer = 0
-            Dim NumTwo As Integer = 0
-            Console.Write("Please enter the first number: ")
-            NumOne = Console.ReadLine()
-            Console.Write("Please enter the second number: ")
-            NumTwo = Console.ReadLine()
-            If NumOne = NumTwo Then
-                Console.WriteLine("The numbers are equal")
-            ElseIf NumOne > NumTwo Then
-                Console.WriteLine("The first is bigger")
-            ElseIf NumOne < NumTwo Then
-                Console.WriteLine("The second is bigger")
-            End If
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim usernumber As Integer = 0
+        Console.Write("What is 24 + 9 = ")
+        usernumber = Console.ReadLine()
+        If usernumber = 33 Then
+            Console.WriteLine("Excellent")
             Console.ReadLine()
-            Console.WriteLine("Task 5:" & vbCrLf)
-            Dim userpassword As String = ""
-            Console.Write("Please enter your password: ")
-            userpassword = Console.ReadLine()
-            If userpassword = "PASSWORD" Then
-                Console.WriteLine("Welcome to the treasure")
-            Else
-                Console.WriteLine("Go away, it's all mine")
-            End If
+        End If
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Console.Write("How many are in a bakers dozen: ")
+        usernumber = Console.ReadLine()
+        If usernumber = 13 Then
+            Console.WriteLine("Most Excellent")
             Console.ReadLine()
-            Console.WriteLine("Task 6:" & vbCrLf)
-            Console.Write("Please enter a number between 1 and 10: ")
-            usernumber = Console.ReadLine()
-            If 1 > usernumber Or usernumber > 10 Then
-                Console.WriteLine("Sorry... out of range")
-            End If
+        End If
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim age As Integer = 0
+        Console.Write("Please enter your age: ")
+        age = Console.ReadLine()
+        If age < 18 Then
+            Console.WriteLine("Sorry, this film is not for you")
             Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        End If
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim NumOne As Integer = 0
+        Dim NumTwo As Integer = 0
+        Console.Write("Please enter the first number: ")
+        NumOne = Console.ReadLine()
+        Console.Write("Please enter the second number: ")
+        NumTwo = Console.ReadLine()
+        If NumOne = NumTwo Then
+            Console.WriteLine("The numbers are equal")
+        ElseIf NumOne > NumTwo Then
+            Console.WriteLine("The first is bigger")
+        ElseIf NumOne < NumTwo Then
+            Console.WriteLine("The second is bigger")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim userpassword As String = ""
+        Console.Write("Please enter your password: ")
+        userpassword = Console.ReadLine()
+        If userpassword = "PASSWORD" Then
+            Console.WriteLine("Welcome to the treasure")
+        Else
+            Console.WriteLine("Go away, it's all mine")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 6:" & vbCrLf)
+        Console.Write("Please enter a number between 1 and 10: ")
+        usernumber = Console.ReadLine()
+        If 1 > usernumber Or usernumber > 10 Then
+            Console.WriteLine("Sorry... out of range")
+        End If
+        Console.ReadLine()
     End Sub
     Sub RelationalOperators()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Sub BooleanOperators()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Sub LogicalBitwiseOperators()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim a, b, c, d, e, f, g As Boolean
-            a = 23 > 14 And 11 > 8
-            Console.WriteLine("a = 23 > 14 And 11 > 8     This sets a to: " & a)
-            b = 14 > 23 And 11 > 8
-            Console.WriteLine("b = 14 > 23 And 11 > 8     This sets b to: " & b)
-            c = 23 > 14 Or 8 > 11
-            Console.WriteLine("c = 23 > 14 Or 8 > 11      This sets c to: " & c)
-            d = 23 > 67 Or 8 > 11
-            Console.WriteLine("d = 23 > 67 Or 8 > 11      This sets d to: " & d)
-            e = 23 > 67 Xor 11 > 8
-            Console.WriteLine("e = 23 > 67 Xor 11 > 8     This sets e to: " & e)
-            f = 23 > 14 Xor 11 > 8
-            Console.WriteLine("f = 23 > 14 Xor 11 > 8     This sets f to: " & f)
-            g = 14 > 23 Xor 8 > 11
-            Console.WriteLine("g = 14 > 23 Xor 8 > 11     This sets g to: " & g)
-            Dim x, y As Boolean
-            x = Not 23 > 14
-            Console.WriteLine("x = Not 23 > 14            This sets x to: " & x)
-            y = Not 23 > 67
-            Console.WriteLine("y = Not 23 > 67            This sets y to: " & y)
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim a, b, c, d, e, f, g As Boolean
+        a = 23 > 14 And 11 > 8
+        Console.WriteLine("a = 23 > 14 And 11 > 8     This sets a to: " & a)
+        b = 14 > 23 And 11 > 8
+        Console.WriteLine("b = 14 > 23 And 11 > 8     This sets b to: " & b)
+        c = 23 > 14 Or 8 > 11
+        Console.WriteLine("c = 23 > 14 Or 8 > 11      This sets c to: " & c)
+        d = 23 > 67 Or 8 > 11
+        Console.WriteLine("d = 23 > 67 Or 8 > 11      This sets d to: " & d)
+        e = 23 > 67 Xor 11 > 8
+        Console.WriteLine("e = 23 > 67 Xor 11 > 8     This sets e to: " & e)
+        f = 23 > 14 Xor 11 > 8
+        Console.WriteLine("f = 23 > 14 Xor 11 > 8     This sets f to: " & f)
+        g = 14 > 23 Xor 8 > 11
+        Console.WriteLine("g = 14 > 23 Xor 8 > 11     This sets g to: " & g)
+        Dim x, y As Boolean
+        x = Not 23 > 14
+        Console.WriteLine("x = Not 23 > 14            This sets x to: " & x)
+        y = Not 23 > 67
+        Console.WriteLine("y = Not 23 > 67            This sets y to: " & y)
+        Console.ReadLine()
     End Sub
     Sub ArithmeticFunctions()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim NumOne As Decimal = 0
-            Dim NumTwo As Decimal = 0
-            Dim NumThree As Decimal = 0
-            Dim NumFour As Decimal = 0
-            Dim NumFive As Decimal = 0
-            Dim MeanAverage As Decimal = 0
-            Dim Rounded As Integer = 0
-            Console.Write("Please enter the first number: ")
-            NumOne = Console.ReadLine()
-            Console.Write("Please enter the second number: ")
-            NumTwo = Console.ReadLine()
-            Console.Write("Please enter the third number: ")
-            NumThree = Console.ReadLine()
-            Console.Write("Please enter the fourth number: ")
-            NumFour = Console.ReadLine()
-            Console.Write("Please enter the fifth number: ")
-            NumFive = Console.ReadLine()
-            MeanAverage = (NumOne + NumTwo + NumThree + NumFour + NumFive) / 5
-            Rounded = Math.Round(MeanAverage)
-            Console.WriteLine(vbCrLf & "The rounded mean average is: " & Rounded)
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim NumOne As Decimal = 0
+        Dim NumTwo As Decimal = 0
+        Dim NumThree As Decimal = 0
+        Dim NumFour As Decimal = 0
+        Dim NumFive As Decimal = 0
+        Dim MeanAverage As Decimal = 0
+        Dim Rounded As Integer = 0
+        Console.Write("Please enter the first number: ")
+        NumOne = Console.ReadLine()
+        Console.Write("Please enter the second number: ")
+        NumTwo = Console.ReadLine()
+        Console.Write("Please enter the third number: ")
+        NumThree = Console.ReadLine()
+        Console.Write("Please enter the fourth number: ")
+        NumFour = Console.ReadLine()
+        Console.Write("Please enter the fifth number: ")
+        NumFive = Console.ReadLine()
+        MeanAverage = (NumOne + NumTwo + NumThree + NumFour + NumFive) / 5
+        Rounded = Math.Round(MeanAverage)
+        Console.WriteLine(vbCrLf & "The rounded mean average is: " & Rounded)
+        Console.ReadLine()
     End Sub
     Sub StringHandlingFunctions()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim StoredUser As String = "joshu-git"
-            Dim UserUser As String = ""
-            Console.Write("Please enter a username: ")
-            UserUser = Console.ReadLine()
-            If UserUser.ToLower = StoredUser Then
-                Console.WriteLine("Correct")
-            Else
-                Console.WriteLine("Incorrect")
-            End If
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim StoredPassword As String = "nottellingyou"
-            Dim UserPassword As String = ""
-            Console.Write("Please enter a password: ")
-            UserPassword = RTrim(Console.ReadLine())
-            If UserPassword.ToLower = StoredPassword Then
-                Console.WriteLine("Correct")
-            Else
-                Console.WriteLine("Incorrect")
-            End If
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim UserPhoneNum As String = ""
-            Console.Write("Please enter a phone number: ")
-            UserPhoneNum = Console.ReadLine()
-            If UserPhoneNum.Length = 11 Then
-                Console.WriteLine("Correct Length")
-            Else
-                Console.WriteLine("Incorrect Length")
-            End If
-            Console.ReadLine()
-            Console.WriteLine("Task 4:" & vbCrLf)
-            Dim FullName As String = ""
-            Dim FirstName As String = ""
-            Dim LastName As String = ""
-            Console.Write("Please enter your full name: ")
-            FullName = Console.ReadLine()
-            Dim Names() As String = FullName.Split(" ")
-            If Names.Length = 2 Then
-                FirstName = Names(0)
-                LastName = Names(1)
-            End If
-            Console.WriteLine("Your first name is: " & FirstName)
-            Console.WriteLine("Your last name is: " & LastName)
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim StoredUser As String = "joshu-git"
+        Dim UserUser As String = ""
+        Console.Write("Please enter a username: ")
+        UserUser = Console.ReadLine()
+        If UserUser.ToLower = StoredUser Then
+            Console.WriteLine("Correct")
+        Else
+            Console.WriteLine("Incorrect")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim StoredPassword As String = "nottellingyou"
+        Dim UserPassword As String = ""
+        Console.Write("Please enter a password: ")
+        UserPassword = RTrim(Console.ReadLine())
+        If UserPassword.ToLower = StoredPassword Then
+            Console.WriteLine("Correct")
+        Else
+            Console.WriteLine("Incorrect")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim UserPhoneNum As String = ""
+        Console.Write("Please enter a phone number: ")
+        UserPhoneNum = Console.ReadLine()
+        If UserPhoneNum.Length = 11 Then
+            Console.WriteLine("Correct Length")
+        Else
+            Console.WriteLine("Incorrect Length")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim FullName As String = ""
+        Dim FirstName As String = ""
+        Dim LastName As String = ""
+        Console.Write("Please enter your full name: ")
+        FullName = Console.ReadLine()
+        Dim Names() As String = FullName.Split(" ")
+        If Names.Length = 2 Then
+            FirstName = Names(0)
+            LastName = Names(1)
+        End If
+        Console.WriteLine("Your first name is: " & FirstName)
+        Console.WriteLine("Your last name is: " & LastName)
+        Console.ReadLine()
     End Sub
     Sub StringConversionFunctions()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim theInt As Integer = 23021980
-            Dim theReal As Double = 230.2198
-            Dim theDate As DateTime = "23/2/1980"
-            Console.WriteLine(Convert.ToString(theInt))
-            Console.WriteLine(Convert.ToString(theInt) + "1")
-            Console.WriteLine(theInt)
-            Console.WriteLine(theInt + 1 & vbCrLf)
-            Console.WriteLine(Convert.ToString(theReal))
-            Console.WriteLine(Convert.ToString(theReal) + "1")
-            Console.WriteLine(theReal)
-            Console.WriteLine(theReal + 1 & vbCrLf)
-            Console.WriteLine(Convert.ToString(theDate))
-            Console.WriteLine(Convert.ToString(theDate) + "1")
-            Console.WriteLine(theDate)
-            Console.WriteLine(theDate.AddDays(1))
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim theInt As Integer = 23021980
+        Dim theReal As Double = 230.2198
+        Dim theDate As DateTime = "23/2/1980"
+        Console.WriteLine(Convert.ToString(theInt))
+        Console.WriteLine(Convert.ToString(theInt) + "1")
+        Console.WriteLine(theInt)
+        Console.WriteLine(theInt + 1 & vbCrLf)
+        Console.WriteLine(Convert.ToString(theReal))
+        Console.WriteLine(Convert.ToString(theReal) + "1")
+        Console.WriteLine(theReal)
+        Console.WriteLine(theReal + 1 & vbCrLf)
+        Console.WriteLine(Convert.ToString(theDate))
+        Console.WriteLine(Convert.ToString(theDate) + "1")
+        Console.WriteLine(theDate)
+        Console.WriteLine(theDate.AddDays(1))
+        Console.ReadLine()
     End Sub
     Sub Iteration()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim UserName As String = ""
-            Console.Write("Please enter your name: ")
-            UserName = Console.ReadLine()
-            For x = 1 To 5
-                Console.WriteLine("(" & x & ") " & UserName)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim UserTown As String = ""
-            Console.Write("Please enter your town: ")
-            UserTown = Console.ReadLine()
-            For x = 1 To 10
-                Console.WriteLine("(" & x & ") " & UserTown)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim FavouriteCD As String = ""
-            Dim CDArtist As String = ""
-            Console.Write("Please enter your favourite CD: ")
-            FavouriteCD = Console.ReadLine()
-            Console.Write("Please enter the Cd's artist: ")
-            CDArtist = Console.ReadLine()
-            For x = 1 To 5
-                Console.WriteLine("(" & x & ") " & FavouriteCD & " by " & CDArtist)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 4:" & vbCrLf)
-            Dim UserNum As Integer = 0
-            Console.Write("Please enter a number: ")
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim UserName As String = ""
+        Console.Write("Please enter your name: ")
+        UserName = Console.ReadLine()
+        For x = 1 To 5
+            Console.WriteLine("(" & x & ") " & UserName)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim UserTown As String = ""
+        Console.Write("Please enter your town: ")
+        UserTown = Console.ReadLine()
+        For x = 1 To 10
+            Console.WriteLine("(" & x & ") " & UserTown)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim FavouriteCD As String = ""
+        Dim CDArtist As String = ""
+        Console.Write("Please enter your favourite CD: ")
+        FavouriteCD = Console.ReadLine()
+        Console.Write("Please enter the Cd's artist: ")
+        CDArtist = Console.ReadLine()
+        For x = 1 To 5
+            Console.WriteLine("(" & x & ") " & FavouriteCD & " by " & CDArtist)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim UserNum As Integer = 0
+        Console.Write("Please enter a number: ")
+        UserNum = Console.ReadLine()
+        For x = 1 To 100
+            Console.WriteLine("(" & x & ") " & x & " times " & UserNum & " = " & x * UserNum)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Total As Integer = 0
+        Total = 0
+        For x = 1 To 5
+            Console.Write("(" & x & ") " & "Please enter a number: ")
             UserNum = Console.ReadLine()
-            For x = 1 To 100
-                Console.WriteLine("(" & x & ") " & x & " times " & UserNum & " = " & x * UserNum)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 5:" & vbCrLf)
-            Dim Total As Integer = 0
-            Total = 0
-            For x = 1 To 5
-                Console.Write("(" & x & ") " & "Please enter a number: ")
-                UserNum = Console.ReadLine()
-                Total = Total + UserNum
-            Next
-            Console.WriteLine("Your total is: " & Total)
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+            Total = Total + UserNum
+        Next
+        Console.WriteLine("Your total is: " & Total)
+        Console.ReadLine()
     End Sub
     Sub Flowcharts()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim x As Decimal = 0
-            Dim y As Decimal = 0
-            Dim sum As Decimal = 0
-            Console.Write("Please input value of x: ")
-            x = Console.ReadLine()
-            Console.Write("Please input value of y: ")
-            y = Console.ReadLine()
-            sum = x + y
-            Console.WriteLine("Total = " & sum)
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim MoreVolumes As Boolean = True
-            Dim Radius As Decimal = 0
-            Dim Volume As Decimal = 0
-            Dim UserChoice As String = ""
-            While MoreVolumes
-                Console.Write("Please input value of radius: ")
-                Radius = Console.ReadLine()
-                Volume = 3.142 * (4 / 3) * Radius ^ 2
-                Console.WriteLine("Radius: " & Radius)
-                Console.WriteLine("Volume: " & Volume)
-                Console.WriteLine(vbCrLf & "Any more volumes to be calcualated?")
-                UserChoice = Console.ReadLine()
-                If UserChoice = "No" Then
-                    MoreVolumes = False
-                End If
-            End While
-            userinput = ProgramFooter()
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim x As Decimal = 0
+        Dim y As Decimal = 0
+        Dim sum As Decimal = 0
+        Console.Write("Please input value of x: ")
+        x = Console.ReadLine()
+        Console.Write("Please input value of y: ")
+        y = Console.ReadLine()
+        sum = x + y
+        Console.WriteLine("Total = " & sum)
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim MoreVolumes As Boolean = True
+        Dim Radius As Decimal = 0
+        Dim Volume As Decimal = 0
+        Dim UserChoice As String = ""
+        While MoreVolumes
+            Console.Write("Please input value of radius: ")
+            Radius = Console.ReadLine()
+            Volume = 3.142 * (4 / 3) * Radius ^ 2
+            Console.WriteLine("Radius: " & Radius)
+            Console.WriteLine("Volume: " & Volume)
+            Console.WriteLine(vbCrLf & "Any more volumes to be calcualated?")
+            UserChoice = Console.ReadLine()
+            If UserChoice = "No" Then
+                MoreVolumes = False
+            End If
         End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
     End Sub
     Sub ProceduresAndFunctions()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim length As Decimal = 0
-            Dim width As Decimal = 0
-            Dim height As Decimal = 0
-            Console.Write("Please enter the cuboid length: ")
-            length = Console.ReadLine()
-            Console.Write("Please enter the cuboid width: ")
-            width = Console.ReadLine()
-            Console.Write("Please enter the cuboid height: ")
-            height = Console.ReadLine()
-            Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim radius As Decimal = 0
-            Console.Write("Please enter the sphere radius: ")
-            radius = Console.ReadLine()
-            Console.WriteLine("The sphere volume is: " & Sphere(radius))
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Call UserPassword()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim length As Decimal = 0
+        Dim width As Decimal = 0
+        Dim height As Decimal = 0
+        Console.Write("Please enter the cuboid length: ")
+        length = Console.ReadLine()
+        Console.Write("Please enter the cuboid width: ")
+        width = Console.ReadLine()
+        Console.Write("Please enter the cuboid height: ")
+        height = Console.ReadLine()
+        Console.WriteLine("The cuboid volume is: " & Cuboid(length, width, height))
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim radius As Decimal = 0
+        Console.Write("Please enter the sphere radius: ")
+        radius = Console.ReadLine()
+        Console.WriteLine("The sphere volume is: " & Sphere(radius))
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Call UserPassword()
     End Sub
     Function Cuboid(length As Decimal, width As Decimal, height As Decimal)
         Return length * width * height
@@ -683,24 +568,12 @@ Module ProgrammingTasks
         Loop Until Validated
     End Sub
     Sub ByRefVsByVal()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Sub Constants()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Structure city
         Public _Name As String
@@ -720,70 +593,58 @@ Module ProgrammingTasks
         Public _Type As String
     End Structure
     Sub DataStructures()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim myRecord As city
-            myRecord._Name = "Camberley"
-            myRecord._Population = 36783
-            myRecord._Year = 2021
-            myRecord._Diameter = 4.1
-            Console.Write(myRecord._Name & " city has population of ")
-            Console.Write(myRecord._Population & " million people ")
-            Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
-            Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Console.Write("Please enter the citie's name: ")
-            myRecord._Name = Console.ReadLine()
-            Console.Write("Please enter the citie's population: ")
-            myRecord._Population = Console.ReadLine()
-            Console.Write("Please enter the citie's year: ")
-            myRecord._Year = Console.ReadLine()
-            Console.Write("Please enter the citie's diameter: ")
-            myRecord._Diameter = Console.ReadLine()
-            Console.Write(myRecord._Name & " city has population of ")
-            Console.Write(myRecord._Population & " million people ")
-            Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Console.Write("Please enter the citie's council: ")
-            myRecord._Council = Console.ReadLine()
-            Console.WriteLine("The citie's council is " & myRecord._Council)
-            Console.ReadLine()
-            Console.WriteLine("Task 4:" & vbCrLf)
-            Dim Senna As car
-            Console.Write("Please enter the car's name: ")
-            Senna._Name = Console.ReadLine()
-            Console.Write("Please enter the car's release year: ")
-            Senna._Year = Console.ReadLine()
-            Console.Write("Please enter the car's manufacturer: ")
-            Senna._Manufacturer = Console.ReadLine()
-            Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
-            Console.ReadLine()
-            Console.WriteLine("Task 5:" & vbCrLf)
-            Dim Monkey As pet
-            Console.Write("Please enter the pet's name: ")
-            Monkey._Name = Console.ReadLine()
-            Console.Write("Please enter the pet's age: ")
-            Monkey._Age = Console.ReadLine()
-            Console.Write("Please enter the type of pet they are : ")
-            Monkey._Type = Console.ReadLine()
-            Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim myRecord As city
+        myRecord._Name = "Camberley"
+        myRecord._Population = 36783
+        myRecord._Year = 2021
+        myRecord._Diameter = 4.1
+        Console.Write(myRecord._Name & " city has population of ")
+        Console.Write(myRecord._Population & " million people ")
+        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Console.Write("Please enter the citie's name: ")
+        myRecord._Name = Console.ReadLine()
+        Console.Write("Please enter the citie's population: ")
+        myRecord._Population = Console.ReadLine()
+        Console.Write("Please enter the citie's year: ")
+        myRecord._Year = Console.ReadLine()
+        Console.Write("Please enter the citie's diameter: ")
+        myRecord._Diameter = Console.ReadLine()
+        Console.Write(myRecord._Name & " city has population of ")
+        Console.Write(myRecord._Population & " million people ")
+        Console.Write("and diameter of " & myRecord._Diameter & " km in year " & myRecord._Year)
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Console.Write("Please enter the citie's council: ")
+        myRecord._Council = Console.ReadLine()
+        Console.WriteLine("The citie's council is " & myRecord._Council)
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim Senna As car
+        Console.Write("Please enter the car's name: ")
+        Senna._Name = Console.ReadLine()
+        Console.Write("Please enter the car's release year: ")
+        Senna._Year = Console.ReadLine()
+        Console.Write("Please enter the car's manufacturer: ")
+        Senna._Manufacturer = Console.ReadLine()
+        Console.WriteLine("The car " & Senna._Name & " was first built in " & Senna._Year & " by " & Senna._Manufacturer)
+        Console.ReadLine()
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Monkey As pet
+        Console.Write("Please enter the pet's name: ")
+        Monkey._Name = Console.ReadLine()
+        Console.Write("Please enter the pet's age: ")
+        Monkey._Age = Console.ReadLine()
+        Console.Write("Please enter the type of pet they are : ")
+        Monkey._Type = Console.ReadLine()
+        Console.WriteLine("The pet " & Monkey._Name & " ia a " & Monkey._Type & " who is aged " & Monkey._Age)
+        Console.ReadLine()
     End Sub
     Sub OtherBuiltInDataTypes()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Structure cars
         Public _Name As String
@@ -796,71 +657,65 @@ Module ProgrammingTasks
         Public _Age As Integer
     End Structure
     Sub OneDimensionalArrays()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim numbers(50) As Integer
-            For x = 1 To UBound(numbers)
-                Console.WriteLine("(" & x & ") " & numbers(x - 1))
-            Next
-            Console.WriteLine(UBound(numbers))
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim numbers(50) As Integer
+        For x = 1 To UBound(numbers)
+            Console.WriteLine("(" & x & ") " & numbers(x - 1))
+        Next
+        Console.WriteLine(UBound(numbers))
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim cars(5) As cars
+        Dim createspace As Integer = 0
+        For x = 1 To UBound(cars)
+            If createspace <> x Then
+                createspace = x
+                Console.WriteLine()
+            End If
+            Console.WriteLine("(" & x & ") Please enter the car's name: ")
+            cars(x - 1)._Name = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
+            cars(x - 1)._Manufacturer = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's cost: ")
+            cars(x - 1)._Cost = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the car's release year: ")
+            cars(x - 1)._Year = Console.ReadLine()
+        Next
+        For x = 1 To UBound(cars)
+            Console.WriteLine("(" & x & ") " & cars(x - 1)._Year & " " & cars(x - 1)._Name & " by " & cars(x - 1)._Manufacturer & " : " & cars(x - 1)._Cost)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim people(5) As people
+        For x = 1 To UBound(people)
+            If createspace <> x Then
+                createspace = x
+                Console.WriteLine()
+            End If
+            Console.WriteLine("(" & x & ") Please enter the person's name: ")
+            people(x - 1)._Name = Console.ReadLine()
+            Console.WriteLine("(" & x & ") Please enter the person's age: ")
+            people(x - 1)._Age = Console.ReadLine()
+        Next
+        For x = 1 To UBound(people)
+            Console.WriteLine("(" & x & ") " & people(x - 1)._Name & " : " & people(x - 1)._Age)
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        Dim SearchKey As String = ""
+        Dim LinearResult As Integer = 0
+        Dim ValidName As Boolean = False
+        Do
+            Console.Write("Please enter the car you'd like to search for: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchCars(SearchKey, cars)
+            If LinearResult <> -1 Then
+                Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
+            Else
+                Console.WriteLine("Error: Car could not be found. Please try again!")
+            End If
             Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim cars(5) As cars
-            Dim createspace As Integer = 0
-            For x = 1 To UBound(cars)
-                If createspace <> x Then
-                    createspace = x
-                    Console.WriteLine()
-                End If
-                Console.WriteLine("(" & x & ") Please enter the car's name: ")
-                cars(x - 1)._Name = Console.ReadLine()
-                Console.WriteLine("(" & x & ") Please enter the car's manafacuter: ")
-                cars(x - 1)._Manufacturer = Console.ReadLine()
-                Console.WriteLine("(" & x & ") Please enter the car's cost: ")
-                cars(x - 1)._Cost = Console.ReadLine()
-                Console.WriteLine("(" & x & ") Please enter the car's release year: ")
-                cars(x - 1)._Year = Console.ReadLine()
-            Next
-            For x = 1 To UBound(cars)
-                Console.WriteLine("(" & x & ") " & cars(x - 1)._Year & " " & cars(x - 1)._Name & " by " & cars(x - 1)._Manufacturer & " : " & cars(x - 1)._Cost)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim people(5) As people
-            For x = 1 To UBound(people)
-                If createspace <> x Then
-                    createspace = x
-                    Console.WriteLine()
-                End If
-                Console.WriteLine("(" & x & ") Please enter the person's name: ")
-                people(x - 1)._Name = Console.ReadLine()
-                Console.WriteLine("(" & x & ") Please enter the person's age: ")
-                people(x - 1)._Age = Console.ReadLine()
-            Next
-            For x = 1 To UBound(people)
-                Console.WriteLine("(" & x & ") " & people(x - 1)._Name & " : " & people(x - 1)._Age)
-            Next
-            Console.ReadLine()
-            Console.WriteLine("Task 4:" & vbCrLf)
-            Dim SearchKey As String = ""
-            Dim LinearResult As Integer = 0
-            Dim ValidName As Boolean = False
-            Do
-                Console.Write("Please enter the car you'd like to search for: ")
-                SearchKey = Console.ReadLine()
-                LinearResult = LinearSearchCars(SearchKey, cars)
-                If LinearResult <> -1 Then
-                    Console.WriteLine(cars(LinearResult)._Year & " " & cars(LinearResult)._Name & " by " & cars(LinearResult)._Manufacturer & " : " & cars(LinearResult)._Cost)
-                Else
-                    Console.WriteLine("Error: Car could not be found. Please try again!")
-                End If
-                Console.ReadLine()
-            Loop Until ValidName
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Loop Until ValidName
     End Sub
     Function LinearSearchCars(SearchKey As String, Array() As cars) As Integer
         Dim x As Integer = 0
@@ -888,176 +743,154 @@ Module ProgrammingTasks
 
     End Sub
     Sub Validation()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim age As Integer = 0
-            Console.WriteLine("Please enter your age: ")
-            If age > 17 And age < 80 Then
-                Console.WriteLine("You are old enough to drive")
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim age As Integer = 0
+        Console.WriteLine("Please enter your age: ")
+        If age > 17 And age < 80 Then
+            Console.WriteLine("You are old enough to drive")
+        Else
+            Console.WriteLine("You are not old enough to drive")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim UserPhoneNum As String = ""
+        Console.Write("Please enter a phone number: ")
+        UserPhoneNum = Console.ReadLine()
+        If UserPhoneNum.Length = 11 Then
+            Console.WriteLine("Correct Length")
+        Else
+            Console.WriteLine("Incorrect Length")
+        End If
+        Console.ReadLine()
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim Validated As Boolean = False
+        Dim Username As String = ""
+        Dim StoredUsername As String = "joshu-git"
+        Dim Password As String = ""
+        Dim StoredPassword As String = "nottellingyou"
+        Do
+            Console.Write("Please enter your username: ")
+            Username = Console.ReadLine()
+            Console.Write("Please enter your password: ")
+            Password = Console.ReadLine()
+            If Username = StoredUsername And Password = StoredPassword Then
+                Validated = True
+                Console.WriteLine("Correct. Welcome!")
             Else
-                Console.WriteLine("You are not old enough to drive")
+                Console.WriteLine("Incorrect. Please try again!")
             End If
             Console.ReadLine()
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim UserPhoneNum As String = ""
-            Console.Write("Please enter a phone number: ")
-            UserPhoneNum = Console.ReadLine()
-            If UserPhoneNum.Length = 11 Then
-                Console.WriteLine("Correct Length")
-            Else
-                Console.WriteLine("Incorrect Length")
-            End If
-            Console.ReadLine()
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim Validated As Boolean = False
-            Dim Username As String = ""
-            Dim StoredUsername As String = "joshu-git"
-            Dim Password As String = ""
-            Dim StoredPassword As String = "nottellingyou"
-            Do
-                Console.Write("Please enter your username: ")
-                Username = Console.ReadLine()
-                Console.Write("Please enter your password: ")
-                Password = Console.ReadLine()
-                If Username = StoredUsername And Password = StoredPassword Then
-                    Validated = True
-                    Console.WriteLine("Correct. Welcome!")
-                Else
-                    Console.WriteLine("Incorrect. Please try again!")
-                End If
-                Console.ReadLine()
-            Loop Until Validated
-            userinput = ProgramFooter()
-        End While
+        Loop Until Validated
     End Sub
     Sub TwoDimensionalArrays()
 
     End Sub
     Sub Enumerated()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Sub SetOperators()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Error: No tasks found")
-            Console.ReadLine()
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+        Console.WriteLine("Error: No tasks found")
+        Console.ReadLine()
     End Sub
     Structure Teamsheet
         Public _Name As String
         Public _Surname As String
     End Structure
     Sub LinearSearch()
-        Dim userinput As Integer = 1
-        While userinput = 1
-            Console.WriteLine("Task 1:" & vbCrLf)
-            Dim Teamsheet(5) As Teamsheet
-            Dim SearchKey As String = ""
-            Dim LinearResult As Integer = 0
-            Dim ValidName As Boolean = False
-            For x = 1 To UBound(Teamsheet)
-                Console.Write("Please enter a player name: ")
-                Teamsheet(x - 1)._Name = Console.ReadLine()
-                Console.Write("Please enter a player surname: ")
-                Teamsheet(x - 1)._Surname = Console.ReadLine()
-            Next
-            Do
-                Console.Write("Please search for a player by surname: ")
-                SearchKey = Console.ReadLine()
-                LinearResult = LinearSearchTeamsheet(SearchKey, Teamsheet)
-                If LinearResult <> -1 Then
-                    Console.WriteLine(Teamsheet(LinearResult)._Name & " " & Teamsheet(LinearResult)._Surname)
-                    ValidName = True
-                Else
-                    Console.WriteLine("Error: Player could not be found. Please try again!")
-                End If
-                Console.ReadLine()
-            Loop Until ValidName
-            Console.WriteLine("Task 2:" & vbCrLf)
-            Dim TopSongs() As String = {"Golden", "The Subway", "No Broke Boys", "Daisies", "Soda Pop", "Your Idol", "Ordinary", "Saphire", "Beautiful Things"}
-            ValidName = False
-            For x = 1 To UBound(TopSongs)
-                Console.WriteLine("(" & x & ") " & TopSongs(x - 1))
-            Next
-            Do
-                Console.Write("Please search for a top 10 song: ")
-                SearchKey = Console.ReadLine()
-                LinearResult = LinearSearchTopSongs(SearchKey, TopSongs)
-                If LinearResult <> -1 Then
-                    Console.WriteLine("(" & LinearResult + 1 & ") " & TopSongs(LinearResult))
-                    ValidName = True
-                Else
-                    Console.WriteLine("Error: Song could not be found. Please try again!")
-                End If
-                Console.ReadLine()
-            Loop Until ValidName
-            Console.WriteLine("Task 3:" & vbCrLf)
-            Dim Names(5) As String
-            Dim Addresses(5) As String
-            For x = 1 To UBound(Names)
-                Console.Write("(" & x & ") Please enter a name: ")
-                Names(x - 1) = Console.ReadLine
-                Console.Write("(" & x & ") Please enter their address")
-                Addresses(x - 1) = Console.ReadLine()
-            Next
+        Console.WriteLine("Task 1:" & vbCrLf)
+        Dim Teamsheet(5) As Teamsheet
+        Dim SearchKey As String = ""
+        Dim LinearResult As Integer = 0
+        Dim ValidName As Boolean = False
+        For x = 1 To UBound(Teamsheet)
+            Console.Write("Please enter a player name: ")
+            Teamsheet(x - 1)._Name = Console.ReadLine()
+            Console.Write("Please enter a player surname: ")
+            Teamsheet(x - 1)._Surname = Console.ReadLine()
+        Next
+        Do
+            Console.Write("Please search for a player by surname: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchTeamsheet(SearchKey, Teamsheet)
+            If LinearResult <> -1 Then
+                Console.WriteLine(Teamsheet(LinearResult)._Name & " " & Teamsheet(LinearResult)._Surname)
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Player could not be found. Please try again!")
+            End If
             Console.ReadLine()
-            Console.WriteLine("Task 4:" & vbCrLf)
-            ValidName = False
+        Loop Until ValidName
+        Console.WriteLine("Task 2:" & vbCrLf)
+        Dim TopSongs() As String = {"Golden", "The Subway", "No Broke Boys", "Daisies", "Soda Pop", "Your Idol", "Ordinary", "Saphire", "Beautiful Things"}
+        ValidName = False
+        For x = 1 To UBound(TopSongs)
+            Console.WriteLine("(" & x & ") " & TopSongs(x - 1))
+        Next
+        Do
+            Console.Write("Please search for a top 10 song: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchTopSongs(SearchKey, TopSongs)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & TopSongs(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Song could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop Until ValidName
+        Console.WriteLine("Task 3:" & vbCrLf)
+        Dim Names(5) As String
+        Dim Addresses(5) As String
+        For x = 1 To UBound(Names)
+            Console.Write("(" & x & ") Please enter a name: ")
+            Names(x - 1) = Console.ReadLine
+            Console.Write("(" & x & ") Please enter their address")
+            Addresses(x - 1) = Console.ReadLine()
+        Next
+        Console.ReadLine()
+        Console.WriteLine("Task 4:" & vbCrLf)
+        ValidName = False
+        Do
+            Console.Write("Please search for a person: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchNames(SearchKey, Names)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Person could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop
+        Console.WriteLine("Task 5:" & vbCrLf)
+        Dim Numbers(5) As String
+        Dim ValidNumber As Boolean = False
+        For x = 1 To UBound(Numbers)
             Do
-                Console.Write("Please search for a person: ")
-                SearchKey = Console.ReadLine()
-                LinearResult = LinearSearchNames(SearchKey, Names)
-                If LinearResult <> -1 Then
-                    Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult))
-                    ValidName = True
+                Console.WriteLine("(" & x & ") Please enter " & Names(x - 1) & "'s number: ")
+                Numbers(x - 1) = Console.ReadLine
+                If Numbers(x - 1).Length = 11 Then
+                    ValidNumber = True
                 Else
-                    Console.WriteLine("Error: Person could not be found. Please try again!")
+                    Console.WriteLine("Error: Incorrect length. Please try again!")
+                    Console.ReadLine()
                 End If
-                Console.ReadLine()
-            Loop
-            Console.WriteLine("Task 5:" & vbCrLf)
-            Dim Numbers(5) As String
-            Dim ValidNumber As Boolean = False
-            For x = 1 To UBound(Numbers)
-                Do
-                    Console.WriteLine("(" & x & ") Please enter " & Names(x - 1) & "'s number: ")
-                    Numbers(x - 1) = Console.ReadLine
-                    If Numbers(x - 1).Length = 11 Then
-                        ValidNumber = True
-                    Else
-                        Console.WriteLine("Error: Incorrect length. Please try again!")
-                        Console.ReadLine()
-                    End If
-                Loop Until ValidNumber
-            Next
-            ValidName = False
-            Do
-                Console.Write("Please search for a person: ")
-                SearchKey = Console.ReadLine()
-                LinearResult = LinearSearchNames(SearchKey, Names)
-                If LinearResult <> -1 Then
-                    Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult) & " : " & Numbers(LinearResult))
-                    ValidName = True
-                Else
-                    Console.WriteLine("Error: Person could not be found. Please try again!")
-                End If
-                Console.ReadLine()
-            Loop
-            userinput = ProgramFooter()
-        End While
-        Dim MenuName As String = ""
-        Call MainMenu(MenuName)
+            Loop Until ValidNumber
+        Next
+        ValidName = False
+        Do
+            Console.Write("Please search for a person: ")
+            SearchKey = Console.ReadLine()
+            LinearResult = LinearSearchNames(SearchKey, Names)
+            If LinearResult <> -1 Then
+                Console.WriteLine("(" & LinearResult + 1 & ") " & Names(LinearResult) & " : " & Addresses(LinearResult) & " : " & Numbers(LinearResult))
+                ValidName = True
+            Else
+                Console.WriteLine("Error: Person could not be found. Please try again!")
+            End If
+            Console.ReadLine()
+        Loop
     End Sub
     Function LinearSearchTeamsheet(SearchKey As String, Array() As Teamsheet) As Integer
         Dim x As Integer = 0
@@ -1107,7 +940,7 @@ Module ProgrammingTasks
     End Sub
 End Module
 Module SubSystems
-    'Declares useable datatypes as enums
+    'Declares useable datatypes as enum
     Enum DataType
         _String
         _Boolean
@@ -1191,7 +1024,7 @@ Module SubSystems
 End Module
 
 Module Errors
-    'Declares known errorcodes as enums
+    'Declares known errorcodes as enum
     Enum ErrorCodes
         _InvalidArray
     End Enum
