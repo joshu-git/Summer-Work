@@ -181,15 +181,15 @@ Module Menu
                     End If
                 Case ConsoleKey.UpArrow
                     'Checks if it can move selected option up
-                    If SelectedOption - 4 > -1 Then
+                    If SelectedOption - 3 > -1 Then
                         'Moves selected option up
-                        SelectedOption = SelectedOption - 4
+                        SelectedOption = SelectedOption - 3
                     End If
                 Case ConsoleKey.DownArrow
                     'Checks if it can move selected option down
-                    If SelectedOption + 4 < MenuSize Then
+                    If SelectedOption + 3 < MenuSize Then
                         'Moves selected option down
-                        SelectedOption = SelectedOption + 4
+                        SelectedOption = SelectedOption + 3
                     End If
             End Select
             Console.Clear()
