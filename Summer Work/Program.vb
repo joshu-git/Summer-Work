@@ -26,8 +26,10 @@ Module Menu
 
         'Loops menu until program is closed
         Do
-            'Makes the cursor invisible
+            'Makes the cursor invisible and clears console
             Console.CursorVisible = False
+            Console.Clear()
+
             'Decides which menu to display
             Select Case SelectedMenu
                 Case MenuName._MainMenu
@@ -346,6 +348,7 @@ Module ProgrammingTasks
         Console.ReadLine()
     End Sub
     Sub Selection()
+        'Displays
         Console.WriteLine("Task 1:" & vbCrLf)
         Dim usernumber As Integer = 0
         Console.Write("What is 24 + 9 = ")
